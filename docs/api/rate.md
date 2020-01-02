@@ -19,7 +19,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Field | type | description |
 |-|-|-|
 |`allPricelistRates.id`	| *objectid* | Identifier of the pricelist rate |
-|`allPricelistRates.tenant` | *string* |The associated tenant of the pricelist rate |
 |`allPricelistRates.pricelist_tag` | *string*	| The tag of the associated pricelist |
 |`allPricelistRates.carrier_tag` | *string* | The carrier of the pricelist rate |
 |`allPricelistRates.prefix` | *string* | The prefix to trigger this pricelist rate |
@@ -42,7 +41,6 @@ $ curl "https://api.canyan.io/graphql" \
 {"query": "{
   allPricelistRates {
     id
-    tenant
     pricelist_tag
     carrier_tag
     prefix
@@ -71,14 +69,12 @@ Content-Type: application/json
     "allPricelists": [
       {
         "id": "20648787-4958-4928-9fd3-c926d7cec159",
-        "tenant": "alex",
         "pricelist_tag": "pricelist2",
         "name": "Pricelist 2",
         "currency": "USD"
       },
       {
         "id": "58d16ce8-30ed-449d-a81c-c4f069ba6eff",
-        "tenant": "alex",
         "pricelist_tag": "pricelist1",
         "name": "Pricelist One",
         "currency": "EUR"
@@ -101,7 +97,6 @@ Content-Type: application/json
 |-|-|-|
 |`allPricelistRates.filter.id`	| *objectid* | Identifier of the pricelist rate |
 |`allPricelistRates.filter.ids` | *array* | Array of identifiers of the pricelist rate to fetch |
-|`allPricelistRates.filter.tenant` | *array* | Filter pricelist rate by tenant |
 |`allPricelistRates.filter.pricelist_id` | *array* | Filter pricelist rate by pricelist id |
 |`allPricelistRates.filter.pricelist_tag` | *array* | Filter pricelist rate by pricelist tag |
 |`allPricelistRates.filter.carrier_id` | *array* | Filter pricelist rate by carrier ids |
@@ -112,7 +107,6 @@ Content-Type: application/json
 | Field | type | description |
 |-|-|-|
 |`allPricelistRates.id`	| *objectid* | Identifier of the pricelist rate |
-|`allPricelistRates.tenant` | *string* |The associated tenant of the pricelist rate |
 |`allPricelistRates.pricelist_tag` | *string*	| The tag of the associated pricelist |
 |`allPricelistRates.carrier_tag` | *string* | The carrier of the pricelist rate |
 |`allPricelistRates.prefix` | *string* | The prefix to trigger this pricelist rate |
@@ -133,9 +127,8 @@ $ curl "https://api.canyan.io/graphql" \
   -H "Content-Type: application/json" \
   --data @- <<EOF
 {"query": "{
-  allPricelistRates(filter: {prefix: \"36\", tenant:\"alex\", carrier_tag:\"carrier2\"}) {
+  allPricelistRates(filter: {prefix: \"36\", carrier_tag:\"carrier2\"}) {
     id
-    tenant
     pricelist_tag
     carrier_tag
     prefix
@@ -161,7 +154,6 @@ Content-Type: application/json
     "allPricelistRates": [
       {
         "id": "73b52d52-de9b-48f8-a40a-d879eecaeb4b",
-        "tenant": "alex",
         "pricelist_tag": "pricelist1",
         "carrier_tag": "carrier2",
         "prefix": "36",
@@ -189,7 +181,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Parameter | type | description |
 |-|-|-|
 |`createPricelistRate.id`	| *objectid* | Unique identifyer of the pricelist rate (if not provided an uuid4 will be generated automatically - best option) |
-|`createPricelistRate.tenant` | *string* | The associated tenant of the pricelist rate |
 |`createPricelistRate.pricelist_tag` | *string*	| The tag of the associated pricelist |
 |`createPricelistRate.carrier_tag` | *string* | The carrier of the pricelist rate |
 |`createPricelistRate.prefix` | *string* | The prefix to trigger this pricelist rate |
@@ -205,7 +196,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Field | type | description |
 |-|-|-|
 |`createPricelistRate.id`	| *objectid* | Identifier of the pricelist rate |
-|`createPricelistRate.tenant` | *string* |The associated tenant of the pricelist rate |
 |`createPricelistRate.pricelist_tag` | *string*	| The tag of the associated pricelist |
 |`createPricelistRate.carrier_tag` | *string* | The carrier of the pricelist rate |
 |`createPricelistRate.prefix` | *string* | The prefix to trigger this pricelist rate |
@@ -226,7 +216,6 @@ $ curl "https://api.canyan.io/graphql" \
   --data @- <<EOF
 {"query": "mutation {
   createPricelistRate(
-        tenant: \"alex\",
         pricelist_tag: \"pricelist1\",
         carrier_tag: \"carrier1\",
         prefix: \"49\",
@@ -237,7 +226,6 @@ $ curl "https://api.canyan.io/graphql" \
         description: \"Germany\"
   ) {
     id
-    tenant
     pricelist_tag
     carrier_tag
     prefix
@@ -262,7 +250,6 @@ Content-Type: application/json
   "data": {
     "createPricelistRate": {
       "id": "a82d0e60-1f87-406f-b250-46ca972861c6",
-      "tenant": "alex",
       "pricelist_tag": "pricelist1",
       "carrier_tag": "carrier1",
       "prefix": "49",
@@ -289,7 +276,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Parameter | type | description |
 |-|-|-|
 |`updatePricelistRate.id`	| *objectid* | Unique identifyer of the pricelist rate |
-|`updatePricelistRate.tenant` | *string* | The associated tenant of the pricelist rate |
 |`updatePricelistRate.pricelist_tag` | *string*	| The tag of the associated pricelist |
 |`updatePricelistRate.carrier_tag` | *string* | The carrier of the pricelist rate |
 |`updatePricelistRate.prefix` | *string* | The prefix to trigger this pricelist rate |
@@ -305,7 +291,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Field | type | description |
 |-|-|-|
 |`updatePricelistRate.id`	| *objectid* | Identifier of the pricelist rate |
-|`updatePricelistRate.tenant` | *string* |The associated tenant of the pricelist rate |
 |`updatePricelistRate.pricelist_tag` | *string*	| The tag of the associated pricelist |
 |`updatePricelistRate.carrier_tag` | *string* | The carrier of the pricelist rate |
 |`updatePricelistRate.prefix` | *string* | The prefix to trigger this pricelist rate |
@@ -326,7 +311,6 @@ $ curl "https://api.canyan.io/graphql" \
   --data @- <<EOF
 {"query": "mutation {
   updatePricelistRate(
-    tenant: \"alex\",
     pricelist_tag: \"pricelist1\",
     carrier_tag: \"carrier1\",
     prefix: \"49\",
@@ -337,7 +321,6 @@ $ curl "https://api.canyan.io/graphql" \
     description: \"Germany updated\"
   ) {
     id
-    tenant
     pricelist_tag
     carrier_tag
     prefix
@@ -361,7 +344,6 @@ Content-Type: application/json
   "data": {
     "updatePricelistRate": {
       "id": "a82d0e60-1f87-406f-b250-46ca972861c6",
-      "tenant": "alex",
       "pricelist_tag": "pricelist1",
       "carrier_tag": "carrier1",
       "prefix": "49",
@@ -388,7 +370,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Parameter | type | description |
 |-|-|-|
 |`deletePricelistRate.id`	| *objectid* | Unique identifyer of the pricelist rate to be deleted |
-|`deletePricelistRate.tenant` | *string* | The associated tenant of the pricelist rate to be deleted|
 |`deletePricelistRate.pricelist_tag` | *string*	| The tag of the associated pricelist to be deleted |
 |`deletePricelistRate.carrier_tag` | *string* | The carrier of the pricelist rate to delete|
 |`deletePricelistRate.prefix` | *string* | The prefix to trigger this pricelist rate to delete |
@@ -397,7 +378,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Field | type | description |
 |-|-|-|
 |`deletePricelistRate.id`	| *objectid* | Identifier of the pricelist rate just deleted |
-|`deletePricelistRate.tenant` | *string* |The associated tenant of the deleted pricelist rate |
 |`deletePricelistRate.pricelist_tag` | *string*	| The tag of the associated pricelist of the deleted pricelist rate |
 |`deletePricelistRate.carrier_tag` | *string* | The carrier of the deleted pricelist rate |
 |`deletePricelistRate.prefix` | *string* | The prefix that triggered the deleted pricelist rate |
@@ -419,7 +399,6 @@ $ curl "https://api.canyan.io/graphql" \
 {"query": "mutation {
   deletePricelistRate(id: "a82d0e60-1f87-406f-b250-46ca972861c6") {
     id
-    tenant
     pricelist_tag
     carrier_tag
     prefix
@@ -444,7 +423,6 @@ Content-Type: application/json
   "data": {
     "deletePricelistRate": {
       "id": "a82d0e60-1f87-406f-b250-46ca972861c6",
-      "tenant": "alex",
       "pricelist_tag": "pricelist1",
       "carrier_tag": "carrier1",
       "prefix": "49",

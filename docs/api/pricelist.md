@@ -19,7 +19,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Field | type | description |
 |-|-|-|
 |`allPricelists.id`	| *objectid* | Identifier of the pricelist |
-|`allPricelists.tenant` | *string* | Name of the Tenant |
 |`allPricelists.pricelist_tag` | *string*	| Pricelist tag |
 |`allPricelists.name` | *string* | Descriptive name of the pricelist |
 |`allPricelists.currency` | *PricelistCurrency* | USD or EUR |
@@ -35,7 +34,6 @@ $ curl "https://api.canyan.io/graphql" \
 {"query": "{
   allPricelists {
     id
-    tenant
     pricelist_tag
     name
     currency
@@ -56,14 +54,12 @@ Content-Type: application/json
     "allPricelists": [
       {
         "id": "20648787-4958-4928-9fd3-c926d7cec159",
-        "tenant": "alex",
         "pricelist_tag": "pricelist2",
         "name": "Pricelist 2",
         "currency": "USD"
       },
       {
         "id": "58d16ce8-30ed-449d-a81c-c4f069ba6eff",
-        "tenant": "alex",
         "pricelist_tag": "pricelist1",
         "name": "Pricelist One",
         "currency": "EUR"
@@ -86,14 +82,12 @@ Content-Type: application/json
 |-|-|-|
 |`allPricelists.filter.id`| *id* | id of the pricelist |
 |`allPricelists.filter.ids` |	*array*	| array of pricelist ids to fetch |
-|`allPricelists.filter.tenant` | *str*	| filter pricelists by tenant |
 |`allPricelists.filter.pricelist_tag`	| *str*	| get a pricelist by it's tag |
 
 ### Response
 | Field | type | description |
 |-|-|-|
 |`allPricelists.id`	| *objectid* | Identifier of the pricelist |
-|`allPricelists.tenant` | *string* | Name of the Tenant |
 |`allPricelists.pricelist_tag` | *string*	| Pricelist tag |
 |`allPricelists.name` | *string* | Descriptive name of the pricelist |
 |`allPricelists.currency` | *PricelistCurrency* | USD or EUR |
@@ -107,9 +101,8 @@ $ curl "https://api.canyan.io/graphql" \
   -H "Content-Type: application/json" \
   --data @- <<EOF
 {"query": "{
-  allPricelists(filter: {tenant: \"alex\", pricelist_tag: \"pricelist2\"}) {
+  allPricelists(filter: {pricelist_tag: \"pricelist2\"}) {
     id
-    tenant
     pricelist_tag
     name
     currency
@@ -130,7 +123,6 @@ Content-Type: application/json
     "allPricelists": [
       {
         "id": "20648787-4958-4928-9fd3-c926d7cec159",
-        "tenant": "alex",
         "pricelist_tag": "pricelist2",
         "name": "Pricelist 2",
         "currency": "USD"
@@ -152,7 +144,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |-|-|-|
 |`createPricelist.id` | *objectid* | Unique identifyer of the pricelist (if not provided an uuid4 will be generated automatically - best option) |
 |`createPricelist.tag` | *string* | Unique tag of the pricelist |
-|`createPricelist.tenant` | *string* | Name of the tenant |
 |`createPricelist.name` | *string* | Descriptive name of the Pricelist |
 |`createPricelist.currency` | *PricelistCurrency*	| Currency used for this pricelist |
 
@@ -161,7 +152,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Field | type | description |
 |-|-|-|
 |`createPricelist.id`	| *objectid* | Identifier of the pricelist |
-|`createPricelist.tenant` | *string* | Name of the Tenant |
 |`createPricelist.pricelist_tag` | *string*	| Pricelist tag |
 |`createPricelist.name` | *string* | Descriptive name of the pricelist |
 |`createPricelist.currency` | *PricelistCurrency* | USD or EUR |
@@ -175,9 +165,8 @@ $ curl "https://api.canyan.io/graphql" \
   -H "Content-Type: application/json" \
   --data @- <<EOF
 {"query": "mutation {
-  createPricelist(pricelist_tag: \"new_pricelist\", name: \"Test pricelist\", tenant: \"alex\", currency: EUR) {
+  createPricelist(pricelist_tag: \"new_pricelist\", name: \"Test pricelist\", currency: EUR) {
     id
-    tenant
     pricelist_tag
     name
     currency
@@ -196,7 +185,6 @@ Content-Type: application/json
   "data": {
     "createPricelist": {
       "id": "f6b0ddff-0d6e-4acf-8fcc-a49409b69003",
-      "tenant": "alex",
       "pricelist_tag": "new_pricelist",
       "name": "Test pricelist",
       "currency": "EUR"
@@ -217,7 +205,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |-|-|-|
 |`updatePricelist.id` | *objectid* | Unique identifyer of the pricelist (if not provided an uuid4 will be generated automatically - best option) |
 |`updatePricelist.tag` | *string* | Unique tag of the pricelist |
-|`updatePricelist.tenant` | *string* | Name of the tenant |
 |`updatePricelist.name` | *string* | Descriptive name of the Pricelist |
 |`updatePricelist.currency` | *PricelistCurrency*	| Currency used for this pricelist |
 
@@ -225,7 +212,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Field | type | description |
 |-|-|-|
 |`updatePricelist.id`	| *objectid* | Identifier of the pricelist |
-|`updatePricelist.tenant` | *string* | Name of the Tenant |
 |`updatePricelist.pricelist_tag` | *string*	| Pricelist tag |
 |`updatePricelist.name` | *string* | Descriptive name of the pricelist |
 |`updatePricelist.currency` | *PricelistCurrency* | USD or EUR |
@@ -238,9 +224,8 @@ $ curl "https://api.canyan.io/graphql" \
   -H "Content-Type: application/json" \
   --data @- <<EOF
 {"query": "mutation {
-  updatePricelist(pricelist_tag: \"new_pricelist\", name: \"Updated pricelist\", tenant: \"alex\", currency: USD) {
+  updatePricelist(pricelist_tag: \"new_pricelist\", name: \"Updated pricelist\", currency: USD) {
     id
-    tenant
     pricelist_tag
     name
     currency
@@ -257,7 +242,6 @@ Content-Type: application/json
   "data": {
     "updatePricelist": {
       "id": "f6b0ddff-0d6e-4acf-8fcc-a49409b69003",
-      "tenant": "alex",
       "pricelist_tag": "new_pricelist",
       "name": "Updated pricelist",
       "currency": "USD"
@@ -278,13 +262,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |-|-|-|
 |`deletePricelist.id` | *identifyer* | Unique identifyer of the pricelist |
 |`deletePricelist.pricelist_tag` | *string* | The tag of the pricelist to delete |
-|`deletePricelist.tenant` | *string* | associated tenant for the pricelist |
 
 ### Response
 | Field | type | description |
 |-|-|-|
 |`deletePricelist.id`	| *objectid* | Identifier of the deleted pricelist |
-|`deletePricelist.tenant` | *string* | Deleted Pricelist name of the tenant |
 |`deletePricelist.pricelist_tag` | *string*	| Unique tag of the pricelist just deleted |
 |`deletePricelist.name` | *string* | Descriptive name of the deleted pricelist |
 |`deletePricelist.currency` | *PricelistCurrency* | Currency used for the deleted pricelist |
@@ -297,9 +279,8 @@ $ curl "https://api.canyan.io/graphql" \
   -H "Content-Type: application/json" \
   --data @- <<EOF
 {"query": "mutation {
-  deletePricelist(pricelist_tag: "new_pricelist", tenant: "alex") {
+  deletePricelist(pricelist_tag: "new_pricelist") {
     id
-    tenant
     pricelist_tag
     name
     currency
@@ -318,7 +299,6 @@ Content-Type: application/json
   "data": {
     "deletePricelist": {
       "id": "f6b0ddff-0d6e-4acf-8fcc-a49409b69003",
-      "tenant": "alex",
       "pricelist_tag": "new_pricelist",
       "name": "Updated pricelist",
       "currency": "USD"

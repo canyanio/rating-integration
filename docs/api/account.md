@@ -19,8 +19,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Field | type | description |
 |-|-|-|
 |`allAccounts.id`	| *objectid* | Unique identifyer of the account |
-|`allAccounts.tenant` | *string* | The associated tenant of the account |
-|`allAccounts.account_tag` | *string*	| Identifyer of the account in the specified tenant |
+|`allAccounts.account_tag` | *string*	| Identifyer of the account |
 |`allAccounts.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`allAccounts.balance` | *BigInt* | The balance of the account |
 |`allAccounts.active` | *boolean*	| Is the account active? Default to true |
@@ -48,7 +47,6 @@ $ curl "https://api.canyan.io/graphql" \
   allAccounts {
     id
     account_tag
-    tenant
     name
     type
     balance
@@ -83,7 +81,6 @@ Content-Type: application/json
       {
         "id": "ac8606db-89a7-45ae-9c63-808d6313e2b1",
         "account_tag": "100",
-        "tenant": "alex",
         "name": "My first account",
         "type": "POSTPAID",
         "balance": 1000,
@@ -101,7 +98,6 @@ Content-Type: application/json
       {
         "id": "b76e706a-5e33-4d5e-baf8-822c90ee3db5",
         "account_tag": "101",
-        "tenant": "alex",
         "name": "My second account",
         "type": "PREPAID",
         "balance": 100,
@@ -134,7 +130,6 @@ Content-Type: application/json
 |-|-|-|
 |`allAccounts.filter.id`	| *objectid* | Unique id of the account to fetch |
 |`allAccounts.filter.ids`	| *array* | Array of unique ids to fetch |
-|`allAccounts.filter.tenant` | *string* | Filter account by tenant |
 |`allAccounts.filter.account_tag` | *string*	| Filter accounts by tag |
 |`allAccounts.filter.customer_tag` | *string*	| Filter accounts by specific customer tag |
 |`allAccounts.filter.type` | *AccountType* | Get specific type of account (PREPAID / POSTPAID) |
@@ -146,8 +141,7 @@ Content-Type: application/json
 | Field | type | description |
 |-|-|-|
 |`allAccounts.id`	| *objectid* | Unique identifyer of the account |
-|`allAccounts.tenant` | *string* | The associated tenant of the account |
-|`allAccounts.account_tag` | *string*	| Identifyer of the account in the specified tenant |
+|`allAccounts.account_tag` | *string*	| Identifyer of the account |
 |`allAccounts.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`allAccounts.balance` | *BigInt* | The balance of the account |
 |`allAccounts.active` | *boolean*	| Is the account active? Default to true |
@@ -171,12 +165,9 @@ $ curl "https://api.canyan.io/graphql" \
   -H "Content-Type: application/json" \
   --data @- <<EOF
 {"query": "{
-  allAccounts(filter: {
-    tenant:"alex", active:true
-  }) {
+  allAccounts(filter: { active:true }) {
     id
     account_tag
-    tenant
     name
     type
     balance
@@ -203,7 +194,6 @@ Content-Type: application/json
       {
         "id": "ac8606db-89a7-45ae-9c63-808d6313e2b1",
         "account_tag": "100",
-        "tenant": "alex",
         "name": "My first account",
         "type": "POSTPAID",
         "balance": 1000,
@@ -233,8 +223,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Parameter | type | description |
 |-|-|-|
 |`createAccount.id`	| *objectid* | Unique identifyer of the account |
-|`createAccount.tenant` | *string* | The associated tenant of the account |
-|`createAccount.account_tag` | *string*	| Identifyer of the account in the specified tenant |
+|`createAccount.account_tag` | *string*	| Identifyer of the account |
 |`createAccount.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`createAccount.balance` | *BigInt* | The balance of the account |
 |`createAccount.active` | *boolean*	| Is the account active? Default to true |
@@ -253,8 +242,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Field | type | description |
 |-|-|-|
 |`createAccount.id`	| *objectid* | Unique identifyer of the account |
-|`createAccount.tenant` | *string* | The associated tenant of the account |
-|`createAccount.account_tag` | *string*	| Identifyer of the account in the specified tenant |
+|`createAccount.account_tag` | *string*	| Identifyer of the account |
 |`createAccount.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`createAccount.balance` | *BigInt* | The balance of the account |
 |`createAccount.active` | *boolean*	| Is the account active? Default to true |
@@ -280,7 +268,6 @@ $ curl "https://api.canyan.io/graphql" \
   --data @- <<EOF
 {"query": "mutation {
   createAccount(
-    tenant: "alex",
     account_tag: "100",
     type: POSTPAID,
     balance: 1000,
@@ -293,7 +280,6 @@ $ curl "https://api.canyan.io/graphql" \
   ) {
     id
     account_tag
-    tenant
     name
     type
     balance
@@ -325,7 +311,6 @@ Content-Type: application/json
     "createAccount": {
       "id": "ac8606db-89a7-45ae-9c63-808d6313e2b1",
       "account_tag": "100",
-      "tenant": "alex",
       "name": "My first account",
       "type": "POSTPAID",
       "balance": 1000,
@@ -355,8 +340,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Parameter | type | description |
 |-|-|-|
 |`updateAccount.id`	| *objectid* | Unique identifyer of the account |
-|`updateAccount.tenant` | *string* | The associated tenant of the account |
-|`updateAccount.account_tag` | *string*	| Identifyer of the account in the specified tenant |
+|`updateAccount.account_tag` | *string*	| Identifyer of the account |
 |`updateAccount.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`updateAccount.balance` | *BigInt* | The balance of the account |
 |`updateAccount.active` | *boolean*	| Is the account active? Default to true |
@@ -375,8 +359,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 | Field | type | description |
 |-|-|-|
 |`updateAccount.id`	| *objectid* | Unique identifyer of the account |
-|`updateAccount.tenant` | *string* | The associated tenant of the account |
-|`updateAccount.account_tag` | *string*	| Identifyer of the account in the specified tenant |
+|`updateAccount.account_tag` | *string*	| Identifyer of the account |
 |`updateAccount.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`updateAccount.balance` | *BigInt* | The balance of the account |
 |`updateAccount.active` | *boolean*	| Is the account active? Default to true |
@@ -401,7 +384,6 @@ $ curl "https://api.canyan.io/graphql" \
   --data @- <<EOF
 {"query": "mutation {
   updateAccount(
-    tenant: "alex",
     account_tag: "100",
     type: PREPAID,
     balance: 10,
@@ -414,7 +396,6 @@ $ curl "https://api.canyan.io/graphql" \
   ) {
     id
     account_tag
-    tenant
     name
     type
     balance
@@ -439,7 +420,6 @@ Content-Type: application/json
     "updateAccount": {
       "id": "ac8606db-89a7-45ae-9c63-808d6313e2b1",
       "account_tag": "100",
-      "tenant": "alex",
       "name": "My updated account",
       "type": "PREPAID",
       "balance": 10,
@@ -469,13 +449,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |-|-|-|
 |`deleteAccount.id` | *identifyer* | Unique identifyer of the account |
 |`deleteAccount.account_tag` | *string* | The tag of the account |
-|`deleteAccount.tenant` | *string* | tenant of the account |
 
 ### Response
 | Field | type | description |
 |-|-|-|
 |`deleteAccount.id`	| *objectid* | Unique identifyer of the account being deleted |
-|`deleteAccount.tenant` | *string* | The associated tenant of the account being deleted |
 |`deleteAccount.account_tag` | *string*	| Identifyer of the account being deleted |
 |`deleteAccount.type` | *AccountType* | The type of the account being deleted (PREPAID / POSTPAID) |
 |`deleteAccount.balance` | *BigInt* | The balance of the account being deleted |
@@ -500,13 +478,9 @@ $ curl "https://api.canyan.io/graphql" \
   -H "Content-Type: application/json" \
   --data @- <<EOF
 {"query": "mutation {
-  deleteAccount(
-    tenant: "alex",
-    account_tag: "100"
-  ) {
+  deleteAccount( account_tag: "100") {
     id
     account_tag
-    tenant
     name
     type
     balance
@@ -532,7 +506,6 @@ Content-Type: application/json
     "deleteAccount": {
       "id": "ac8606db-89a7-45ae-9c63-808d6313e2b1",
       "account_tag": "100",
-      "tenant": "alex",
       "name": "My updated account",
       "type": "PREPAID",
       "balance": 10,
