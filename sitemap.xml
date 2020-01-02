@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://canyanio.github.io/test/</loc>
-     <lastmod>2020-01-01</lastmod>
+     <lastmod>2020-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/about/</loc>
-     <lastmod>2020-01-01</lastmod>
+     <loc>https://canyanio.github.io/test/api/</loc>
+     <lastmod>2020-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

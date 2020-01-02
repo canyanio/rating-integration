@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="Documentation for Canyan.io products">
+        <meta name="description" content="Documentation pages for Canyan Rating Project">
       
       
         <link rel="canonical" href="https://canyanio.github.io/test/">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Canyan Docs</title>
+        <title>Canyan Documentation</title>
       
     
     
@@ -116,7 +116,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#welcome-to-mkdocs" tabindex="1" class="md-skip">
+      <a href="#canyan-rating" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -125,9 +125,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://canyanio.github.io/test/" title="Canyan Docs" class="md-header-nav__button md-logo">
+        <a href="https://canyanio.github.io/test/" title="Canyan Documentation" class="md-header-nav__button md-logo">
           
-            <img src="canyan_logo.png" width="24" height="24">
+            <img src="logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -138,7 +138,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Canyan Docs
+              Canyan Documentation
             </span>
             <span class="md-header-nav__topic">
               
@@ -217,12 +217,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://canyanio.github.io/test/" title="Canyan Docs" class="md-nav__button md-logo">
+    <a href="https://canyanio.github.io/test/" title="Canyan Documentation" class="md-nav__button md-logo">
       
-        <img src="canyan_logo.png" width="48" height="48">
+        <img src="logo.png" width="48" height="48">
       
     </a>
-    Canyan Docs
+    Canyan Documentation
   </label>
   
     <div class="md-nav__source">
@@ -280,15 +280,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
+  <a href="#license" class="md-nav__link">
+    License
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#security-disclosure" class="md-nav__link">
+    Security disclosure
   </a>
   
 </li>
@@ -310,8 +310,8 @@
 
 
   <li class="md-nav__item">
-    <a href="about/" title="About" class="md-nav__link">
-      About
+    <a href="api/" title="Rating API" class="md-nav__link">
+      Rating API
     </a>
   </li>
 
@@ -337,15 +337,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
+  <a href="#license" class="md-nav__link">
+    License
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#security-disclosure" class="md-nav__link">
+    Security disclosure
   </a>
   
 </li>
@@ -369,21 +369,19 @@
                   <a href="https://github.com/canyanio/test/edit/master/docs/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs help</code> - Print this help message.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+                <h1 id="canyan-rating">Canyan Rating</h1>
+<p>Canyan Rating is an open source real-time highly scalable rating system. It is composed of an Agent Service, an API, and a Rating Engine.</p>
+<p>The rating system is a critical component in any business, especially when real-time features are a strict requirement to ensure business continuity and congruence of transactions. Any compromise to availability, integrity, and authentication in the billing system makes a huge impact on the services provided.</p>
+<p>Canyan aims to address these challenges with a cloud-native scalable solution, easily deployable and easily usable. It has been designed to work atomically ensuring the system status is always consistent, reproducible and coherent. Asynchronous processing of no real-time, consolidation events, prioritization, and time-boxed tasks provide the basics to ensure lightning-fast transaction processing without compromises.</p>
+<p>Ease of use is addressed with comprehensive documentation, examples and high-quality software (see the test coverage badge).</p>
+<p>Canyan Rating is designed as a microservice architecture and comprises <a href="https://github.com/canyanio">several repositories</a>. Its components are stateless and easily deployable via containers on-premises or in the cloud. </p>
+<h2 id="license">License</h2>
+<p>Canyan is licensed under the GNU General Public License version 3. See
+<a href="LICENSE">LICENSE</a> for the full license text.</p>
+<h2 id="security-disclosure">Security disclosure</h2>
+<p>We take Canyan's security and our users trust very seriously.
+If you believe you have found a security issue in Canyan, please responsibly
+disclose by contacting us at <a href="mailto:security@canyan.io">security@canyan.io</a>.</p>
                 
                   
                 
@@ -406,13 +404,13 @@ docs/
       <nav class="md-footer-nav__inner md-grid">
         
         
-          <a href="about/" title="About" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="api/" title="Rating API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                About
+                Rating API
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

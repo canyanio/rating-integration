@@ -10,10 +10,10 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="Documentation for Canyan.io products">
+        <meta name="description" content="Documentation pages for Canyan Rating Project">
       
       
-        <link rel="canonical" href="https://canyanio.github.io/test/about/">
+        <link rel="canonical" href="https://canyanio.github.io/test/api/">
       
       
         <meta name="author" content="Canyan.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>About - Canyan Docs</title>
+        <title>Rating API - Canyan Documentation</title>
       
     
     
@@ -116,7 +116,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#in-cultor-intercepta-iam-miserum-patrem" tabindex="1" class="md-skip">
+      <a href="#canyan-rating-api" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -125,9 +125,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://canyanio.github.io/test/" title="Canyan Docs" class="md-header-nav__button md-logo">
+        <a href="https://canyanio.github.io/test/" title="Canyan Documentation" class="md-header-nav__button md-logo">
           
-            <img src="../canyan_logo.png" width="24" height="24">
+            <img src="../logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -138,11 +138,11 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Canyan Docs
+              Canyan Documentation
             </span>
             <span class="md-header-nav__topic">
               
-                About
+                Rating API
               
             </span>
           
@@ -217,12 +217,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://canyanio.github.io/test/" title="Canyan Docs" class="md-nav__button md-logo">
+    <a href="https://canyanio.github.io/test/" title="Canyan Documentation" class="md-nav__button md-logo">
       
-        <img src="../canyan_logo.png" width="48" height="48">
+        <img src="../logo.png" width="48" height="48">
       
     </a>
-    Canyan Docs
+    Canyan Documentation
   </label>
   
     <div class="md-nav__source">
@@ -274,11 +274,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        About
+        Rating API
       </label>
     
-    <a href="./" title="About" class="md-nav__link md-nav__link--active">
-      About
+    <a href="./" title="Rating API" class="md-nav__link md-nav__link--active">
+      Rating API
     </a>
     
       
@@ -292,23 +292,84 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quid-proximus-grave-ponit-velamina-si" class="md-nav__link">
-    Quid proximus grave ponit velamina si
+  <a href="#carrier" class="md-nav__link">
+    Carrier
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-all-carriers" class="md-nav__link">
+    Get all Carriers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-headers" class="md-nav__link">
+    Request headers
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#et-dictis-de-precibus" class="md-nav__link">
-    Et dictis de precibus
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    Request parameters
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#ionio-haurit-magica" class="md-nav__link">
-    Ionio haurit magica
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-specific-carrier-details" class="md-nav__link">
+    Get specific Carrier details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-carrier" class="md-nav__link">
+    Create a new Carrier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-a-carrier" class="md-nav__link">
+    Update a Carrier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-carrier" class="md-nav__link">
+    Delete a Carrier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -344,23 +405,84 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quid-proximus-grave-ponit-velamina-si" class="md-nav__link">
-    Quid proximus grave ponit velamina si
+  <a href="#carrier" class="md-nav__link">
+    Carrier
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-all-carriers" class="md-nav__link">
+    Get all Carriers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-headers" class="md-nav__link">
+    Request headers
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#et-dictis-de-precibus" class="md-nav__link">
-    Et dictis de precibus
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    Request parameters
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#ionio-haurit-magica" class="md-nav__link">
-    Ionio haurit magica
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-specific-carrier-details" class="md-nav__link">
+    Get specific Carrier details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-carrier" class="md-nav__link">
+    Create a new Carrier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-a-carrier" class="md-nav__link">
+    Update a Carrier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-carrier" class="md-nav__link">
+    Delete a Carrier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -380,58 +502,120 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/canyanio/test/edit/master/docs/about.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/canyanio/test/edit/master/docs/api.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="in-cultor-intercepta-iam-miserum-patrem">In cultor intercepta iam miserum patrem</h1>
-<h2 id="quid-proximus-grave-ponit-velamina-si">Quid proximus grave ponit velamina si</h2>
-<p>Lorem markdownum, nec et nequeo vultus quo iras et visu darentque dedit admonitu
-insurgere lignum ignara: illa leones. Somnum corpora terque tibi manu <em>parcite</em>
-pontum: tura ducere ruinam <a href="http://animo.net/vices.html">concordi coepit</a>, et
-mora atque nec.</p>
-<p>Paelex nec Telamon umbra multo, saucius flumina forsitan veterum. <em>Dabunt
-temeraria inde</em> aetatis caelestes <em>quid amissamque offensus</em> petit gravitas,
-<strong>perfida</strong> vultusque, <strong>ut</strong> crinibus illius undas temptant, fuerant.</p>
-<h2 id="et-dictis-de-precibus">Et dictis de precibus</h2>
-<p>Levis laniavit nec fuit potita praemia iterum Tartessia et haec arcere tacta
-toro obiecta cedemus. Diverso Memnonides <a href="http://ceyx-a.net/filia">vacat</a>, caeli
-dubitare cetera maiora, ab <strong>quisquis nulla exclamat</strong> praecessit bracchia? Ritu
-ede. Ea pocula in adfixa certe eat, adclinavit de est contraria tellus sed. An
-deus infundere tanto nam mea temptasset vocem.</p>
-<pre><code>if (requirements_market_crm != sidebar_optical_vista + 300938) {
-    restoreIct.word *= format;
-    outbox = 2 + backsideOsiParameter(httpIgpAdware, kilobyteControlClob,
-            ppgaBot);
-} else {
-    ipod_log(designSoftware(38, cyberbullying_javascript_text,
-            upMegapixelRegular), finder - softwareSequence);
-    end_recursion_point(pretest + pop, 5);
-}
-if (mms_correction - function_osd_flat + vector_icq_framework &lt; -1) {
-    user_insertion_dlc.cloud(-5 + languageOdbcSsl, parallelLogic);
-    irq_ad.architecture_tweet = direct(smsDviUat);
-    soVeronica(kilobit + dial_web);
-}
-var urlPublishing = 74;
+                <h1 id="canyan-rating-api">Canyan Rating API</h1>
+<h2 id="carrier">Carrier</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+<h3 id="get-all-carriers">Get all Carriers</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+<h4 id="request-headers">Request headers</h4>
+<p><code>Content-Type application/json</code></p>
+<h4 id="request-parameters">Request parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_allCarriersMeta.page</code></td>
+<td><em>int</em></td>
+<td>page number, starting from zero</td>
+</tr>
+<tr>
+<td><code>_allCarriersMeta.perPage</code></td>
+<td><em>int</em></td>
+<td>number of items returned per page</td>
+</tr>
+<tr>
+<td><code>_allCarriersMeta.sortField</code></td>
+<td><em>str</em></td>
+<td>field used to sort the returned items, defaults to <em>id</em></td>
+</tr>
+<tr>
+<td><code>_allCarriersMeta.sortOrder</code></td>
+<td><em>str</em></td>
+<td>asc or desc, defaults to <em>asc</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="response">Response</h4>
+<p><code>allCarriers.id</code>    <em>objectid</em>  Identifier of the carrier</p>
+<p><code>allCarriers.tenant</code>    <em>string</em>    The associated tenant of the carrier</p>
+<p><code>allCarriers.carrier_tag</code>   <em>string</em>    The tag of the carrier</p>
+<p><code>allCarriers.host</code>  <em>string</em>    The carriers's host (hostname or IP)</p>
+<p><code>allCarriers.port</code>  <em>int</em>   The communication endpoint port</p>
+<p><code>allCarriers.protocol</code>  <em>CarrierProtocol</em>   TCP or UDP protocol</p>
+<p><code>allCarriers.active</code>    <em>int</em>   Is this carrier enabled?</p>
+<p><code>meta.count</code>    <em>int</em>   Results count</p>
+<h4 id="example">Example</h4>
+<pre><code>$ curl &quot;https://api.canyan.io/graphql&quot; \
+  -X POST \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer &lt;your-token-here&gt;&quot; \
+  --data @- &lt;&lt;EOF
+{&quot;query&quot;: &quot;{
+    allCarriers {
+      id
+      tenant
+      carrier_tag
+      host
+      port
+      protocol
+      active
+    }
+    meta: _allCarriersMeta(page: 0, perPage: 10, sortField: \&quot;id\&quot;, sortOrder: \&quot;asc\&quot;) {
+      count
+  }
+}&quot; }
+EOF
 </code></pre>
-<h2 id="ionio-haurit-magica">Ionio haurit magica</h2>
-<p>Conspicui credo aevo tempore peremptum, ausit istis; est ab armis <a href="http://www.motae.io/geruntdea.php">colle regno
-imperio</a> auctam utque artificum gaudia. Nec
-longo petit ardent in laturus Calydona et iaceret, excutiant laetabitur dantem
-arcuerat hanc. Forcipe dividuae Tiresia a <em>cultu silices sua</em> dixi sanguine,
-Festa falsa sortes eadem, lecti dextram; damno. Imagine bracchia pigre
-invitusque dies manetque Aethiopum gramen, a, facit, suis laurea? Perseidos
-succumbere nomen pressa utero metuens coniciunt alite crepitantia corporis
-auferat, habetis sentis, hunc fores; desubito.</p>
-<p>Gravidis crescunt, ea regis Eleusin adimunt adhaesit quantum profuga imagine
-<a href="http://www.unda-sic.com/dextraatque">imago</a>. Simulacra <em>terruit celebrandaque</em>
-Emathion Hylactor castra, crescendo hunc. Uno sole et quae priscosque arcum cum?
-Est herba animos illo! Arreptamque magis!</p>
-<p>Ipsa gravitate vultum homines nitidumque praecipuum certas; deique lupi,
-frigusque, <strong>undique</strong>! Fata Dryope longaeque coxerat sincerumque potestas
-pudet, et, viri in, vel pretium albis. Humo noctis purpureus resolvit omnes
-temperie, damno, habet ore lacusque: tantos. Fecerat pia Stygia in dolores
-protinus; ausa subsunt, tales pronepos inficit ebore relatu vellet placido.</p>
+
+<p>Response:</p>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  &quot;data&quot;: {
+    &quot;allCarriers&quot;: [
+      {
+        &quot;id&quot;: &quot;40419d91-23af-43db-a54a-3744d4f8fb8f&quot;,
+        &quot;tenant&quot;: &quot;alex&quot;,
+        &quot;carrier_tag&quot;: &quot;carrier1&quot;,
+        &quot;host&quot;: &quot;carrier1.alex.com&quot;,
+        &quot;port&quot;: 5060,
+        &quot;protocol&quot;: &quot;TCP&quot;,
+        &quot;active&quot;: true
+      },
+      {
+        &quot;id&quot;: &quot;6dd0fdee-000d-43ce-9678-821a3ef5f97f&quot;,
+        &quot;tenant&quot;: &quot;alex&quot;,
+        &quot;carrier_tag&quot;: &quot;carrier2&quot;,
+        &quot;host&quot;: &quot;carrier2.alex.com&quot;,
+        &quot;port&quot;: 5060,
+        &quot;protocol&quot;: &quot;UDP&quot;,
+        &quot;active&quot;: true
+      }
+    ],
+    &quot;meta&quot;: {
+      &quot;count&quot;: 2
+    }
+  }
+}
+</code></pre>
+
+<h3 id="get-specific-carrier-details">Get specific Carrier details</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+<h3 id="create-a-new-carrier">Create a new Carrier</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+<h3 id="update-a-carrier">Update a Carrier</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+<h3 id="delete-a-carrier">Delete a Carrier</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 
                   
                 
