@@ -1,17 +1,22 @@
 # Project information
-site_name: Canyan Documentation
+site_name: Canyan Rating Documentation
 site_description: 'Documentation pages for Canyan Rating Project'
 site_author: 'Canyan.io'
 site_url: 'https://canyanio.github.io/test/'
 
 # Repository
-repo_name: 'canyanio/test'
-repo_url: 'https://github.com/canyanio/test'
+# repo_name: 'canyanio/test'
+# repo_url: 'https://github.com/canyanio/test'
 
 # Navigation
 nav:
     - Home: index.md
     - Rating API: api.md
+    - API Endpoints:
+        - Carrier: api/carrier.md
+        - Pricelist: api/pricelist.md
+        - Rate: api/rate.md
+        - Account: api/account.md
 
 # Configuration
 theme:
