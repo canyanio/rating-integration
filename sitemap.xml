@@ -15,4 +15,19 @@
      <lastmod>2020-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    <url>
+     <loc>https://canyanio.github.io/test/api/pricelist/</loc>
+     <lastmod>2020-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/api/rate/</loc>
+     <lastmod>2020-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/api/account/</loc>
+     <lastmod>2020-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
 </urlset>
