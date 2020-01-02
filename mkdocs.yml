@@ -1,0 +1,52 @@
+# Project information
+site_name: Canyan Documentation
+site_description: 'Documentation pages for Canyan Rating Project'
+site_author: 'Canyan.io'
+site_url: 'https://canyanio.github.io/test/'
+
+# Repository
+repo_name: 'canyanio/test'
+repo_url: 'https://github.com/canyanio/test'
+
+# Navigation
+nav:
+    - Home: index.md
+    - Rating API: api.md
+
+# Configuration
+theme:
+    name: 'material'
+    language: 'en'
+    # feature:
+    #     tabs: true
+    palette:
+        primary: 'deep purple'
+        accent: 'deep purple'
+    font:
+        text: 'Source Sans Pro, Helvetica, sans-serif'
+        code: 'Ubuntu Mono'
+    logo: './logo.png'
+    favicon: './favicon.ico'
+
+# Copyright
+copyright: 'Copyright &copy; 2020 Canyan.io'
+
+# Customization
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/canyanio'
+    - type: 'twitter'
+      link: 'https://twitter.com/canyan_io'
+    - type: 'linkedin'
+      link: 'https://www.linkedin.com/company/canyan/'
+    - type: 'slack'
+      link: 'https://join.slack.com/t/canyanio/shared_invite/enQtODIyODY5MDIyMTMxLTExYjkwZmFkMjBiZWI3ZDEyZjYzYjE2N2M2NWRkZGUwYjdhZmE0YjRkNTQ1MGFmMGJmZjczYzkzYzk0ZWZiMzY'
+
+# Google Analytics
+google_analytics:
+  - 'UA-XXXXXXXX-X'
+  - 'auto'
+
+markdown_extensions:
+    - codehilite
