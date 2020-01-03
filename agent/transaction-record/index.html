@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation pages for Canyan Rating Project">
       
       
-        <link rel="canonical" href="https://canyanio.github.io/test/agent/rollback_transaction/">
+        <link rel="canonical" href="https://canyanio.github.io/test/agent/transaction-record/">
       
       
         <meta name="author" content="Canyan.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Rollback Transaction - Canyan Rating Documentation</title>
+        <title>Record Transaction - Canyan Rating Documentation</title>
       
     
     
@@ -114,7 +114,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#rollback-transaction" tabindex="1" class="md-skip">
+      <a href="#record-transaction" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -140,7 +140,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Rollback Transaction
+                Record Transaction
               
             </span>
           
@@ -221,6 +221,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../code-of-conduct/" title="Code of conduct" class="md-nav__link">
+      Code of conduct
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../../api/" title="Rating API" class="md-nav__link">
       Rating API
     </a>
@@ -234,13 +258,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-5">
       API Endpoints
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-5">
         API Endpoints
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -320,13 +344,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-7">
       Agent Endpoints
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-7">
         Agent Endpoints
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -350,7 +374,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../begin_transaction/" title="Begin Transaction" class="md-nav__link">
+    <a href="../transaction-begin/" title="Begin Transaction" class="md-nav__link">
       Begin Transaction
     </a>
   </li>
@@ -362,20 +386,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../end_transaction/" title="End Transaction" class="md-nav__link">
+    <a href="../transaction-end/" title="End Transaction" class="md-nav__link">
       End Transaction
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../record_transaction/" title="Record Transaction" class="md-nav__link">
-      Record Transaction
     </a>
   </li>
 
@@ -395,11 +407,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Rollback Transaction
+        Record Transaction
       </label>
     
-    <a href="./" title="Rollback Transaction" class="md-nav__link md-nav__link--active">
-      Rollback Transaction
+    <a href="./" title="Record Transaction" class="md-nav__link md-nav__link--active">
+      Record Transaction
     </a>
     
       
@@ -471,8 +483,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../transaction-rollback/" title="Rollback Transaction" class="md-nav__link">
+      Rollback Transaction
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../license/" title="License" class="md-nav__link">
+      License
+    </a>
   </li>
 
     
@@ -561,7 +597,7 @@
               
                 
                 
-                <h1 id="rollback-transaction">Rollback Transaction</h1>
+                <h1 id="record-transaction">Record Transaction</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 <h2 id="request-headers">Request headers</h2>
 <p><code>Content-Type application/json</code></p>
@@ -576,19 +612,54 @@
 </thead>
 <tbody>
 <tr>
-<td><code>rollbackTransaction.transaction_tag</code></td>
+<td><code>recordTransaction.transaction_tag</code></td>
 <td><em>str</em></td>
 <td>unique id of the transaction</td>
 </tr>
 <tr>
-<td><code>rollbackTransaction.account_tag</code></td>
+<td><code>recordTransaction.account_tag</code></td>
 <td><em>str</em></td>
-<td>account tag (optional)</td>
+<td>account tag</td>
 </tr>
 <tr>
-<td><code>rollbackTransaction.destination_account_tag</code></td>
+<td><code>recordTransaction.destination_account_tag</code></td>
 <td><em>str</em></td>
-<td>destination account tag (optional)</td>
+<td>destination account tag (if exists)</td>
+</tr>
+<tr>
+<td><code>recordTransaction.source</code></td>
+<td><em>str</em></td>
+<td>source</td>
+</tr>
+<tr>
+<td><code>recordTransaction.destination</code></td>
+<td><em>str</em></td>
+<td>destination</td>
+</tr>
+<tr>
+<td><code>authorization.timestamp_auth</code></td>
+<td><em>datetime</em></td>
+<td>timestamp of the authorization request</td>
+</tr>
+<tr>
+<td><code>recordTransaction.timestamp_begin</code></td>
+<td><em>datetime</em></td>
+<td>timestamp of the begin of the transaction</td>
+</tr>
+<tr>
+<td><code>recordTransaction.timestamp_end</code></td>
+<td><em>datetime</em></td>
+<td>timestamp of the end of the transaction</td>
+</tr>
+<tr>
+<td><code>recordTransaction.failed</code></td>
+<td><em>bool</em></td>
+<td>Has the transaction failed?</td>
+</tr>
+<tr>
+<td><code>recordTransaction.failed_reason</code></td>
+<td><em>str</em></td>
+<td>If the transaction failed what is the reason? (optional)</td>
 </tr>
 </tbody>
 </table>
@@ -603,9 +674,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>rollbackTransaction.ok</code></td>
+<td><code>recordTransaction.ok</code></td>
 <td><em>bool</em></td>
-<td>Has the transaction been rolled back correctly?</td>
+<td>Has the transaction been recorded correctly?</td>
 </tr>
 </tbody>
 </table>
@@ -616,11 +687,13 @@
   -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;mutation {</span>
-<span class="s">    rollbackTransaction(</span>
+<span class="s">    recordTransaction(</span>
 <span class="s">        tenant: &quot;default&quot;,</span>
 <span class="s">        transaction_tag: &quot;100&quot;,</span>
 <span class="s">        account_tag: &quot;1000&quot;,</span>
-<span class="s">        destination_account_tag: &quot;1001&quot;</span>
+<span class="s">        destination_account_tag: &quot;1001&quot;,</span>
+<span class="s">        source: &quot;sip:10.0.0.1:5060&quot;,</span>
+<span class="s">        destination: &quot;sip:10.0.0.2:5060&quot;</span>
 <span class="s">    ) {</span>
 <span class="s">        ok</span>
 <span class="s">    }</span>
@@ -635,7 +708,7 @@
 Content-Type: application/json
 <span class="o">{</span>
   <span class="s2">&quot;data&quot;</span>: <span class="o">{</span>
-    <span class="s2">&quot;rollbackTransaction&quot;</span>: <span class="o">{</span> 
+    <span class="s2">&quot;recordTransaction&quot;</span>: <span class="o">{</span> 
       <span class="s2">&quot;ok&quot;</span>: True 
     <span class="o">}</span>
   <span class="o">}</span>
@@ -662,7 +735,7 @@ Content-Type: application/json
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../record_transaction/" title="Record Transaction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../transaction-end/" title="End Transaction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -671,11 +744,25 @@ Content-Type: application/json
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Record Transaction
+                End Transaction
               </span>
             </div>
           </a>
         
+        
+          <a href="../transaction-rollback/" title="Rollback Transaction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Rollback Transaction
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

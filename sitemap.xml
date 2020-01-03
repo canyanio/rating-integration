@@ -6,6 +6,16 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://canyanio.github.io/test/contributing/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/code-of-conduct/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://canyanio.github.io/test/api/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
@@ -41,22 +51,27 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/agent/begin_transaction/</loc>
+     <loc>https://canyanio.github.io/test/agent/transaction-begin/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/agent/end_transaction/</loc>
+     <loc>https://canyanio.github.io/test/agent/transaction-end/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/agent/record_transaction/</loc>
+     <loc>https://canyanio.github.io/test/agent/transaction-record/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/agent/rollback_transaction/</loc>
+     <loc>https://canyanio.github.io/test/agent/transaction-rollback/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/license/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
