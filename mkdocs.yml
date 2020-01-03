@@ -11,19 +11,26 @@ site_url: 'https://canyanio.github.io/test/'
 # Navigation
 nav:
     - Home: index.md
-    - Rating API: api.md
-    - API Endpoints:
-        - Carrier: api/carrier.md
-        - Pricelist: api/pricelist.md
-        - Rate: api/rate.md
-        - Account: api/account.md
-    - Agent: agent.md
-    - Agent Endpoints:
-        - Authorization: agent/authorization.md
-        - Begin Transaction: agent/transaction-begin.md
-        - End Transaction: agent/transaction-end.md
-        - Record Transaction: agent/transaction-record.md
-        - Rollback Transaction: agent/transaction-rollback.md
+    - What's New ?: whats-new.md
+    - Getting started: getting-started.md
+    - Running: running.md
+    - FAQ: faq.md
+    - API:
+        - Introduction: api/api.md
+        - Endpoints:
+            - Carrier: api/endpoints/carrier.md
+            - Pricelist: api/endpoints/pricelist.md
+            - Rate: api/endpoints/rate.md
+            - Account: api/endpoints/account.md
+    - Agent:
+        - Introduction: agent/agent.md
+        - Endpoints:
+            - Authorization: agent/endpoints/authorization.md
+            - Begin Transaction: agent/endpoints/transaction-begin.md
+            - End Transaction: agent/endpoints/transaction-end.md
+            - Record Transaction: agent/endpoints/transaction-record.md
+            - Rollback Transaction: agent/endpoints/transaction-rollback.md
+    - Engine: engine.md
     - License: license.md
     - Contributing: contributing.md
     - Code of conduct: code-of-conduct.md
@@ -60,7 +67,7 @@ extra:
 
 # Google Analytics
 google_analytics:
-  - 'UA-XXXXXXXX-X'
+  - 'UA-141188366-2'
   - 'auto'
 
 markdown_extensions:
