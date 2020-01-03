@@ -637,6 +637,102 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/" title="Agent" class="md-nav__link">
+      Agent
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Agent Endpoints
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Agent Endpoints
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/authorization/" title="Authorization" class="md-nav__link">
+      Authorization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/begin_transaction/" title="Begin Transaction" class="md-nav__link">
+      Begin Transaction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/end_transaction/" title="End Transaction" class="md-nav__link">
+      End Transaction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/record_transaction/" title="Record Transaction" class="md-nav__link">
+      Record Transaction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/rollback_transaction/" title="Rollback Transaction" class="md-nav__link">
+      Rollback Transaction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1033,11 +1129,6 @@
 <td>Identifier of the carrier</td>
 </tr>
 <tr>
-<td><code>allCarriers.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the carrier</td>
-</tr>
-<tr>
 <td><code>allCarriers.carrier_tag</code></td>
 <td><em>string</em></td>
 <td>The tag of the carrier</td>
@@ -1078,7 +1169,6 @@
 <span class="s">{&quot;query&quot;: &quot;{</span>
 <span class="s">    allCarriers {</span>
 <span class="s">      id</span>
-<span class="s">      tenant</span>
 <span class="s">      carrier_tag</span>
 <span class="s">      host</span>
 <span class="s">      port</span>
@@ -1101,7 +1191,6 @@ Content-Type: application/json
     <span class="s2">&quot;allCarriers&quot;</span>: <span class="o">[</span>
       <span class="o">{</span>
         <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;40419d91-23af-43db-a54a-3744d4f8fb8f&quot;</span>,
-        <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
         <span class="s2">&quot;carrier_tag&quot;</span>: <span class="s2">&quot;carrier1&quot;</span>,
         <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;carrier1.alex.com&quot;</span>,
         <span class="s2">&quot;port&quot;</span>: <span class="m">5060</span>,
@@ -1110,7 +1199,6 @@ Content-Type: application/json
       <span class="o">}</span>,
       <span class="o">{</span>
         <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;6dd0fdee-000d-43ce-9678-821a3ef5f97f&quot;</span>,
-        <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
         <span class="s2">&quot;carrier_tag&quot;</span>: <span class="s2">&quot;carrier2&quot;</span>,
         <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;carrier2.alex.com&quot;</span>,
         <span class="s2">&quot;port&quot;</span>: <span class="m">5060</span>,
@@ -1150,11 +1238,6 @@ Content-Type: application/json
 <td>array of ids to fetch</td>
 </tr>
 <tr>
-<td><code>allCarriers.filter.tenant</code></td>
-<td><em>array</em></td>
-<td>filter carriers by tenant</td>
-</tr>
-<tr>
 <td><code>allCarriers.filter.carrier_tag</code></td>
 <td><em>array</em></td>
 <td>get a carrier by it's tag</td>
@@ -1175,11 +1258,6 @@ Content-Type: application/json
 <td><code>allCarriers.id</code></td>
 <td><em>objectid</em></td>
 <td>Identifier of the carrier</td>
-</tr>
-<tr>
-<td><code>allCarriers.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the carrier</td>
 </tr>
 <tr>
 <td><code>allCarriers.carrier_tag</code></td>
@@ -1220,9 +1298,8 @@ Content-Type: application/json
   -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;{</span>
-<span class="s">    allCarriers(filter: {tenant: \&quot;alex\&quot;} ) {</span>
+<span class="s">    allCarriers() {</span>
 <span class="s">      id</span>
-<span class="s">      tenant</span>
 <span class="s">      carrier_tag</span>
 <span class="s">      host</span>
 <span class="s">      port</span>
@@ -1242,7 +1319,6 @@ Content-Type: application/json
     <span class="s2">&quot;allCarriers&quot;</span>: <span class="o">[</span>
       <span class="o">{</span>
         <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;40419d91-23af-43db-a54a-3744d4f8fb8f&quot;</span>,
-        <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
         <span class="s2">&quot;carrier_tag&quot;</span>: <span class="s2">&quot;carrier1&quot;</span>,
         <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;carrier1.alex.com&quot;</span>,
         <span class="s2">&quot;port&quot;</span>: <span class="m">5060</span>,
@@ -1251,7 +1327,6 @@ Content-Type: application/json
       <span class="o">}</span>,
       <span class="o">{</span>
         <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;6dd0fdee-000d-43ce-9678-821a3ef5f97f&quot;</span>,
-        <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
         <span class="s2">&quot;carrier_tag&quot;</span>: <span class="s2">&quot;carrier2&quot;</span>,
         <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;carrier2.alex.com&quot;</span>,
         <span class="s2">&quot;port&quot;</span>: <span class="m">5060</span>,
@@ -1287,11 +1362,6 @@ Content-Type: application/json
 <td><code>createCarrier.carrier_tag</code></td>
 <td><em>string</em></td>
 <td>The tag of the carrier</td>
-</tr>
-<tr>
-<td><code>createCarrier.tenant</code></td>
-<td><em>string</em></td>
-<td>tenant of the carrier</td>
 </tr>
 <tr>
 <td><code>createCarrier.host</code></td>
@@ -1331,11 +1401,6 @@ Content-Type: application/json
 <td>Identifier of the carrier</td>
 </tr>
 <tr>
-<td><code>createCarrier.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the carrier</td>
-</tr>
-<tr>
 <td><code>createCarrier.carrier_tag</code></td>
 <td><em>string</em></td>
 <td>The tag of the carrier</td>
@@ -1369,9 +1434,8 @@ Content-Type: application/json
   -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;mutation {</span>
-<span class="s">  createCarrier(tenant: \&quot;alex\&quot;, carrier_tag: \&quot;alex-carrier1\&quot;, host: \&quot;alex.canyan.io\&quot;, port: 5060, protocol: TCP, active: true) {</span>
+<span class="s">  createCarrier(carrier_tag: \&quot;alex-carrier1\&quot;, host: \&quot;alex.canyan.io\&quot;, port: 5060, protocol: TCP, active: true) {</span>
 <span class="s">    id</span>
-<span class="s">    tenant</span>
 <span class="s">    carrier_tag</span>
 <span class="s">    host</span>
 <span class="s">    port</span>
@@ -1392,7 +1456,6 @@ Content-Type: application/json
   <span class="s2">&quot;data&quot;</span>: <span class="o">{</span>
     <span class="s2">&quot;createCarrier&quot;</span>: <span class="o">{</span>
       <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;48deac88-1d1b-4680-8b2a-c9af38ae7136&quot;</span>,
-      <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
       <span class="s2">&quot;carrier_tag&quot;</span>: <span class="s2">&quot;alex-carrier1&quot;</span>,
       <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;alex.canyan.io&quot;</span>,
       <span class="s2">&quot;port&quot;</span>: <span class="m">5060</span>,
@@ -1427,11 +1490,6 @@ Content-Type: application/json
 <td><code>updateCarrier.carrier_tag</code></td>
 <td><em>string</em></td>
 <td>The tag of the carrier</td>
-</tr>
-<tr>
-<td><code>updateCarrier.tenant</code></td>
-<td><em>string</em></td>
-<td>tenant of the carrier</td>
 </tr>
 <tr>
 <td><code>updateCarrier.host</code></td>
@@ -1471,11 +1529,6 @@ Content-Type: application/json
 <td>Identifier of the carrier</td>
 </tr>
 <tr>
-<td><code>updateCarrier.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the carrier</td>
-</tr>
-<tr>
 <td><code>updateCarrier.carrier_tag</code></td>
 <td><em>string</em></td>
 <td>The tag of the carrier</td>
@@ -1509,9 +1562,8 @@ Content-Type: application/json
   -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;mutation {</span>
-<span class="s">  updateCarrier(tenant: \&quot;alex\&quot;, carrier_tag: \&quot;alex-carrier1\&quot;, host: \&quot;alexcarrier.canyan.io\&quot;, port: 5061, protocol: UDP, active: false) {</span>
+<span class="s">  updateCarrier(carrier_tag: \&quot;alex-carrier1\&quot;, host: \&quot;alexcarrier.canyan.io\&quot;, port: 5061, protocol: UDP, active: false) {</span>
 <span class="s">    id</span>
-<span class="s">    tenant</span>
 <span class="s">    carrier_tag</span>
 <span class="s">    host</span>
 <span class="s">    port</span>
@@ -1531,7 +1583,6 @@ Content-Type: application/json
   <span class="s2">&quot;data&quot;</span>: <span class="o">{</span>
     <span class="s2">&quot;updateCarrier&quot;</span>: <span class="o">{</span>
       <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;48deac88-1d1b-4680-8b2a-c9af38ae7136&quot;</span>,
-      <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
       <span class="s2">&quot;carrier_tag&quot;</span>: <span class="s2">&quot;alex-carrier1&quot;</span>,
       <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;alexcarrier.canyan.io&quot;</span>,
       <span class="s2">&quot;port&quot;</span>: <span class="m">5061</span>,
@@ -1567,11 +1618,6 @@ Content-Type: application/json
 <td><em>string</em></td>
 <td>The tag of the carrier</td>
 </tr>
-<tr>
-<td><code>deleteCarrier.tenant</code></td>
-<td><em>string</em></td>
-<td>tenant of the carrier</td>
-</tr>
 </tbody>
 </table>
 <h3 id="response_8">Response</h3>
@@ -1588,11 +1634,6 @@ Content-Type: application/json
 <td><code>deleteCarrier.id</code></td>
 <td><em>objectid</em></td>
 <td>Identifier of the carrier</td>
-</tr>
-<tr>
-<td><code>deleteCarrier.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the carrier</td>
 </tr>
 <tr>
 <td><code>deleteCarrier.carrier_tag</code></td>
@@ -1628,9 +1669,8 @@ Content-Type: application/json
   -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;mutation {</span>
-<span class="s">  deleteCarrier(tenant: \&quot;alex\&quot;, carrier_tag: \&quot;alex-carrier1\&quot;) {</span>
+<span class="s">  deleteCarrier(carrier_tag: \&quot;alex-carrier1\&quot;) {</span>
 <span class="s">    id</span>
-<span class="s">    tenant</span>
 <span class="s">    carrier_tag</span>
 <span class="s">    host</span>
 <span class="s">    port</span>
@@ -1650,7 +1690,6 @@ Content-Type: application/json
   <span class="s2">&quot;data&quot;</span>: <span class="o">{</span>
     <span class="s2">&quot;deleteCarrier&quot;</span>: <span class="o">{</span>
       <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;48deac88-1d1b-4680-8b2a-c9af38ae7136&quot;</span>,
-      <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
       <span class="s2">&quot;carrier_tag&quot;</span>: <span class="s2">&quot;alex-carrier1&quot;</span>,
       <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;alexcarrier.canyan.io&quot;</span>,
       <span class="s2">&quot;port&quot;</span>: <span class="m">5061</span>,

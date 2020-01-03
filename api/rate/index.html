@@ -637,6 +637,102 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/" title="Agent" class="md-nav__link">
+      Agent
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Agent Endpoints
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Agent Endpoints
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/authorization/" title="Authorization" class="md-nav__link">
+      Authorization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/begin_transaction/" title="Begin Transaction" class="md-nav__link">
+      Begin Transaction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/end_transaction/" title="End Transaction" class="md-nav__link">
+      End Transaction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/record_transaction/" title="Record Transaction" class="md-nav__link">
+      Record Transaction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/rollback_transaction/" title="Rollback Transaction" class="md-nav__link">
+      Rollback Transaction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1033,11 +1129,6 @@
 <td>Identifier of the pricelist rate</td>
 </tr>
 <tr>
-<td><code>allPricelistRates.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the pricelist rate</td>
-</tr>
-<tr>
 <td><code>allPricelistRates.pricelist_tag</code></td>
 <td><em>string</em></td>
 <td>The tag of the associated pricelist</td>
@@ -1103,7 +1194,6 @@
 <span class="s">{&quot;query&quot;: &quot;{</span>
 <span class="s">  allPricelistRates {</span>
 <span class="s">    id</span>
-<span class="s">    tenant</span>
 <span class="s">    pricelist_tag</span>
 <span class="s">    carrier_tag</span>
 <span class="s">    prefix</span>
@@ -1132,14 +1222,12 @@ Content-Type: application/json
     <span class="s2">&quot;allPricelists&quot;</span>: <span class="o">[</span>
       <span class="o">{</span>
         <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;20648787-4958-4928-9fd3-c926d7cec159&quot;</span>,
-        <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
         <span class="s2">&quot;pricelist_tag&quot;</span>: <span class="s2">&quot;pricelist2&quot;</span>,
         <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Pricelist 2&quot;</span>,
         <span class="s2">&quot;currency&quot;</span>: <span class="s2">&quot;USD&quot;</span>
       <span class="o">}</span>,
       <span class="o">{</span>
         <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;58d16ce8-30ed-449d-a81c-c4f069ba6eff&quot;</span>,
-        <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
         <span class="s2">&quot;pricelist_tag&quot;</span>: <span class="s2">&quot;pricelist1&quot;</span>,
         <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Pricelist One&quot;</span>,
         <span class="s2">&quot;currency&quot;</span>: <span class="s2">&quot;EUR&quot;</span>
@@ -1175,11 +1263,6 @@ Content-Type: application/json
 <td><code>allPricelistRates.filter.ids</code></td>
 <td><em>array</em></td>
 <td>Array of identifiers of the pricelist rate to fetch</td>
-</tr>
-<tr>
-<td><code>allPricelistRates.filter.tenant</code></td>
-<td><em>array</em></td>
-<td>Filter pricelist rate by tenant</td>
 </tr>
 <tr>
 <td><code>allPricelistRates.filter.pricelist_id</code></td>
@@ -1222,11 +1305,6 @@ Content-Type: application/json
 <td><code>allPricelistRates.id</code></td>
 <td><em>objectid</em></td>
 <td>Identifier of the pricelist rate</td>
-</tr>
-<tr>
-<td><code>allPricelistRates.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the pricelist rate</td>
 </tr>
 <tr>
 <td><code>allPricelistRates.pricelist_tag</code></td>
@@ -1292,9 +1370,8 @@ Content-Type: application/json
   -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;{</span>
-<span class="s">  allPricelistRates(filter: {prefix: \&quot;36\&quot;, tenant:\&quot;alex\&quot;, carrier_tag:\&quot;carrier2\&quot;}) {</span>
+<span class="s">  allPricelistRates(filter: {prefix: \&quot;36\&quot;, carrier_tag:\&quot;carrier2\&quot;}) {</span>
 <span class="s">    id</span>
-<span class="s">    tenant</span>
 <span class="s">    pricelist_tag</span>
 <span class="s">    carrier_tag</span>
 <span class="s">    prefix</span>
@@ -1320,7 +1397,6 @@ Content-Type: application/json
     <span class="s2">&quot;allPricelistRates&quot;</span>: <span class="o">[</span>
       <span class="o">{</span>
         <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;73b52d52-de9b-48f8-a40a-d879eecaeb4b&quot;</span>,
-        <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
         <span class="s2">&quot;pricelist_tag&quot;</span>: <span class="s2">&quot;pricelist1&quot;</span>,
         <span class="s2">&quot;carrier_tag&quot;</span>: <span class="s2">&quot;carrier2&quot;</span>,
         <span class="s2">&quot;prefix&quot;</span>: <span class="s2">&quot;36&quot;</span>,
@@ -1356,11 +1432,6 @@ Content-Type: application/json
 <td><code>createPricelistRate.id</code></td>
 <td><em>objectid</em></td>
 <td>Unique identifyer of the pricelist rate (if not provided an uuid4 will be generated automatically - best option)</td>
-</tr>
-<tr>
-<td><code>createPricelistRate.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the pricelist rate</td>
 </tr>
 <tr>
 <td><code>createPricelistRate.pricelist_tag</code></td>
@@ -1430,11 +1501,6 @@ Content-Type: application/json
 <td>Identifier of the pricelist rate</td>
 </tr>
 <tr>
-<td><code>createPricelistRate.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the pricelist rate</td>
-</tr>
-<tr>
 <td><code>createPricelistRate.pricelist_tag</code></td>
 <td><em>string</em></td>
 <td>The tag of the associated pricelist</td>
@@ -1494,7 +1560,6 @@ Content-Type: application/json
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;mutation {</span>
 <span class="s">  createPricelistRate(</span>
-<span class="s">        tenant: \&quot;alex\&quot;,</span>
 <span class="s">        pricelist_tag: \&quot;pricelist1\&quot;,</span>
 <span class="s">        carrier_tag: \&quot;carrier1\&quot;,</span>
 <span class="s">        prefix: \&quot;49\&quot;,</span>
@@ -1505,7 +1570,6 @@ Content-Type: application/json
 <span class="s">        description: \&quot;Germany\&quot;</span>
 <span class="s">  ) {</span>
 <span class="s">    id</span>
-<span class="s">    tenant</span>
 <span class="s">    pricelist_tag</span>
 <span class="s">    carrier_tag</span>
 <span class="s">    prefix</span>
@@ -1530,7 +1594,6 @@ Content-Type: application/json
   <span class="s2">&quot;data&quot;</span>: <span class="o">{</span>
     <span class="s2">&quot;createPricelistRate&quot;</span>: <span class="o">{</span>
       <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;a82d0e60-1f87-406f-b250-46ca972861c6&quot;</span>,
-      <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
       <span class="s2">&quot;pricelist_tag&quot;</span>: <span class="s2">&quot;pricelist1&quot;</span>,
       <span class="s2">&quot;carrier_tag&quot;</span>: <span class="s2">&quot;carrier1&quot;</span>,
       <span class="s2">&quot;prefix&quot;</span>: <span class="s2">&quot;49&quot;</span>,
@@ -1565,11 +1628,6 @@ Content-Type: application/json
 <td><code>updatePricelistRate.id</code></td>
 <td><em>objectid</em></td>
 <td>Unique identifyer of the pricelist rate</td>
-</tr>
-<tr>
-<td><code>updatePricelistRate.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the pricelist rate</td>
 </tr>
 <tr>
 <td><code>updatePricelistRate.pricelist_tag</code></td>
@@ -1639,11 +1697,6 @@ Content-Type: application/json
 <td>Identifier of the pricelist rate</td>
 </tr>
 <tr>
-<td><code>updatePricelistRate.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the pricelist rate</td>
-</tr>
-<tr>
 <td><code>updatePricelistRate.pricelist_tag</code></td>
 <td><em>string</em></td>
 <td>The tag of the associated pricelist</td>
@@ -1703,7 +1756,6 @@ Content-Type: application/json
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;mutation {</span>
 <span class="s">  updatePricelistRate(</span>
-<span class="s">    tenant: \&quot;alex\&quot;,</span>
 <span class="s">    pricelist_tag: \&quot;pricelist1\&quot;,</span>
 <span class="s">    carrier_tag: \&quot;carrier1\&quot;,</span>
 <span class="s">    prefix: \&quot;49\&quot;,</span>
@@ -1714,7 +1766,6 @@ Content-Type: application/json
 <span class="s">    description: \&quot;Germany updated\&quot;</span>
 <span class="s">  ) {</span>
 <span class="s">    id</span>
-<span class="s">    tenant</span>
 <span class="s">    pricelist_tag</span>
 <span class="s">    carrier_tag</span>
 <span class="s">    prefix</span>
@@ -1739,7 +1790,6 @@ Content-Type: application/json
   <span class="s2">&quot;data&quot;</span>: <span class="o">{</span>
     <span class="s2">&quot;updatePricelistRate&quot;</span>: <span class="o">{</span>
       <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;a82d0e60-1f87-406f-b250-46ca972861c6&quot;</span>,
-      <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
       <span class="s2">&quot;pricelist_tag&quot;</span>: <span class="s2">&quot;pricelist1&quot;</span>,
       <span class="s2">&quot;carrier_tag&quot;</span>: <span class="s2">&quot;carrier1&quot;</span>,
       <span class="s2">&quot;prefix&quot;</span>: <span class="s2">&quot;49&quot;</span>,
@@ -1776,11 +1826,6 @@ Content-Type: application/json
 <td>Unique identifyer of the pricelist rate to be deleted</td>
 </tr>
 <tr>
-<td><code>deletePricelistRate.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the pricelist rate to be deleted</td>
-</tr>
-<tr>
 <td><code>deletePricelistRate.pricelist_tag</code></td>
 <td><em>string</em></td>
 <td>The tag of the associated pricelist to be deleted</td>
@@ -1811,11 +1856,6 @@ Content-Type: application/json
 <td><code>deletePricelistRate.id</code></td>
 <td><em>objectid</em></td>
 <td>Identifier of the pricelist rate just deleted</td>
-</tr>
-<tr>
-<td><code>deletePricelistRate.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the deleted pricelist rate</td>
 </tr>
 <tr>
 <td><code>deletePricelistRate.pricelist_tag</code></td>
@@ -1878,7 +1918,6 @@ Content-Type: application/json
 <span class="s">{&quot;query&quot;: &quot;mutation {</span>
 <span class="s">  deletePricelistRate(id: &quot;a82d0e60-1f87-406f-b250-46ca972861c6&quot;) {</span>
 <span class="s">    id</span>
-<span class="s">    tenant</span>
 <span class="s">    pricelist_tag</span>
 <span class="s">    carrier_tag</span>
 <span class="s">    prefix</span>
@@ -1903,7 +1942,6 @@ Content-Type: application/json
   <span class="s2">&quot;data&quot;</span>: <span class="o">{</span>
     <span class="s2">&quot;deletePricelistRate&quot;</span>: <span class="o">{</span>
       <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;a82d0e60-1f87-406f-b250-46ca972861c6&quot;</span>,
-      <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
       <span class="s2">&quot;pricelist_tag&quot;</span>: <span class="s2">&quot;pricelist1&quot;</span>,
       <span class="s2">&quot;carrier_tag&quot;</span>: <span class="s2">&quot;carrier1&quot;</span>,
       <span class="s2">&quot;prefix&quot;</span>: <span class="s2">&quot;49&quot;</span>,

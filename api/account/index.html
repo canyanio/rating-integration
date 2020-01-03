@@ -637,6 +637,102 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/" title="Agent" class="md-nav__link">
+      Agent
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Agent Endpoints
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Agent Endpoints
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/authorization/" title="Authorization" class="md-nav__link">
+      Authorization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/begin_transaction/" title="Begin Transaction" class="md-nav__link">
+      Begin Transaction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/end_transaction/" title="End Transaction" class="md-nav__link">
+      End Transaction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/record_transaction/" title="Record Transaction" class="md-nav__link">
+      Record Transaction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/rollback_transaction/" title="Rollback Transaction" class="md-nav__link">
+      Rollback Transaction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1033,14 +1129,9 @@
 <td>Unique identifyer of the account</td>
 </tr>
 <tr>
-<td><code>allAccounts.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the account</td>
-</tr>
-<tr>
 <td><code>allAccounts.account_tag</code></td>
 <td><em>string</em></td>
-<td>Identifyer of the account in the specified tenant</td>
+<td>Identifyer of the account</td>
 </tr>
 <tr>
 <td><code>allAccounts.type</code></td>
@@ -1129,7 +1220,6 @@
 <span class="s">  allAccounts {</span>
 <span class="s">    id</span>
 <span class="s">    account_tag</span>
-<span class="s">    tenant</span>
 <span class="s">    name</span>
 <span class="s">    type</span>
 <span class="s">    balance</span>
@@ -1164,7 +1254,6 @@ Content-Type: application/json
       <span class="o">{</span>
         <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;ac8606db-89a7-45ae-9c63-808d6313e2b1&quot;</span>,
         <span class="s2">&quot;account_tag&quot;</span>: <span class="s2">&quot;100&quot;</span>,
-        <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
         <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;My first account&quot;</span>,
         <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;POSTPAID&quot;</span>,
         <span class="s2">&quot;balance&quot;</span>: <span class="m">1000</span>,
@@ -1182,7 +1271,6 @@ Content-Type: application/json
       <span class="o">{</span>
         <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;b76e706a-5e33-4d5e-baf8-822c90ee3db5&quot;</span>,
         <span class="s2">&quot;account_tag&quot;</span>: <span class="s2">&quot;101&quot;</span>,
-        <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
         <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;My second account&quot;</span>,
         <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;PREPAID&quot;</span>,
         <span class="s2">&quot;balance&quot;</span>: <span class="m">100</span>,
@@ -1228,11 +1316,6 @@ Content-Type: application/json
 <td><code>allAccounts.filter.ids</code></td>
 <td><em>array</em></td>
 <td>Array of unique ids to fetch</td>
-</tr>
-<tr>
-<td><code>allAccounts.filter.tenant</code></td>
-<td><em>string</em></td>
-<td>Filter account by tenant</td>
 </tr>
 <tr>
 <td><code>allAccounts.filter.account_tag</code></td>
@@ -1282,14 +1365,9 @@ Content-Type: application/json
 <td>Unique identifyer of the account</td>
 </tr>
 <tr>
-<td><code>allAccounts.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the account</td>
-</tr>
-<tr>
 <td><code>allAccounts.account_tag</code></td>
 <td><em>string</em></td>
-<td>Identifyer of the account in the specified tenant</td>
+<td>Identifyer of the account</td>
 </tr>
 <tr>
 <td><code>allAccounts.type</code></td>
@@ -1370,12 +1448,9 @@ Content-Type: application/json
   -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;{</span>
-<span class="s">  allAccounts(filter: {</span>
-<span class="s">    tenant:&quot;alex&quot;, active:true</span>
-<span class="s">  }) {</span>
+<span class="s">  allAccounts(filter: { active:true }) {</span>
 <span class="s">    id</span>
 <span class="s">    account_tag</span>
-<span class="s">    tenant</span>
 <span class="s">    name</span>
 <span class="s">    type</span>
 <span class="s">    balance</span>
@@ -1402,7 +1477,6 @@ Content-Type: application/json
       <span class="o">{</span>
         <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;ac8606db-89a7-45ae-9c63-808d6313e2b1&quot;</span>,
         <span class="s2">&quot;account_tag&quot;</span>: <span class="s2">&quot;100&quot;</span>,
-        <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
         <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;My first account&quot;</span>,
         <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;POSTPAID&quot;</span>,
         <span class="s2">&quot;balance&quot;</span>: <span class="m">1000</span>,
@@ -1442,14 +1516,9 @@ Content-Type: application/json
 <td>Unique identifyer of the account</td>
 </tr>
 <tr>
-<td><code>createAccount.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the account</td>
-</tr>
-<tr>
 <td><code>createAccount.account_tag</code></td>
 <td><em>string</em></td>
-<td>Identifyer of the account in the specified tenant</td>
+<td>Identifyer of the account</td>
 </tr>
 <tr>
 <td><code>createAccount.type</code></td>
@@ -1534,14 +1603,9 @@ Content-Type: application/json
 <td>Unique identifyer of the account</td>
 </tr>
 <tr>
-<td><code>createAccount.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the account</td>
-</tr>
-<tr>
 <td><code>createAccount.account_tag</code></td>
 <td><em>string</em></td>
-<td>Identifyer of the account in the specified tenant</td>
+<td>Identifyer of the account</td>
 </tr>
 <tr>
 <td><code>createAccount.type</code></td>
@@ -1624,7 +1688,6 @@ Content-Type: application/json
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;mutation {</span>
 <span class="s">  createAccount(</span>
-<span class="s">    tenant: &quot;alex&quot;,</span>
 <span class="s">    account_tag: &quot;100&quot;,</span>
 <span class="s">    type: POSTPAID,</span>
 <span class="s">    balance: 1000,</span>
@@ -1637,7 +1700,6 @@ Content-Type: application/json
 <span class="s">  ) {</span>
 <span class="s">    id</span>
 <span class="s">    account_tag</span>
-<span class="s">    tenant</span>
 <span class="s">    name</span>
 <span class="s">    type</span>
 <span class="s">    balance</span>
@@ -1669,7 +1731,6 @@ Content-Type: application/json
     <span class="s2">&quot;createAccount&quot;</span>: <span class="o">{</span>
       <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;ac8606db-89a7-45ae-9c63-808d6313e2b1&quot;</span>,
       <span class="s2">&quot;account_tag&quot;</span>: <span class="s2">&quot;100&quot;</span>,
-      <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
       <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;My first account&quot;</span>,
       <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;POSTPAID&quot;</span>,
       <span class="s2">&quot;balance&quot;</span>: <span class="m">1000</span>,
@@ -1709,14 +1770,9 @@ Content-Type: application/json
 <td>Unique identifyer of the account</td>
 </tr>
 <tr>
-<td><code>updateAccount.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the account</td>
-</tr>
-<tr>
 <td><code>updateAccount.account_tag</code></td>
 <td><em>string</em></td>
-<td>Identifyer of the account in the specified tenant</td>
+<td>Identifyer of the account</td>
 </tr>
 <tr>
 <td><code>updateAccount.type</code></td>
@@ -1801,14 +1857,9 @@ Content-Type: application/json
 <td>Unique identifyer of the account</td>
 </tr>
 <tr>
-<td><code>updateAccount.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the account</td>
-</tr>
-<tr>
 <td><code>updateAccount.account_tag</code></td>
 <td><em>string</em></td>
-<td>Identifyer of the account in the specified tenant</td>
+<td>Identifyer of the account</td>
 </tr>
 <tr>
 <td><code>updateAccount.type</code></td>
@@ -1890,7 +1941,6 @@ Content-Type: application/json
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;mutation {</span>
 <span class="s">  updateAccount(</span>
-<span class="s">    tenant: &quot;alex&quot;,</span>
 <span class="s">    account_tag: &quot;100&quot;,</span>
 <span class="s">    type: PREPAID,</span>
 <span class="s">    balance: 10,</span>
@@ -1903,7 +1953,6 @@ Content-Type: application/json
 <span class="s">  ) {</span>
 <span class="s">    id</span>
 <span class="s">    account_tag</span>
-<span class="s">    tenant</span>
 <span class="s">    name</span>
 <span class="s">    type</span>
 <span class="s">    balance</span>
@@ -1929,7 +1978,6 @@ Content-Type: application/json
     <span class="s2">&quot;updateAccount&quot;</span>: <span class="o">{</span>
       <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;ac8606db-89a7-45ae-9c63-808d6313e2b1&quot;</span>,
       <span class="s2">&quot;account_tag&quot;</span>: <span class="s2">&quot;100&quot;</span>,
-      <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
       <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;My updated account&quot;</span>,
       <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;PREPAID&quot;</span>,
       <span class="s2">&quot;balance&quot;</span>: <span class="m">10</span>,
@@ -1972,11 +2020,6 @@ Content-Type: application/json
 <td><em>string</em></td>
 <td>The tag of the account</td>
 </tr>
-<tr>
-<td><code>deleteAccount.tenant</code></td>
-<td><em>string</em></td>
-<td>tenant of the account</td>
-</tr>
 </tbody>
 </table>
 <h3 id="response_8">Response</h3>
@@ -1993,11 +2036,6 @@ Content-Type: application/json
 <td><code>deleteAccount.id</code></td>
 <td><em>objectid</em></td>
 <td>Unique identifyer of the account being deleted</td>
-</tr>
-<tr>
-<td><code>deleteAccount.tenant</code></td>
-<td><em>string</em></td>
-<td>The associated tenant of the account being deleted</td>
 </tr>
 <tr>
 <td><code>deleteAccount.account_tag</code></td>
@@ -2083,13 +2121,9 @@ Content-Type: application/json
   -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
 <span class="s">{&quot;query&quot;: &quot;mutation {</span>
-<span class="s">  deleteAccount(</span>
-<span class="s">    tenant: &quot;alex&quot;,</span>
-<span class="s">    account_tag: &quot;100&quot;</span>
-<span class="s">  ) {</span>
+<span class="s">  deleteAccount( account_tag: &quot;100&quot;) {</span>
 <span class="s">    id</span>
 <span class="s">    account_tag</span>
-<span class="s">    tenant</span>
 <span class="s">    name</span>
 <span class="s">    type</span>
 <span class="s">    balance</span>
@@ -2115,7 +2149,6 @@ Content-Type: application/json
     <span class="s2">&quot;deleteAccount&quot;</span>: <span class="o">{</span>
       <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;ac8606db-89a7-45ae-9c63-808d6313e2b1&quot;</span>,
       <span class="s2">&quot;account_tag&quot;</span>: <span class="s2">&quot;100&quot;</span>,
-      <span class="s2">&quot;tenant&quot;</span>: <span class="s2">&quot;alex&quot;</span>,
       <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;My updated account&quot;</span>,
       <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;PREPAID&quot;</span>,
       <span class="s2">&quot;balance&quot;</span>: <span class="m">10</span>,
@@ -2167,6 +2200,20 @@ Content-Type: application/json
             </div>
           </a>
         
+        
+          <a href="../../agent/" title="Agent" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Agent
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

@@ -2,32 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://canyanio.github.io/test/</loc>
-     <lastmod>2020-01-02</lastmod>
+     <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://canyanio.github.io/test/api/</loc>
-     <lastmod>2020-01-02</lastmod>
+     <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://canyanio.github.io/test/api/carrier/</loc>
-     <lastmod>2020-01-02</lastmod>
+     <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://canyanio.github.io/test/api/pricelist/</loc>
-     <lastmod>2020-01-02</lastmod>
+     <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://canyanio.github.io/test/api/rate/</loc>
-     <lastmod>2020-01-02</lastmod>
+     <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://canyanio.github.io/test/api/account/</loc>
-     <lastmod>2020-01-02</lastmod>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/agent/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/agent/authorization/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/agent/begin_transaction/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/agent/end_transaction/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/agent/record_transaction/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/agent/rollback_transaction/</loc>
+     <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
