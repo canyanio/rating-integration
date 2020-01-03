@@ -13,7 +13,7 @@ Canyan Rating is designed as a microservice architecture and comprises [several 
 ## License
 
 Canyan is licensed under the GNU General Public License version 3. See
-[LICENSE](LICENSE) for the full license text.
+[LICENSE](https://canyanio.github.io/rating-integration/license/) for the full license text.
 
 ## Security disclosure
 
