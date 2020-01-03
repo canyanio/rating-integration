@@ -17,6 +17,13 @@ nav:
         - Pricelist: api/pricelist.md
         - Rate: api/rate.md
         - Account: api/account.md
+    - Agent: agent.md
+    - Agent Endpoints:
+        - Authorization: agent/authorization.md
+        - Begin Transaction: agent/begin_transaction.md
+        - End Transaction: agent/end_transaction.md
+        - Record Transaction: agent/record_transaction.md
+        - Rollback Transaction: agent/rollback_transaction.md
 
 # Configuration
 theme:
