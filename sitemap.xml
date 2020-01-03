@@ -6,57 +6,82 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/api/</loc>
+     <loc>https://canyanio.github.io/test/whats-new/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/api/carrier/</loc>
+     <loc>https://canyanio.github.io/test/getting-started/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/api/pricelist/</loc>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/faq/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/api/rate/</loc>
+     <loc>https://canyanio.github.io/test/api/api/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/api/account/</loc>
+     <loc>https://canyanio.github.io/test/api/endpoints/carrier/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/agent/</loc>
+     <loc>https://canyanio.github.io/test/api/endpoints/pricelist/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/agent/authorization/</loc>
+     <loc>https://canyanio.github.io/test/api/endpoints/rate/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/agent/transaction-begin/</loc>
+     <loc>https://canyanio.github.io/test/api/endpoints/account/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/agent/transaction-end/</loc>
+     <loc>https://canyanio.github.io/test/agent/agent/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/agent/transaction-record/</loc>
+     <loc>https://canyanio.github.io/test/agent/endpoints/authorization/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://canyanio.github.io/test/agent/transaction-rollback/</loc>
+     <loc>https://canyanio.github.io/test/agent/endpoints/transaction-begin/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/agent/endpoints/transaction-end/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/agent/endpoints/transaction-record/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/agent/endpoints/transaction-rollback/</loc>
+     <lastmod>2020-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/test/engine/</loc>
      <lastmod>2020-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
