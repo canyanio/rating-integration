@@ -1,8 +1,8 @@
 # Project information
-site_name: Canyan Rating Documentation
-site_description: 'Documentation pages for Canyan Rating Project'
+site_name: Canyan Rating
+site_description: 'Data-Driven Intelligence for the communication and IoT industries'
 site_author: 'Canyan.io'
-site_url: 'https://canyanio.github.io/test/'
+site_url: 'https://canyanio.github.io/rating-integration/'
 
 # Repository
 # repo_name: 'canyanio/test'
@@ -14,7 +14,6 @@ nav:
     - What's New ?: whats-new.md
     - Getting started: getting-started.md
     - Running: running.md
-    - FAQ: faq.md
     - API:
         - Introduction: api/api.md
         - Endpoints:
@@ -31,6 +30,12 @@ nav:
             - Record Transaction: agent/endpoints/transaction-record.md
             - Rollback Transaction: agent/endpoints/transaction-rollback.md
     - Engine: engine.md
+    - Tutorials:
+        - Inserting Data: tutorials/inserting-data.md
+        - Authorizations: tutorials/authorizations.md
+        - Transactions: tutorials/transactions.md
+        - Kamailio Integration: tutorials/kamailio-integration.md
+    - FAQ: faq.md
     - License: license.md
     - Contributing: contributing.md
     - Code of conduct: code-of-conduct.md
@@ -72,3 +77,9 @@ google_analytics:
 
 markdown_extensions:
     - codehilite
+
+plugins:
+    - markdownmermaid
+
+extra_javascript:
+    - https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js
