@@ -3,7 +3,7 @@
 
 ## Prerequisites
 
-The test environment should be set up and running successfully as described in [Running Canyan Rating](running.md) section.
+The test environment should be set up and running successfully as described in [Running Canyan Rating](/running/) section.
 
 
 ## Creating a Carrier

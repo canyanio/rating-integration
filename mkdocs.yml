@@ -14,13 +14,6 @@ nav:
     - What's New ?: whats-new.md
     - Getting started: getting-started.md
     - Running: running.md
-    - API:
-        - Introduction: api/api.md
-        - Endpoints:
-            - Carrier: api/endpoints/carrier.md
-            - Pricelist: api/endpoints/pricelist.md
-            - Rate: api/endpoints/rate.md
-            - Account: api/endpoints/account.md
     - Agent:
         - Introduction: agent/agent.md
         - Endpoints:
@@ -29,6 +22,13 @@ nav:
             - End Transaction: agent/endpoints/transaction-end.md
             - Record Transaction: agent/endpoints/transaction-record.md
             - Rollback Transaction: agent/endpoints/transaction-rollback.md
+    - API:
+        - Introduction: api/api.md
+        - Endpoints:
+            - Carrier: api/endpoints/carrier.md
+            - Pricelist: api/endpoints/pricelist.md
+            - Rate: api/endpoints/rate.md
+            - Account: api/endpoints/account.md
     - Engine: engine.md
     - Tutorials:
         - Inserting Data: tutorials/inserting-data.md
