@@ -118,9 +118,37 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        Getting started
+      </label>
 <a class="md-nav__link md-nav__link--active" href="./" title="Getting started">
       Getting started
     </a>
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview">
+    Overview
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent">
+    Agent
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api">
+    API
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#engine">
+    Engine
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../running/" title="Running">
@@ -130,15 +158,15 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
 <label class="md-nav__link" for="nav-5">
-      API
+      Agent
     </label>
 <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
 <label class="md-nav__title" for="nav-5">
-        API
+        Agent
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../api/api/" title="Introduction">
+<a class="md-nav__link" href="../agent/agent/" title="Introduction">
       Introduction
     </a>
 </li>
@@ -149,57 +177,6 @@
     </label>
 <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
 <label class="md-nav__title" for="nav-5-2">
-        Endpoints
-      </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../api/endpoints/carrier/" title="Carrier">
-      Carrier
-    </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../api/endpoints/pricelist/" title="Pricelist">
-      Pricelist
-    </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../api/endpoints/rate/" title="Rate">
-      Rate
-    </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../api/endpoints/account/" title="Account">
-      Account
-    </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" id="nav-6" type="checkbox"/>
-<label class="md-nav__link" for="nav-6">
-      Agent
-    </label>
-<nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-<label class="md-nav__title" for="nav-6">
-        Agent
-      </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../agent/agent/" title="Introduction">
-      Introduction
-    </a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" id="nav-6-2" type="checkbox"/>
-<label class="md-nav__link" for="nav-6-2">
-      Endpoints
-    </label>
-<nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-<label class="md-nav__title" for="nav-6-2">
         Endpoints
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -226,6 +203,57 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../agent/endpoints/transaction-rollback/" title="Rollback Transaction">
       Rollback Transaction
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" id="nav-6" type="checkbox"/>
+<label class="md-nav__link" for="nav-6">
+      API
+    </label>
+<nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+<label class="md-nav__title" for="nav-6">
+        API
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/api/" title="Introduction">
+      Introduction
+    </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" id="nav-6-2" type="checkbox"/>
+<label class="md-nav__link" for="nav-6-2">
+      Endpoints
+    </label>
+<nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+<label class="md-nav__title" for="nav-6-2">
+        Endpoints
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/endpoints/carrier/" title="Carrier">
+      Carrier
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/endpoints/pricelist/" title="Pricelist">
+      Pricelist
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/endpoints/rate/" title="Rate">
+      Rate
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/endpoints/account/" title="Account">
+      Account
     </a>
 </li>
 </ul>
@@ -301,6 +329,29 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview">
+    Overview
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent">
+    Agent
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api">
+    API
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#engine">
+    Engine
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -308,21 +359,52 @@
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <h1 id="getting-started">Getting Started</h1>
-<p>Learn how to rate your services with Canyan Rating.</p>
-<div class="mermaid">
-graph TB
-    A[Hard edge] --&gt;|Link text| B(Round edge)
-    B --&gt; C{Decision}
-    C --&gt;|One| D[Result one]
-    C --&gt;|Two| E[Result two]
-</div>
+<h2 id="overview">Overview</h2>
+<p>Canyan Rating Engine is though from day one as a highly scalable, cloud-native, 
+real-time rating service. To be highly scalable, Canyan is composed as 
+microservice architecture with three loosely coupled main services created for
+lightweight container deployment:</p>
+<ul>
+<li>Agent</li>
+<li>API</li>
+<li>Engine</li>
+</ul>
+<p>The following schema describes the interaction between these components, 
+the message bus and the database.</p>
 <div class="mermaid">
 graph LR
-    A[Hard edge] --&gt;|Link text| B(Round edge)
-    B --&gt; C{Decision}
-    C --&gt;|One| D[Result one]
-    C --&gt;|Two| E[Result two]
+    C(Client) --&gt;|Internet| AGT(Agent REST API)
+    RMQ[RabbitMQ] --&gt; AGT
+    API(API) --&gt; RMQ
+    API --&gt; MDB[MongoDB]
+    W(Worker) --&gt; API
+    RMQ --&gt; W
+    W --&gt; RMQ
+    AGT --&gt; RMQ
+    AGT --&gt;|Internet| C
+    RMQ --&gt; API
 </div>
+<p>Now, let's go in deep with each component...</p>
+<h2 id="agent">Agent</h2>
+<p>The Agent is the Interpreter between the user communication/IoT service and 
+Canyan Rating Engine. It is a REST API service with simple endpoints to handle
+authorization requests and transaction recordings. It also supports callbacks
+for example for ending transactions in case an account has exhausted it's 
+balance.</p>
+<h2 id="api">API</h2>
+<p>The API component is the interface between the components and the database. 
+It is used by every component and it is interfaced with the message bus also.
+Obviously, it is also used for CRUD operations on the models being called 
+from the client's IS or UI.</p>
+<div class="mermaid">
+graph LR
+    C(Client) --&gt;|Internet| API
+    UI(UI) --&gt;|Internet| API
+    API --&gt; MDB[MongoDB]
+</div>
+<h2 id="engine">Engine</h2>
+<p>The Engine gets the tasks via message bus and uses the API to gather further
+information needed for the calculations. </p>
 </article>
 </div>
 </div>
