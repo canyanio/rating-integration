@@ -369,16 +369,181 @@
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <h1 id="inserting-demo-data-in-canyan-rating">Inserting Demo Data in Canyan Rating</h1>
+<p>This tutorial will help you insert some basic data in order to start making requests and try 
+Canyan Rating Engine with your system. </p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>The test environment should be set up and running successfully as described in <a href="/running/">Running Canyan Rating</a> section.</p>
+<p>The test environment should be set up and running successfully as described in 
+<a href="/running/">Running Canyan Rating</a> section.</p>
+<p>We will assume the API is running on <code>localhost:8000</code>.</p>
 <h2 id="creating-a-carrier">Creating a Carrier</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>Let's start with the termination of your calls defining a carrier parameters with this request:</p>
+<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --data @- <span class="s">&lt;&lt;EOF</span>
+<span class="s">{"query": "mutation {</span>
+<span class="s">  createCarrier(carrier_tag: \"carrier1\", host: \"localhost\", port: 5061, protocol: UDP, active: true) {</span>
+<span class="s">    carrier_tag</span>
+<span class="s">    host</span>
+<span class="s">    port</span>
+<span class="s">    protocol</span>
+<span class="s">    active</span>
+<span class="s">  }</span>
+<span class="s">}</span>
+<span class="s">"</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+<p>The requests is self explainatory: it defines a carrier named <code>carrier1</code> which is listening to the port <code>5061</code> of <code>localhost</code> via <code>UDP</code> protocol.
+You should recieve a response like this from the API:</p>
+<div class="codehilite"><pre><span></span>HTTP/1.1 <span class="m">200</span> OK
+Content-Type: application/json
+<span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">{</span>
+    <span class="s2">"createCarrier"</span>: <span class="o">{</span>
+      <span class="s2">"carrier_tag"</span>: <span class="s2">"carrier1"</span>,
+      <span class="s2">"host"</span>: <span class="s2">"localhost"</span>,
+      <span class="s2">"port"</span>: <span class="m">5061</span>,
+      <span class="s2">"protocol"</span>: <span class="s2">"UDP"</span>,
+      <span class="s2">"active"</span>: <span class="nb">true</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
 <h2 id="creating-a-price-list">Creating a Price List</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>We can now proceed creating a Price List witch we will associate rates in the next section of this tutorial:</p>
+<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --data @- <span class="s">&lt;&lt;EOF</span>
+<span class="s">{"query": "mutation {</span>
+<span class="s">  createPricelist(pricelist_tag: \"pricelist1\", name: \"First pricelist\", currency: EUR) {</span>
+<span class="s">    pricelist_tag</span>
+<span class="s">    name</span>
+<span class="s">    currency</span>
+<span class="s">  }</span>
+<span class="s">}</span>
+<span class="s">"</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+<p>Here again the request is very simple with a pricelist tag we will use to refer to this price list in the requests below and we will associate a name with this pricelist that can explain a little bit better this price list.
+The API will respond like this:</p>
+<div class="codehilite"><pre><span></span>HTTP/1.1 <span class="m">200</span> OK
+Content-Type: application/json
+<span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">{</span>
+    <span class="s2">"createPricelist"</span>: <span class="o">{</span>
+      <span class="s2">"pricelist_tag"</span>: <span class="s2">"pricelist1"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"First pricelist"</span>,
+      <span class="s2">"currency"</span>: <span class="s2">"EUR"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
 <h2 id="creating-a-rate">Creating a Rate</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>So let's create the first rate of the newly created pricelist above:</p>
+<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --data @- <span class="s">&lt;&lt;EOF</span>
+<span class="s">{"query": "mutation {</span>
+<span class="s">  createPricelistRate(</span>
+<span class="s">        pricelist_tag: \"pricelist1\",</span>
+<span class="s">        carrier_tag: \"carrier1\",</span>
+<span class="s">        prefix: \"39\",</span>
+<span class="s">        connect_fee: 0,</span>
+<span class="s">        rate: 20,</span>
+<span class="s">        rate_increment: 60,</span>
+<span class="s">        interval_start: 0,</span>
+<span class="s">        description: \"Italy\"</span>
+<span class="s">  ) {</span>
+<span class="s">    pricelist_tag</span>
+<span class="s">    carrier_tag</span>
+<span class="s">    prefix</span>
+<span class="s">    datetime_start</span>
+<span class="s">    datetime_end</span>
+<span class="s">    connect_fee</span>
+<span class="s">    rate</span>
+<span class="s">    rate_increment</span>
+<span class="s">    interval_start</span>
+<span class="s">    description</span>
+<span class="s">  }</span>
+<span class="s">}"</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+<p>As you can observe we associated this rate to the <code>pricelist1</code>. The call will be routed to <code>carrier1</code> we defined above for this destination. The matching prefix is <code>39</code>, the Italian country code.
+The pricelist is active right now and is valid indefinitely.
+There is no connect fee, the rate is set to 20 per minute and the rate is applied from second 0 of the call.</p>
+<p>The expected response is:</p>
+<div class="codehilite"><pre><span></span>HTTP/1.1 <span class="m">200</span> OK
+Content-Type: application/json
+<span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">{</span>
+    <span class="s2">"createPricelistRate"</span>: <span class="o">{</span>
+      <span class="s2">"pricelist_tag"</span>: <span class="s2">"pricelist1"</span>,
+      <span class="s2">"carrier_tag"</span>: <span class="s2">"carrier1"</span>,
+      <span class="s2">"prefix"</span>: <span class="s2">"39"</span>,
+      <span class="s2">"datetime_start"</span>: null,
+      <span class="s2">"datetime_end"</span>: null,
+      <span class="s2">"connect_fee"</span>: <span class="m">0</span>,
+      <span class="s2">"rate"</span>: <span class="m">20</span>,
+      <span class="s2">"rate_increment"</span>: <span class="m">60</span>,
+      <span class="s2">"interval_start"</span>: <span class="m">0</span>,
+      <span class="s2">"description"</span>: <span class="s2">"Italy"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
 <h2 id="creating-an-account">Creating an Account</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>Now let's create an account that can use our rating engine:</p>
+<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your-token-here&gt;"</span> <span class="se">\</span>
+  --data @- <span class="s">&lt;&lt;EOF</span>
+<span class="s">{"query": "mutation {</span>
+<span class="s">  createAccount(</span>
+<span class="s">    account_tag: \"100\",</span>
+<span class="s">    type: PREPAID,</span>
+<span class="s">    balance: 100,</span>
+<span class="s">    max_concurrent_transactions: 2,</span>
+<span class="s">    name: \"My first account\",</span>
+<span class="s">    active: true,</span>
+<span class="s">    pricelist_tags: [\"pricelist1\"]</span>
+<span class="s">  ) {</span>
+<span class="s">    account_tag</span>
+<span class="s">    name</span>
+<span class="s">    type</span>
+<span class="s">    balance</span>
+<span class="s">    max_concurrent_transactions</span>
+<span class="s">    pricelist_tags</span>
+<span class="s">  }</span>
+<span class="s">}"</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+<p>This will be a prepaid account which balance is set to 100, it can use 2 concurrent calls and the pricelist applied is <code>pricelist1</code>.</p>
+<p>The response should look like this:</p>
+<div class="codehilite"><pre><span></span>HTTP/1.1 <span class="m">200</span> OK
+Content-Type: application/json
+<span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">{</span>
+    <span class="s2">"createAccount"</span>: <span class="o">{</span>
+      <span class="s2">"account_tag"</span>: <span class="s2">"100"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"My first account"</span>,
+      <span class="s2">"type"</span>: <span class="s2">"POSTPAID"</span>,
+      <span class="s2">"balance"</span>: <span class="m">1000</span>,
+      <span class="s2">"max_concurrent_transactions"</span>: <span class="m">10</span>,
+      <span class="s2">"pricelist_tags"</span>: <span class="o">[</span>
+        <span class="s2">"pricelist1"</span>
+      <span class="o">]</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>Now we have a basic set of components that we can use in the next tutorials. </p>
 </article>
 </div>
 </div>

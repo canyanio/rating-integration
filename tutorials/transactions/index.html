@@ -274,6 +274,26 @@
     Prerequisites
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#begin-transaction">
+    Begin Transaction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#end-transaction">
+    End Transaction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#record-transaction">
+    Record Transaction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rollback-transaction">
+    Rollback Transaction
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -321,6 +341,26 @@
     Prerequisites
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#begin-transaction">
+    Begin Transaction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#end-transaction">
+    End Transaction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#record-transaction">
+    Record Transaction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rollback-transaction">
+    Rollback Transaction
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -334,6 +374,203 @@
 <p>The test environment should be set up and running successfully as described in <a href="/running.md">Running Canyan Rating</a> section.
 You should have a basic set of data populated in your Canyan Rating instance as described in the <a href="/tutorials/inserting-data/">Inserting Data Tutorial</a>.
 The following commands and requests relay on the same data inserted in the above tutorial. If you populated different data you should change the commands in this tutorial accordingly.</p>
+<p>It is assumed that the API is running on <code>localhost:8000</code> and the Agent on <code>localhost:8080</code>.</p>
+<h2 id="begin-transaction">Begin Transaction</h2>
+<p>Let's start opening a new transaction for a call towards Italy performed by the account <code>100</code>:</p>
+<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --data @- <span class="s">&lt;&lt;EOF</span>
+<span class="s">{"query": "mutation {</span>
+<span class="s">    beginTransaction(</span>
+<span class="s">        transaction_tag: "transaction1",</span>
+<span class="s">        account_tag: "100",</span>
+<span class="s">        source: "sip:10.0.0.1:5060",</span>
+<span class="s">        destination: "39040123123"</span>
+<span class="s">    ) {</span>
+<span class="s">        ok</span>
+<span class="s">    }</span>
+<span class="s">  }"</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+<p>The response should give us a confirmation like this:</p>
+<div class="codehilite"><pre><span></span>HTTP/1.1 <span class="m">200</span> OK
+Content-Type: application/json
+<span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">{</span>
+    <span class="s2">"beginTransaction"</span>: <span class="o">{</span> 
+      <span class="s2">"ok"</span>: True 
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>Now if we make a request toward the API asking for the account's <code>100</code> running transactions we should see our <code>transaction1</code> in the list:</p>
+<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --data @- <span class="s">&lt;&lt;EOF</span>
+<span class="s">{"query": "{</span>
+<span class="s">  allAccounts(filter: { account_tag:\"1000\" }) {</span>
+<span class="s">    account_tag</span>
+<span class="s">    name</span>
+<span class="s">    type</span>
+<span class="s">    balance</span>
+<span class="s">    pricelist_tags</span>
+<span class="s">    running_transactions {</span>
+<span class="s">      transaction_tag</span>
+<span class="s">      source</span>
+<span class="s">      destination</span>
+<span class="s">      carrier_ip</span>
+<span class="s">      destination_rate</span>
+<span class="s">      in_progress</span>
+<span class="s">      inbound</span>
+<span class="s">      timestamp_begin</span>
+<span class="s">      timestamp_end</span>
+<span class="s">    }</span>
+<span class="s">  }</span>
+<span class="s">}"</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+<p>Response:</p>
+<div class="codehilite"><pre><span></span>HTTP/1.1 <span class="m">200</span> OK
+Content-Type: application/json
+<span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">{</span>
+    <span class="s2">"allAccounts"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">"account_tag"</span>: <span class="s2">"100"</span>,
+        <span class="s2">"name"</span>: <span class="s2">"My first account"</span>,
+        <span class="s2">"type"</span>: <span class="s2">"PREPAID"</span>,
+        <span class="s2">"balance"</span>: <span class="m">100</span>,
+        <span class="s2">"pricelist_tags"</span>: <span class="o">[</span>
+          <span class="s2">"pricelist2"</span>
+        <span class="o">]</span>,
+        <span class="s2">"running_transactions"</span>: <span class="o">[</span>
+          <span class="o">{</span>
+            <span class="s2">"transaction_tag"</span>: <span class="s2">"transaction1"</span>,
+            <span class="s2">"source"</span>: <span class="s2">"sip:10.0.0.1:5060"</span>,
+            <span class="s2">"destination"</span>: <span class="s2">"39040123123"</span>,
+            <span class="s2">"carrier_ip"</span>: <span class="s2">"127.0.0.1"</span>,
+            <span class="s2">"destination_rate"</span>: <span class="m">20</span>,
+            <span class="s2">"in_progress"</span>: true,
+            <span class="s2">"inbound"</span>: false,
+            <span class="s2">"timestamp_begin"</span>: <span class="s2">""</span>,
+            <span class="s2">"timestamp_end"</span>: <span class="s2">""</span>
+          <span class="o">}</span>
+        <span class="o">]</span>
+      <span class="o">}</span>
+    <span class="o">]</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>The <code>transaction1</code> is there!</p>
+<h2 id="end-transaction">End Transaction</h2>
+<p>Using the <code>beginTransaction</code> method, once the user ended the call, we need to signal it to the Rating Engine.
+We use the <code>endTransaction</code> method like this:</p>
+<div class="codehilite"><pre><span></span>$ curl <span class="s2">"https://localhost:8080/graphql"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --data @- <span class="s">&lt;&lt;EOF</span>
+<span class="s">{"query": "mutation {</span>
+<span class="s">    endTransaction(</span>
+<span class="s">        transaction_tag: "transaction1",</span>
+<span class="s">        account_tag: "100"</span>
+<span class="s">    ) {</span>
+<span class="s">        ok</span>
+<span class="s">    }</span>
+<span class="s">  }"</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+<p>The response is confirming the end of the open transaction.</p>
+<div class="codehilite"><pre><span></span>HTTP/1.1 <span class="m">200</span> OK
+Content-Type: application/json
+<span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">{</span>
+    <span class="s2">"endTransaction"</span>: <span class="o">{</span> 
+      <span class="s2">"ok"</span>: True 
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>If we now redo the query on the account we can notice two different scenarios.</p>
+<p>If the transaction in not processed it will still be in the running transactions 
+with a timestamp end set and the <code>in_progress</code> field set to false and the balance 
+still intact. Every calculation of the current user balance takes in consideration 
+also the running transactions.</p>
+<div class="codehilite"><pre><span></span>HTTP/1.1 <span class="m">200</span> OK
+Content-Type: application/json
+<span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">{</span>
+    <span class="s2">"allAccounts"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">"account_tag"</span>: <span class="s2">"100"</span>,
+        <span class="s2">"name"</span>: <span class="s2">"My first account"</span>,
+        <span class="s2">"type"</span>: <span class="s2">"PREPAID"</span>,
+        <span class="s2">"balance"</span>: <span class="m">100</span>,
+        <span class="s2">"pricelist_tags"</span>: <span class="o">[</span>
+          <span class="s2">"pricelist2"</span>
+        <span class="o">]</span>,
+        <span class="s2">"running_transactions"</span>: <span class="o">[</span>
+          <span class="o">{</span>
+            <span class="s2">"transaction_tag"</span>: <span class="s2">"transaction1"</span>,
+            <span class="s2">"source"</span>: <span class="s2">"sip:10.0.0.1:5060"</span>,
+            <span class="s2">"destination"</span>: <span class="s2">"39040123123"</span>,
+            <span class="s2">"carrier_ip"</span>: <span class="s2">"127.0.0.1"</span>,
+            <span class="s2">"destination_rate"</span>: <span class="m">20</span>,
+            <span class="s2">"in_progress"</span>: true,
+            <span class="s2">"inbound"</span>: false,
+            <span class="s2">"timestamp_begin"</span>: <span class="s2">""</span>,
+            <span class="s2">"timestamp_end"</span>: <span class="s2">""</span>
+          <span class="o">}</span>
+        <span class="o">]</span>
+      <span class="o">}</span>
+    <span class="o">]</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>The second scenario is that the transaction has been processed, there is no more 
+a running transaction in the account info and the balance of the account has 
+been diminished.</p>
+<div class="codehilite"><pre><span></span>HTTP/1.1 <span class="m">200</span> OK
+Content-Type: application/json
+<span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">{</span>
+    <span class="s2">"allAccounts"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">"account_tag"</span>: <span class="s2">"100"</span>,
+        <span class="s2">"name"</span>: <span class="s2">"My first account"</span>,
+        <span class="s2">"type"</span>: <span class="s2">"PREPAID"</span>,
+        <span class="s2">"balance"</span>: <span class="m">80</span>,
+        <span class="s2">"pricelist_tags"</span>: <span class="o">[</span>
+          <span class="s2">"pricelist2"</span>
+        <span class="o">]</span>,
+        <span class="s2">"running_transactions"</span>: <span class="o">[]</span>
+      <span class="o">}</span>
+    <span class="o">]</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>In this case the transaction has been saved it is listed with the following requests to the API:</p>
+<div class="codehilite"><pre><span></span>$ curl <span class="s2">"https://localhost:8000/graphql"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --data @- <span class="s">&lt;&lt;EOF</span>
+<span class="s">{"query": "mutation {</span>
+<span class="s">    endTransaction(</span>
+<span class="s">        transaction_tag: "transaction1",</span>
+<span class="s">        account_tag: "100"</span>
+<span class="s">    ) {</span>
+<span class="s">        ok</span>
+<span class="s">    }</span>
+<span class="s">  }"</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+<h2 id="record-transaction">Record Transaction</h2>
+<h2 id="rollback-transaction">Rollback Transaction</h2>
 </article>
 </div>
 </div>

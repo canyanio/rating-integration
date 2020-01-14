@@ -269,6 +269,16 @@
     Prerequisites
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#request">
+    Request
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#response">
+    Response
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -321,6 +331,16 @@
     Prerequisites
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#request">
+    Request
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#response">
+    Response
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -334,6 +354,50 @@
 <p>The test environment should be set up and running successfully as described in <a href="/running.md">Running Canyan Rating</a> section.
 You should have a basic set of data populated in your Canyan Rating instance as described in the <a href="/tutorials/inserting-data/">Inserting Data Tutorial</a>.
 The following commands and requests relay on the same data inserted in the above tutorial. If you populated different data you should change the commands in this tutorial accordingly.</p>
+<p>It is assumed that the API is running on <code>localhost:8000</code> and the Agent on <code>localhost:8080</code>.</p>
+<h2 id="request">Request</h2>
+<p>We will now send a request to the Agent component asking for authorization regarding an outbound call performed by our account <code>100</code>.</p>
+<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --data @- <span class="s">&lt;&lt;EOF</span>
+<span class="s">{"query": "mutation {</span>
+<span class="s">    authorization(</span>
+<span class="s">        transaction_tag: "transaction1",</span>
+<span class="s">        account_tag: "100",</span>
+<span class="s">        source: "sip:10.0.0.1:5060",</span>
+<span class="s">        destination: "39040123123"</span>
+<span class="s">    ) {</span>
+<span class="s">        transaction_tag</span>
+<span class="s">        account_tag</span>
+<span class="s">        authorized</span>
+<span class="s">        max_available_units</span>
+<span class="s">        balance</span>
+<span class="s">        carriers</span>
+<span class="s">    }</span>
+<span class="s">  }"</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+<p>We will use an unique tag for the transaction, will specify the account performing the call and will also specify the source of the call and the destination the account is trying to reach out to.</p>
+<h2 id="response">Response</h2>
+<p>The response should be like this:</p>
+<div class="codehilite"><pre><span></span>HTTP/1.1 <span class="m">200</span> OK
+Content-Type: application/json
+<span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">{</span>
+    <span class="s2">"authorization"</span>: <span class="o">{</span> 
+      <span class="s2">"transaction_tag"</span>: <span class="s2">"transaction1"</span>,
+      <span class="s2">"account_tag"</span>: <span class="s2">"100"</span>,
+      <span class="s2">"authorized"</span>: True,
+      <span class="s2">"max_available_units"</span>: <span class="m">300</span>
+      <span class="s2">"balance"</span>: <span class="m">100</span>
+      <span class="s2">"carriers"</span>: <span class="s2">"localhost:5061"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>The Agent component is responding that for our transaction <code>transaction1</code> the account <code>100</code> calling an Italian prefix is allowed to proceed and that the max available units for that call are <code>300</code> seconds. The actual balance the account has is <code>100</code> and the carrier it is supposed to use is <code>carrier1</code> available on <code>localhost:5061</code>.</p>
 </article>
 </div>
 </div>

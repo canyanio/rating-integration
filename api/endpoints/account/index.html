@@ -822,7 +822,7 @@
 <td>Is the account active? Default to true</td>
 </tr>
 <tr>
-<td><code>allAccounts.max_pending_transactions</code></td>
+<td><code>allAccounts.max_concurrent_transactions</code></td>
 <td><em>int</em></td>
 <td>The maximum number of active calls the account can make and recieve (outbound and inbound)</td>
 </tr>
@@ -872,7 +872,7 @@
 <td>A list of tags for labeling accounts</td>
 </tr>
 <tr>
-<td><code>allAccounts.pending_transactions</code></td>
+<td><code>allAccounts.running_transactions</code></td>
 <td><em>AccountTransaction</em></td>
 <td>The list of current pending transactions for this account</td>
 </tr>
@@ -902,7 +902,7 @@
 <span class="s">      type</span>
 <span class="s">      balance</span>
 <span class="s">    }</span>
-<span class="s">    max_pending_transactions</span>
+<span class="s">    max_concurrent_transactions</span>
 <span class="s">    notification_email</span>
 <span class="s">    notification_mobile</span>
 <span class="s">    carrier_tags</span>
@@ -929,7 +929,7 @@ Content-Type: application/json
         <span class="s2">"type"</span>: <span class="s2">"POSTPAID"</span>,
         <span class="s2">"balance"</span>: <span class="m">1000</span>,
         <span class="s2">"linked_accounts"</span>: <span class="o">[]</span>,
-        <span class="s2">"max_pending_transactions"</span>: <span class="m">10</span>,
+        <span class="s2">"max_concurrent_transactions"</span>: <span class="m">10</span>,
         <span class="s2">"notification_email"</span>: <span class="s2">"alex@canyan.io"</span>,
         <span class="s2">"notification_mobile"</span>: <span class="s2">"00385911231234"</span>,
         <span class="s2">"carrier_tags"</span>: null,
@@ -946,7 +946,7 @@ Content-Type: application/json
         <span class="s2">"type"</span>: <span class="s2">"PREPAID"</span>,
         <span class="s2">"balance"</span>: <span class="m">100</span>,
         <span class="s2">"linked_accounts"</span>: <span class="o">[]</span>,
-        <span class="s2">"max_pending_transactions"</span>: <span class="m">2</span>,
+        <span class="s2">"max_concurrent_transactions"</span>: <span class="m">2</span>,
         <span class="s2">"notification_email"</span>: <span class="s2">"alex@canyan.io"</span>,
         <span class="s2">"notification_mobile"</span>: <span class="s2">"00385911231234"</span>,
         <span class="s2">"carrier_tags"</span>: null,
@@ -1007,7 +1007,7 @@ Content-Type: application/json
 <td>Filter by active account</td>
 </tr>
 <tr>
-<td><code>allAccounts.filter.with_pending_transactions</code></td>
+<td><code>allAccounts.filter.with_running_transactions</code></td>
 <td><em>boolean</em></td>
 <td>Account with pending transactions</td>
 </tr>
@@ -1054,7 +1054,7 @@ Content-Type: application/json
 <td>Is the account active? Default to true</td>
 </tr>
 <tr>
-<td><code>allAccounts.max_pending_transactions</code></td>
+<td><code>allAccounts.max_concurrent_transactions</code></td>
 <td><em>int</em></td>
 <td>The maximum number of active calls the account can make and recieve (outbound and inbound)</td>
 </tr>
@@ -1104,7 +1104,7 @@ Content-Type: application/json
 <td>A list of tags for labeling accounts</td>
 </tr>
 <tr>
-<td><code>allAccounts.pending_transactions</code></td>
+<td><code>allAccounts.running_transactions</code></td>
 <td><em>AccountTransaction</em></td>
 <td>The list of current pending transactions for this account</td>
 </tr>
@@ -1123,7 +1123,7 @@ Content-Type: application/json
 <span class="s">    name</span>
 <span class="s">    type</span>
 <span class="s">    balance</span>
-<span class="s">    max_pending_transactions</span>
+<span class="s">    max_concurrent_transactions</span>
 <span class="s">    notification_email</span>
 <span class="s">    notification_mobile</span>
 <span class="s">    carrier_tags</span>
@@ -1147,7 +1147,7 @@ Content-Type: application/json
         <span class="s2">"name"</span>: <span class="s2">"My first account"</span>,
         <span class="s2">"type"</span>: <span class="s2">"POSTPAID"</span>,
         <span class="s2">"balance"</span>: <span class="m">1000</span>,
-        <span class="s2">"max_pending_transactions"</span>: <span class="m">10</span>,
+        <span class="s2">"max_concurrent_transactions"</span>: <span class="m">10</span>,
         <span class="s2">"notification_email"</span>: <span class="s2">"alex@canyan.io"</span>,
         <span class="s2">"notification_mobile"</span>: <span class="s2">"00385911231234"</span>,
         <span class="s2">"carrier_tags"</span>: null,
@@ -1201,7 +1201,7 @@ Content-Type: application/json
 <td>Is the account active? Default to true</td>
 </tr>
 <tr>
-<td><code>createAccount.max_pending_transactions</code></td>
+<td><code>createAccount.max_concurrent_transactions</code></td>
 <td><em>int</em></td>
 <td>The maximum number of active calls the account can make and recieve (outbound and inbound)</td>
 </tr>
@@ -1288,7 +1288,7 @@ Content-Type: application/json
 <td>Is the account active? Default to true</td>
 </tr>
 <tr>
-<td><code>createAccount.max_pending_transactions</code></td>
+<td><code>createAccount.max_concurrent_transactions</code></td>
 <td><em>int</em></td>
 <td>The maximum number of active calls the account can make and recieve (outbound and inbound)</td>
 </tr>
@@ -1338,7 +1338,7 @@ Content-Type: application/json
 <td>A list of tags for labeling accounts</td>
 </tr>
 <tr>
-<td><code>createAccount.pending_transactions</code></td>
+<td><code>createAccount.running_transactions</code></td>
 <td><em>AccountTransaction</em></td>
 <td>The list of current pending transactions for this account</td>
 </tr>
@@ -1356,7 +1356,7 @@ Content-Type: application/json
 <span class="s">    account_tag: "100",</span>
 <span class="s">    type: POSTPAID,</span>
 <span class="s">    balance: 1000,</span>
-<span class="s">    max_pending_transactions: 10,</span>
+<span class="s">    max_concurrent_transactions: 10,</span>
 <span class="s">    name: "My first account",</span>
 <span class="s">    notification_mobile: "00385911231234",</span>
 <span class="s">        notification_email: "alex@canyan.io",</span>
@@ -1374,7 +1374,7 @@ Content-Type: application/json
 <span class="s">      type</span>
 <span class="s">      balance</span>
 <span class="s">        }</span>
-<span class="s">    max_pending_transactions</span>
+<span class="s">    max_concurrent_transactions</span>
 <span class="s">    notification_email</span>
 <span class="s">    notification_mobile</span>
 <span class="s">    carrier_tags</span>
@@ -1398,7 +1398,7 @@ Content-Type: application/json
       <span class="s2">"type"</span>: <span class="s2">"POSTPAID"</span>,
       <span class="s2">"balance"</span>: <span class="m">1000</span>,
       <span class="s2">"linked_accounts"</span>: <span class="o">[]</span>,
-      <span class="s2">"max_pending_transactions"</span>: <span class="m">10</span>,
+      <span class="s2">"max_concurrent_transactions"</span>: <span class="m">10</span>,
       <span class="s2">"notification_email"</span>: <span class="s2">"alex@canyan.io"</span>,
       <span class="s2">"notification_mobile"</span>: <span class="s2">"00385911231234"</span>,
       <span class="s2">"carrier_tags"</span>: null,
@@ -1451,7 +1451,7 @@ Content-Type: application/json
 <td>Is the account active? Default to true</td>
 </tr>
 <tr>
-<td><code>updateAccount.max_pending_transactions</code></td>
+<td><code>updateAccount.max_concurrent_transactions</code></td>
 <td><em>int</em></td>
 <td>The maximum number of active calls the account can make and recieve (outbound and inbound)</td>
 </tr>
@@ -1538,7 +1538,7 @@ Content-Type: application/json
 <td>Is the account active? Default to true</td>
 </tr>
 <tr>
-<td><code>updateAccount.max_pending_transactions</code></td>
+<td><code>updateAccount.max_concurrent_transactions</code></td>
 <td><em>int</em></td>
 <td>The maximum number of active calls the account can make and recieve (outbound and inbound)</td>
 </tr>
@@ -1588,7 +1588,7 @@ Content-Type: application/json
 <td>A list of tags for labeling accounts</td>
 </tr>
 <tr>
-<td><code>updateAccount.pending_transactions</code></td>
+<td><code>updateAccount.running_transactions</code></td>
 <td><em>AccountTransaction</em></td>
 <td>The list of current pending transactions for this account</td>
 </tr>
@@ -1605,7 +1605,7 @@ Content-Type: application/json
 <span class="s">    account_tag: "100",</span>
 <span class="s">    type: PREPAID,</span>
 <span class="s">    balance: 10,</span>
-<span class="s">    max_pending_transactions: 2,</span>
+<span class="s">    max_concurrent_transactions: 2,</span>
 <span class="s">    name: "My updated account",</span>
 <span class="s">    notification_mobile: "00385911231234",</span>
 <span class="s">        notification_email: "alex@canyan.io",</span>
@@ -1617,7 +1617,7 @@ Content-Type: application/json
 <span class="s">    name</span>
 <span class="s">    type</span>
 <span class="s">    balance</span>
-<span class="s">    max_pending_transactions</span>
+<span class="s">    max_concurrent_transactions</span>
 <span class="s">    notification_email</span>
 <span class="s">    notification_mobile</span>
 <span class="s">    carrier_tags</span>
@@ -1640,7 +1640,7 @@ Content-Type: application/json
       <span class="s2">"name"</span>: <span class="s2">"My updated account"</span>,
       <span class="s2">"type"</span>: <span class="s2">"PREPAID"</span>,
       <span class="s2">"balance"</span>: <span class="m">10</span>,
-      <span class="s2">"max_pending_transactions"</span>: <span class="m">2</span>,
+      <span class="s2">"max_concurrent_transactions"</span>: <span class="m">2</span>,
       <span class="s2">"notification_email"</span>: <span class="s2">"alex@canyan.io"</span>,
       <span class="s2">"notification_mobile"</span>: <span class="s2">"00385911231234"</span>,
       <span class="s2">"carrier_tags"</span>: null,
@@ -1715,7 +1715,7 @@ Content-Type: application/json
 <td>Was the account active? Default to true</td>
 </tr>
 <tr>
-<td><code>deleteAccount.max_pending_transactions</code></td>
+<td><code>deleteAccount.max_concurrent_transactions</code></td>
 <td><em>int</em></td>
 <td>The maximum number of active calls the account was able to make and recieve (outbound and inbound)</td>
 </tr>
@@ -1765,7 +1765,7 @@ Content-Type: application/json
 <td>A list of tags for labeling accounts</td>
 </tr>
 <tr>
-<td><code>deleteAccount.pending_transactions</code></td>
+<td><code>deleteAccount.running_transactions</code></td>
 <td><em>AccountTransaction</em></td>
 <td>The list of current pending transactions for the account being deleted</td>
 </tr>
@@ -1784,7 +1784,7 @@ Content-Type: application/json
 <span class="s">    name</span>
 <span class="s">    type</span>
 <span class="s">    balance</span>
-<span class="s">    max_pending_transactions</span>
+<span class="s">    max_concurrent_transactions</span>
 <span class="s">    notification_email</span>
 <span class="s">    notification_mobile</span>
 <span class="s">    carrier_tags</span>
@@ -1807,7 +1807,7 @@ Content-Type: application/json
       <span class="s2">"name"</span>: <span class="s2">"My updated account"</span>,
       <span class="s2">"type"</span>: <span class="s2">"PREPAID"</span>,
       <span class="s2">"balance"</span>: <span class="m">10</span>,
-      <span class="s2">"max_pending_transactions"</span>: <span class="m">2</span>,
+      <span class="s2">"max_concurrent_transactions"</span>: <span class="m">2</span>,
       <span class="s2">"notification_email"</span>: <span class="s2">"alex@canyan.io"</span>,
       <span class="s2">"notification_mobile"</span>: <span class="s2">"00385911231234"</span>,
       <span class="s2">"carrier_tags"</span>: null,
