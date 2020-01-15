@@ -8,7 +8,7 @@ setup:
           upsertAccount(
             name: "Fabio",
             account_tag: "1000",
-            type:PREPAID,
+            type: PREPAID,
             balance: 1000000,
             active: true,
             max_concurrent_transactions: 100
@@ -45,7 +45,7 @@ setup:
         }
 
 workers:
-  - scenario: "test_kamailio.xml"
+  - scenario: "test_kamailio_authorized.xml"
     number: 1
     repeat: 2
     timeout: 600
