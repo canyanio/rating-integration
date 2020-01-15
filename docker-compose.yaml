@@ -1,29 +1,68 @@
 version: '2'
 services:
-    mongodb:
-        image: 'bitnami/mongodb:4.0'
-        ports:
-        - "27017:27017"
-        volumes:
-        - ./data/mongodb:/opt/mongodb
-    rabbitmq:
-        image: 'bitnami/rabbitmq:3.7'
-        ports:
-        - "5672:5672"
-        - "15672:15672"
-        environment:
-        - RABBITMQ_PASSWORD=password
-        volumes:
-        - ./data/rabbitmq:/bitnami/rabbitmq
-    api:
-        image: 'canyan/rating-api:master'
-        ports:
-        - "8000:8000"
-    agent:
-        image: 'canyan/rating-agent:master'
-        environment:
-        - MESSAGEBUS_URI=pyamqp://user:password@rabbitmq:5672//
-        ports:
-        - "8080:8000"
-    engine:
-        image: 'canyan/rating-engine:master'
+
+  #
+  # mongodb
+  #
+  mongodb:
+    image: 'bitnami/mongodb:4.0'
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongodb:/opt/mongodb
+
+  #
+  # rabbitmq
+  #
+  rabbitmq:
+    image: 'bitnami/rabbitmq:3.7'
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_PASSWORD=password
+    volumes:
+      - ./data/rabbitmq:/bitnami/rabbitmq
+
+  #
+  # rating-api
+  #
+  rating-api:
+    image: 'canyan/rating-api:master'
+    environment:
+      - RATING_API_HOST=0.0.0.0
+      - RATING_API_PORT=8000
+      - RATING_API_MONGODB_URI=mongodb://mongodb:27017
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+
+  #
+  # rating-agent
+  #
+  rating-agent:
+    image: 'canyan/rating-agent:master'
+    environment:
+      - RATING_AGENT_HOST=0.0.0.0
+      - RATING_AGENT_PORT=8000
+      - RATING_AGENT_API_URL=http://rating-api:8000/graphql
+      - RATING_AGENT_MESSAGEBUS_URI=pyamqp://user:password@rabbitmq:5672//
+    ports:
+      - "8080:8000"
+    depends_on:
+      - rating-api
+      - rabbitmq
+
+  #
+  # rating-agent
+  #
+  rating-engine:
+    image: 'canyan/rating-engine:master'
+    environment:
+      - RATING_ENGINE_API_URL=http://rating-api:8000/graphql
+      - RATING_ENGINE_MESSAGEBUS_URI=pyamqp://user:password@rabbitmq:5672//
+      - RATING_ENGINE_DEBUG=1
+    depends_on:
+      - rating-api
+      - rabbitmq
