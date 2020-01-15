@@ -363,7 +363,7 @@ The following commands and requests relay on the same data inserted in the above
 <h2 id="request">Request</h2>
 <p>We will now send a request to the Agent component asking for authorization regarding an outbound 
 call performed by our account <code>100</code>.</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>

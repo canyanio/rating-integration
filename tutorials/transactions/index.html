@@ -390,7 +390,7 @@ on <code>localhost:8080</code>.</p>
 <h2 id="begin-transaction">Begin Transaction</h2>
 <p>Let's start opening a new transaction for a call towards Italy performed 
 by the account <code>100</code>:</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
@@ -420,7 +420,7 @@ Content-Type: application/json
 </pre></div>
 <p>Now if we request the API for the account's <code>100</code> running transactions we 
 should see our <code>transaction1</code> in the list:</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
@@ -483,7 +483,7 @@ Content-Type: application/json
 <p>Using the <code>beginTransaction</code> method, once the user ended the call, we need to 
 signal it to the Rating Engine.
 We use the <code>endTransaction</code> method like this:</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
@@ -570,7 +570,7 @@ Content-Type: application/json
 </pre></div>
 <p>In this case, the transaction has been saved and it is listed with the following 
 requests to the API:</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
@@ -610,7 +610,7 @@ requests to the API:</p>
 <h2 id="record-transaction">Record Transaction</h2>
 <p>If you need to write the transaction directly and avoid making the two requests 
 <code>startTransaction</code> and <code>endTransaction</code> you can use the request <code>recordTransaction</code>:</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
@@ -642,7 +642,7 @@ Content-Type: application/json
 <span class="o">}</span>
 </pre></div>
 <p>The transaction is now visible with the request:</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
@@ -714,7 +714,7 @@ Content-Type: application/json
 </pre></div>
 <h2 id="rollback-transaction">Rollback Transaction</h2>
 <p>This method allows the rollback of a particular transaction.</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
@@ -741,7 +741,7 @@ Content-Type: application/json
 <span class="o">}</span>
 </pre></div>
 <p>And if we recheck the transaction via our usual request to the API:</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>

@@ -382,7 +382,7 @@ Canyan Rating Engine with your system. </p>
 <p>We will assume the API is running on <code>localhost:8000</code>.</p>
 <h2 id="creating-a-carrier">Creating a Carrier</h2>
 <p>Let's start with the termination of your calls defining a carrier parameters with this request:</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
@@ -417,7 +417,7 @@ Content-Type: application/json
 </pre></div>
 <h2 id="creating-a-price-list">Creating a Price List</h2>
 <p>We can now proceed creating a Price List witch we will associate rates in the next section of this tutorial:</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
@@ -448,7 +448,7 @@ Content-Type: application/json
 </pre></div>
 <h2 id="creating-a-rate">Creating a Rate</h2>
 <p>So let's create the first rate of the newly created pricelist above:</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --data @- <span class="s">&lt;&lt;EOF</span>
@@ -503,7 +503,7 @@ Content-Type: application/json
 </pre></div>
 <h2 id="creating-an-account">Creating an Account</h2>
 <p>Now let's create an account that can use our rating engine:</p>
-<div class="codehilite"><pre><span></span>$ curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
+<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8000/graphql"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer &lt;your-token-here&gt;"</span> <span class="se">\</span>
