@@ -18,7 +18,7 @@ We will now send a request to the Agent component asking for authorization regar
 call performed by our account `100`.
 
 ```bash
-$ curl "http://localhost:8080/graphql" \
+curl "http://localhost:8080/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF

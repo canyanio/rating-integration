@@ -24,7 +24,7 @@ on `localhost:8080`.
 Let's start opening a new transaction for a call towards Italy performed 
 by the account `100`:
 ```bash
-$ curl "http://localhost:8080/graphql" \
+curl "http://localhost:8080/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -59,7 +59,7 @@ Now if we request the API for the account's `100` running transactions we
 should see our `transaction1` in the list:
 
 ```bash
-$ curl "http://localhost:8000/graphql" \
+curl "http://localhost:8000/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -129,7 +129,7 @@ signal it to the Rating Engine.
 We use the `endTransaction` method like this:
 
 ```bash
-$ curl "http://localhost:8080/graphql" \
+curl "http://localhost:8080/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -227,7 +227,7 @@ In this case, the transaction has been saved and it is listed with the following
 requests to the API:
 
 ```bash
-$ curl "http://localhost:8000/graphql" \
+curl "http://localhost:8000/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -272,7 +272,7 @@ If you need to write the transaction directly and avoid making the two requests
 `startTransaction` and `endTransaction` you can use the request `recordTransaction`:
 
 ```bash
-$ curl "http://localhost:8080/graphql" \
+curl "http://localhost:8080/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -308,7 +308,7 @@ Content-Type: application/json
 
 The transaction is now visible with the request:
 ```bash
-$ curl "http://localhost:8000/graphql" \
+curl "http://localhost:8000/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -386,7 +386,7 @@ Content-Type: application/json
 This method allows the rollback of a particular transaction.
 
 ```bash
-$ curl "http://localhost:8080/graphql" \
+curl "http://localhost:8080/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -417,7 +417,7 @@ Content-Type: application/json
 
 And if we recheck the transaction via our usual request to the API:
 ```bash
-$ curl "http://localhost:8000/graphql" \
+curl "http://localhost:8000/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF

@@ -26,7 +26,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ## Example
 ### Request
 ```bash
-$ curl "https://agent.canyan.io/graphql" \
+curl "https://agent.canyan.io/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF

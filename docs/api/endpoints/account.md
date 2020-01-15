@@ -39,7 +39,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ### Example
 #### Request
 ```bash
-$ curl "https://api.canyan.io/graphql" \
+curl "https://api.canyan.io/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -160,7 +160,7 @@ Content-Type: application/json
 ### Example
 #### Request
 ```bash
-$ curl "https://api.canyan.io/graphql" \
+curl "https://api.canyan.io/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -261,7 +261,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ### Example
 #### Request
 ```bash
-$ curl "https://api.canyan.io/graphql" \
+curl "https://api.canyan.io/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <your-token-here>" \
@@ -378,7 +378,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ### Example
 #### Request
 ```bash
-$ curl "https://api.canyan.io/graphql" \
+curl "https://api.canyan.io/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -473,7 +473,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ### Example
 #### Request
 ```bash
-$ curl "https://api.canyan.io/graphql" \
+curl "https://api.canyan.io/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF

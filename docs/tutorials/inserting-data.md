@@ -14,7 +14,7 @@ We will assume the API is running on `localhost:8000`.
 
 Let's start with the termination of your calls defining a carrier parameters with this request:
 ```bash
-$ curl "http://localhost:8000/graphql" \
+curl "http://localhost:8000/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -54,7 +54,7 @@ Content-Type: application/json
 We can now proceed creating a Price List witch we will associate rates in the next section of this tutorial:
 
 ```bash
-$ curl "http://localhost:8000/graphql" \
+curl "http://localhost:8000/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -89,7 +89,7 @@ Content-Type: application/json
 
 So let's create the first rate of the newly created pricelist above:
 ```bash
-$ curl "http://localhost:8000/graphql" \
+curl "http://localhost:8000/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   --data @- <<EOF
@@ -150,7 +150,7 @@ Content-Type: application/json
 Now let's create an account that can use our rating engine:
 
 ```bash
-$ curl "http://localhost:8000/graphql" \
+curl "http://localhost:8000/graphql" \
   -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <your-token-here>" \
