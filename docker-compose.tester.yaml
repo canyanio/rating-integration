@@ -1,0 +1,14 @@
+version: '2'
+services:
+
+  #
+  # tester container, using wazo-tester
+  #
+  tester:
+    image: 'wazopbx/wazo-tester:latest'
+    environment:
+      API_ENDPOINT: http://rating-api:8000
+      TARGET: kamailio:5060
+    volumes:
+      - "./tests/:/tests/"
+    command: sh -c "while true; do sleep 5; done;"

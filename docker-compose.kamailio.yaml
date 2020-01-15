@@ -1,0 +1,12 @@
+version: '2'
+services:
+
+  #
+  # kamailio
+  #
+  kamailio:
+    image: 'kamailio/kamailio:5.3.1-jessie'
+    ports:
+      - "5060:5060/udp"
+    volumes:
+      - ./conf/kamailio:/etc/kamailio

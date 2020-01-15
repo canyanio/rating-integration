@@ -1,3 +1,5 @@
+docker_compose_files = -f docker-compose.yaml -f docker-compose.carrier.yaml -f docker-compose.kamailio.yaml -f docker-compose.tester.yaml
+
 .PHONY: venv
 venv:
 	virtualenv -p python3 venv --no-site-packages
@@ -15,10 +17,14 @@ docs:
 deploy:
 	mkdocs gh-deploy
 
-.PHONY: run
-run:
-	docker-compose up -d
+.PHONY: start
+start:
+	docker-compose $(docker_compose_files) up -d
+
+.PHONY: test
+test:
+	docker exec rating-integration_tester_1 pytest /tests/
 
 .PHONY: stop
 stop:
-	docker-compose down
+	docker-compose $(docker_compose_files) down
