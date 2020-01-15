@@ -145,8 +145,8 @@ $ curl "https://api.canyan.io/graphql" \
   -H "Content-Type: application/json" \
   --data @- <<EOF
 {"query": "  Transaction(
-  transaction_tag: \"\", 
-  account_tag: \"\"
+  transaction_tag: \"transaction_1\", 
+  account_tag: \"100\"
 ) {
     id
     transaction_tag
