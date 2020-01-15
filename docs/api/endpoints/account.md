@@ -23,7 +23,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |`allAccounts.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`allAccounts.balance` | *BigInt* | The balance of the account |
 |`allAccounts.active` | *boolean*	| Is the account active? Default to true |
-|`allAccounts.max_pending_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
+|`allAccounts.max_concurrent_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
 |`allAccounts.name` | *string*	| Descriptive name of the account |
 |`allAccounts.notification_email` | *string*	| The email the alerts should be sent to |
 |`allAccounts.notification_mobile` | *string*	| The mobile phone an SMS alert should be sent to |
@@ -33,7 +33,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |`allAccounts.linked_accounts` | *array*	| A list of parent accounts |
 |`allAccounts.pricelist_tags` | *array*	| A list of pricelists to apply to this account traffic |
 |`allAccounts.tags` | *array*	| A list of tags for labeling accounts |
-|`allAccounts.pending_transactions` | *AccountTransaction*	| The list of current pending transactions for this account |  
+|`allAccounts.running_transactions` | *AccountTransaction*	| The list of current pending transactions for this account |  
 |`meta.count` | *int*	| Results count |
 
 ### Example
@@ -56,7 +56,7 @@ $ curl "https://api.canyan.io/graphql" \
       type
       balance
     }
-    max_pending_transactions
+    max_concurrent_transactions
     notification_email
     notification_mobile
     carrier_tags
@@ -85,7 +85,7 @@ Content-Type: application/json
         "type": "POSTPAID",
         "balance": 1000,
         "linked_accounts": [],
-        "max_pending_transactions": 10,
+        "max_concurrent_transactions": 10,
         "notification_email": "alex@canyan.io",
         "notification_mobile": "00385911231234",
         "carrier_tags": null,
@@ -102,7 +102,7 @@ Content-Type: application/json
         "type": "PREPAID",
         "balance": 100,
         "linked_accounts": [],
-        "max_pending_transactions": 2,
+        "max_concurrent_transactions": 2,
         "notification_email": "alex@canyan.io",
         "notification_mobile": "00385911231234",
         "carrier_tags": null,
@@ -134,7 +134,7 @@ Content-Type: application/json
 |`allAccounts.filter.customer_tag` | *string*	| Filter accounts by specific customer tag |
 |`allAccounts.filter.type` | *AccountType* | Get specific type of account (PREPAID / POSTPAID) |
 |`allAccounts.filter.active` | *boolean*	| Filter by active account |
-|`allAccounts.filter.with_pending_transactions` | *boolean*	| Account with pending transactions |
+|`allAccounts.filter.with_running_transactions` | *boolean*	| Account with pending transactions |
 |`allAccounts.filter.with_long_running_transactions` | *boolean*	| Account with long running transactions |
 
 ### Response
@@ -145,7 +145,7 @@ Content-Type: application/json
 |`allAccounts.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`allAccounts.balance` | *BigInt* | The balance of the account |
 |`allAccounts.active` | *boolean*	| Is the account active? Default to true |
-|`allAccounts.max_pending_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
+|`allAccounts.max_concurrent_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
 |`allAccounts.name` | *string*	| Descriptive name of the account |
 |`allAccounts.notification_email` | *string*	| The email the alerts should be sent to |
 |`allAccounts.notification_mobile` | *string*	| The mobile phone an SMS alert should be sent to |
@@ -155,7 +155,7 @@ Content-Type: application/json
 |`allAccounts.linked_accounts` | *array*	| A list of parent accounts |
 |`allAccounts.pricelist_tags` | *array*	| A list of pricelists to apply to this account traffic |
 |`allAccounts.tags` | *array*	| A list of tags for labeling accounts |
-|`allAccounts.pending_transactions` | *AccountTransaction*	| The list of current pending transactions for this account |  
+|`allAccounts.running_transactions` | *AccountTransaction*	| The list of current pending transactions for this account |  
 
 ### Example
 #### Request
@@ -171,7 +171,7 @@ $ curl "https://api.canyan.io/graphql" \
     name
     type
     balance
-    max_pending_transactions
+    max_concurrent_transactions
     notification_email
     notification_mobile
     carrier_tags
@@ -197,7 +197,7 @@ Content-Type: application/json
         "name": "My first account",
         "type": "POSTPAID",
         "balance": 1000,
-        "max_pending_transactions": 10,
+        "max_concurrent_transactions": 10,
         "notification_email": "alex@canyan.io",
         "notification_mobile": "00385911231234",
         "carrier_tags": null,
@@ -227,7 +227,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |`createAccount.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`createAccount.balance` | *BigInt* | The balance of the account |
 |`createAccount.active` | *boolean*	| Is the account active? Default to true |
-|`createAccount.max_pending_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
+|`createAccount.max_concurrent_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
 |`createAccount.name` | *string*	| Descriptive name of the account |
 |`createAccount.notification_email` | *string*	| The email the alerts should be sent to |
 |`createAccount.notification_mobile` | *string*	| The mobile phone an SMS alert should be sent to |
@@ -246,7 +246,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |`createAccount.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`createAccount.balance` | *BigInt* | The balance of the account |
 |`createAccount.active` | *boolean*	| Is the account active? Default to true |
-|`createAccount.max_pending_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
+|`createAccount.max_concurrent_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
 |`createAccount.name` | *string*	| Descriptive name of the account |
 |`createAccount.notification_email` | *string*	| The email the alerts should be sent to |
 |`createAccount.notification_mobile` | *string*	| The mobile phone an SMS alert should be sent to |
@@ -256,7 +256,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |`createAccount.linked_accounts` | *array*	| A list of parent accounts |
 |`createAccount.pricelist_tags` | *array*	| A list of pricelists to apply to this account traffic |
 |`createAccount.tags` | *array*	| A list of tags for labeling accounts |
-|`createAccount.pending_transactions` | *AccountTransaction*	| The list of current pending transactions for this account |  
+|`createAccount.running_transactions` | *AccountTransaction*	| The list of current pending transactions for this account |  
 
 ### Example
 #### Request
@@ -271,7 +271,7 @@ $ curl "https://api.canyan.io/graphql" \
     account_tag: "100",
     type: POSTPAID,
     balance: 1000,
-    max_pending_transactions: 10,
+    max_concurrent_transactions: 10,
     name: "My first account",
     notification_mobile: "00385911231234",
 		notification_email: "alex@canyan.io",
@@ -289,7 +289,7 @@ $ curl "https://api.canyan.io/graphql" \
       type
       balance
 		}
-    max_pending_transactions
+    max_concurrent_transactions
     notification_email
     notification_mobile
     carrier_tags
@@ -315,7 +315,7 @@ Content-Type: application/json
       "type": "POSTPAID",
       "balance": 1000,
       "linked_accounts": [],
-      "max_pending_transactions": 10,
+      "max_concurrent_transactions": 10,
       "notification_email": "alex@canyan.io",
       "notification_mobile": "00385911231234",
       "carrier_tags": null,
@@ -344,7 +344,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |`updateAccount.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`updateAccount.balance` | *BigInt* | The balance of the account |
 |`updateAccount.active` | *boolean*	| Is the account active? Default to true |
-|`updateAccount.max_pending_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
+|`updateAccount.max_concurrent_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
 |`updateAccount.name` | *string*	| Descriptive name of the account |
 |`updateAccount.notification_email` | *string*	| The email the alerts should be sent to |
 |`updateAccount.notification_mobile` | *string*	| The mobile phone an SMS alert should be sent to |
@@ -363,7 +363,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |`updateAccount.type` | *AccountType* | The type of the account (PREPAID / POSTPAID) |
 |`updateAccount.balance` | *BigInt* | The balance of the account |
 |`updateAccount.active` | *boolean*	| Is the account active? Default to true |
-|`updateAccount.max_pending_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
+|`updateAccount.max_concurrent_transactions` | *int*	| The maximum number of active calls the account can make and recieve (outbound and inbound) |
 |`updateAccount.name` | *string*	| Descriptive name of the account |
 |`updateAccount.notification_email` | *string*	| The email the alerts should be sent to |
 |`updateAccount.notification_mobile` | *string*	| The mobile phone an SMS alert should be sent to |
@@ -373,7 +373,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |`updateAccount.linked_accounts` | *array*	| A list of parent accounts |
 |`updateAccount.pricelist_tags` | *array*	| A list of pricelists to apply to this account traffic |
 |`updateAccount.tags` | *array*	| A list of tags for labeling accounts |
-|`updateAccount.pending_transactions` | *AccountTransaction*	| The list of current pending transactions for this account |  
+|`updateAccount.running_transactions` | *AccountTransaction*	| The list of current pending transactions for this account |  
 
 ### Example
 #### Request
@@ -387,7 +387,7 @@ $ curl "https://api.canyan.io/graphql" \
     account_tag: "100",
     type: PREPAID,
     balance: 10,
-    max_pending_transactions: 2,
+    max_concurrent_transactions: 2,
     name: "My updated account",
     notification_mobile: "00385911231234",
 		notification_email: "alex@canyan.io",
@@ -399,7 +399,7 @@ $ curl "https://api.canyan.io/graphql" \
     name
     type
     balance
-    max_pending_transactions
+    max_concurrent_transactions
     notification_email
     notification_mobile
     carrier_tags
@@ -423,7 +423,7 @@ Content-Type: application/json
       "name": "My updated account",
       "type": "PREPAID",
       "balance": 10,
-      "max_pending_transactions": 2,
+      "max_concurrent_transactions": 2,
       "notification_email": "alex@canyan.io",
       "notification_mobile": "00385911231234",
       "carrier_tags": null,
@@ -458,7 +458,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |`deleteAccount.type` | *AccountType* | The type of the account being deleted (PREPAID / POSTPAID) |
 |`deleteAccount.balance` | *BigInt* | The balance of the account being deleted |
 |`deleteAccount.active` | *boolean*	| Was the account active? Default to true |
-|`deleteAccount.max_pending_transactions` | *int*	| The maximum number of active calls the account was able to make and recieve (outbound and inbound) |
+|`deleteAccount.max_concurrent_transactions` | *int*	| The maximum number of active calls the account was able to make and recieve (outbound and inbound) |
 |`deleteAccount.name` | *string*	| Descriptive name of the account being deleted |
 |`deleteAccount.notification_email` | *string*	| The email the alerts were be sent to |
 |`deleteAccount.notification_mobile` | *string*	| The mobile phone an SMS alert were be sent to |
@@ -468,7 +468,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 |`deleteAccount.linked_accounts` | *array*	| A list of parent accounts |
 |`deleteAccount.pricelist_tags` | *array*	| A list of pricelists to apply to this account traffic |
 |`deleteAccount.tags` | *array*	| A list of tags for labeling accounts |
-|`deleteAccount.pending_transactions` | *AccountTransaction*	| The list of current pending transactions for the account being deleted |  
+|`deleteAccount.running_transactions` | *AccountTransaction*	| The list of current pending transactions for the account being deleted |  
 
 ### Example
 #### Request
@@ -484,7 +484,7 @@ $ curl "https://api.canyan.io/graphql" \
     name
     type
     balance
-    max_pending_transactions
+    max_concurrent_transactions
     notification_email
     notification_mobile
     carrier_tags
@@ -509,7 +509,7 @@ Content-Type: application/json
       "name": "My updated account",
       "type": "PREPAID",
       "balance": 10,
-      "max_pending_transactions": 2,
+      "max_concurrent_transactions": 2,
       "notification_email": "alex@canyan.io",
       "notification_mobile": "00385911231234",
       "carrier_tags": null,

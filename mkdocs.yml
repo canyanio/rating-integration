@@ -29,6 +29,7 @@ nav:
             - Pricelist: api/endpoints/pricelist.md
             - Rate: api/endpoints/rate.md
             - Account: api/endpoints/account.md
+            - Transaction: api/endpoints/transaction.md
     - Engine: engine.md
     - Tutorials:
         - Inserting Data: tutorials/inserting-data.md
