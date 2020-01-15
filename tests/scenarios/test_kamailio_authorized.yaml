@@ -33,12 +33,13 @@ setup:
           upsertPricelistRate(
             carrier_tag: "carrier",
             pricelist_tag: "pricelist",
-            prefix: "sip:39"
+            prefix: "sip:39",
             active: true,
+            description: "pricelist rate",
             rate: 1,
             rate_increment: 1,
             connect_fee: 0,
-            interval_start: 0,
+            interval_start: 0
           ) {
             id
           }
