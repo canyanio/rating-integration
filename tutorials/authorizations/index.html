@@ -354,7 +354,17 @@
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <h1 id="authorizations">Authorizations</h1>
-<p>The scope of this tutorial is to make your first authorizations with Canyan Rating and how to use this functionality with your own system.</p>
+<p>The scope of this tutorial is to make your first authorizations with Canyan Rating and how to use this functionality with your own system.
+This method is used to get a response from the Rating Engine if the account has the ability to perform the desired transaction before even starting the transaction. A list of unauthorized reasons could be:</p>
+<ul>
+<li>not found</li>
+<li>not active</li>
+<li>unreachable destination</li>
+<li>too many running transactions</li>
+<li>insufficient balance</li>
+</ul>
+<p>Also if the destination account is handled by the Rating Engine there could be an unauthorized transaction regarding the limitations of the destination account.</p>
+<p>There is an immediate response regarding the max available units the account can perform toward that destination and a prioritized list of carriers returned according to the account preferences, LCR etc.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>The test environment should be set up and running successfully as described in <a href="/running.md">Running Canyan Rating</a> section.
 You should have a basic set of data populated in your Canyan Rating instance as described in the <a href="/tutorials/inserting-data/">Inserting Data Tutorial</a>.
