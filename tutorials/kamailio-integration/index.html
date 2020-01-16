@@ -284,6 +284,40 @@
     Prerequisites
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scope">
+    Scope
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kamailio-configuration">
+    Kamailio configuration
+  </a>
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#authorization">
+    Authorization
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#begin-transaction">
+    Begin Transaction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#end-transaction">
+    End Transaction
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing">
+    Testing
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -326,6 +360,40 @@
     Prerequisites
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scope">
+    Scope
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kamailio-configuration">
+    Kamailio configuration
+  </a>
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#authorization">
+    Authorization
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#begin-transaction">
+    Begin Transaction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#end-transaction">
+    End Transaction
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing">
+    Testing
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -339,6 +407,67 @@
 <p>The test environment should be set up and running successfully as described in <a href="/running.md">Running Canyan Rating</a> section.
 You should have a basic set of data populated in your Canyan Rating instance as described in the <a href="/tutorials/inserting-data/">Inserting Data Tutorial</a>.
 The following commands and requests relay on the same data inserted in the above tutorial. If you populated different data you should change the commands in this tutorial accordingly.</p>
+<p>After cloning the <a href="https://github.com/canyanio/rating-integration">integration repository</a> the <a href="https://github.com/canyanio/rating-integration/blob/master/Makefile">Makefile</a> provides us with two shortcut commands:
+<code>make start</code> and <code>make stop</code>.</p>
+<h2 id="scope">Scope</h2>
+<p>Integrating the authorization, begin and start transaction methods of the Rating Engine in a Kamailio instance.
+Kamailio needs to perform an authorization for every outgoing and incoming call, getting all the information needed to perform or not the calls. Also the begin and end of a call needs to be signalized to the Rating Engine.</p>
+<p>The Rating Agent is listening for http requests with REST and GraphQL APIs. In Kamailio we will use the <a href="https://www.kamailio.org/docs/modules/stable/modules/http_async_client.html">HTTP_ASYNC_CLIENT Module</a> to avoid binding Kamailio workers with synchronous http calls.</p>
+<h2 id="kamailio-configuration">Kamailio configuration</h2>
+<p>The integration repository contains an <a href="https://github.com/canyanio/rating-integration/blob/master/conf/kamailio/rating.cfg">example configuration file</a> for the integration with Canyan's Rating Engine.</p>
+<blockquote>
+<p><strong>Note:</strong> The Kamailio configuration file is simple and basic for the purpose 
+of this tutorial and should not be used in production.</p>
+</blockquote>
+<h3 id="authorization">Authorization</h3>
+<p>Let's start with the authorization method of the Rating Engine.
+In the <a href="https://github.com/canyanio/rating-integration/blob/master/conf/kamailio/kamailio.cfg">kamailio.cfg</a> we can notice this piece of code:</p>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">is_method</span><span class="p">(</span><span class="ss">"INVITE"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">has_totag</span><span class="p">())</span> <span class="err">{</span>
+  <span class="err">$</span><span class="n">dlg_var</span><span class="p">(</span><span class="n">account_tag</span><span class="p">)</span> <span class="o">=</span> <span class="err">$</span><span class="n">fU</span><span class="p">;</span>
+
+  <span class="n">route</span><span class="p">(</span><span class="n">RATING_AUTHORIZATION</span><span class="p">);</span>
+<span class="err">}</span>
+</pre></div>
+<p>The route <code>RATING_AUTHORIZATION</code> is run for every new <code>INVITE</code> method that does not have a <code>to</code> tag.</p>
+<p><code>RATING_AUTHORIZATION</code> prepares the json to be sent to the Rating Agent populating the following variables:</p>
+<ul>
+<li>transaction_tag (<code>$ci</code>)</li>
+<li>account_tag (<code>$dlg_var(account_tag)</code>)</li>
+<li>source (<code>$fu</code>)</li>
+<li>destination (<code>$tu</code>)</li>
+</ul>
+<p>The route <code>RATING_AUTHORIZATION_RESPONSE</code> is the most complex of the Canyan Rating Engine Kamailio integration routes.
+It handles the response from the Agent to the <code>authorization</code> endpoint request.
+Let's break it down and see what it does.</p>
+<p>The first check is performed on the response from the Agent module. It checks if the http response is 200 then it checks if the response contains the expected fields.</p>
+<p>Then the max available units are set to a variable that will be used if the call is authorized to set the dialog timeout with <code>dlg_set_timeout</code>.</p>
+<p>The check of the unauthorized reasons is then performed to send the correct reply to the SIP client.</p>
+<p>It there are no errors the prioritized carriers list is gathered from the authorization response and the list is parsed with the route <code>RATING_AUTHORIZATION_PARSE_CARRIERS</code>.</p>
+<p>At the end of the route the <code>SIPOUT</code> route is called.</p>
+<h3 id="begin-transaction">Begin Transaction</h3>
+<p>The route <code>RATING_BEGIN_TRANSACTION</code> is called with the event route <a href="https://kamailio.org/docs/modules/stable/modules/dialog.html#idm1446">dialog:start</a>.</p>
+<p>The route prepares the following variables for the Rating Agent http async call:</p>
+<ul>
+<li>transaction_tag (<code>$ci</code>)</li>
+<li>account_tag (<code>$dlg_var(account_tag)</code>)</li>
+<li>source (<code>$fu</code>)</li>
+<li>destination (<code>$tu</code>)</li>
+</ul>
+<p>Then the route <code>RATING_BEGIN_TRANSACTION_RESPONSE</code> that handles the response from the Agent is doing some simple checks like <code>http_ok</code> and if the http response code is 200. After that the check of the content of the response is performed and it consists in checking if the variable <code>ok</code> is true.</p>
+<p>If some of the checks are not good the route sends a 500 reply to che client with a message that the Rating is not available. The route also prints an xlog with alert log level and the http error.</p>
+<h3 id="end-transaction">End Transaction</h3>
+<p>The route <code>RATING_END_TRANSACTION</code> sets the following variables to be sent to the Agent via http async call:</p>
+<ul>
+<li>transaction_tag (<code>$ci</code>)</li>
+<li>account_tag (<code>$dlg_var(account_tag)</code>)</li>
+<li>source (<code>$var(query)</code>)</li>
+<li>destination (<code>$var(query)</code>)</li>
+</ul>
+<p>As for the Begin Transaction there is a simple <code>RATING_END_TRANSACTION_RESPONSE</code> route that handles the response and checks the correct http response and the value of the <code>ok</code> boolean variable inside the response body.
+It sends SIP error replies and logs with alert log level the issue.</p>
+<h2 id="testing">Testing</h2>
+<p>The integration repository contains also <a href="https://github.com/canyanio/rating-integration/tree/master/tests">tests</a> that can be run with a simple <code>make test</code> after the <code>make start</code> command. Plese refer to those tests to see how this implementation inside kamailio is tested with Canyan Rating Engine.
+The tests are run with the open source tool <a href="https://github.com/wazo-platform/wazo-tester">wazo-tester</a> so refer to the documentation of that tool for better understanding of the test process.</p>
 </article>
 </div>
 </div>
