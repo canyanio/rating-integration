@@ -1,0 +1,14 @@
+workers:
+  - scenario: "test_kamailio_unauthorized_not_found.xml"
+    number: 1
+    repeat: 2
+    timeout: 600
+    call_rate: 1
+    call_rate_period: 1000
+    call_limit: 1
+    call_number: 1
+    values:
+      call_duration: 1000
+      to_user: "39040123456"
+      to_domain: "anotherdomain.com"
+      to_port: "5060"
