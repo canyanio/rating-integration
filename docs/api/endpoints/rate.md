@@ -1,5 +1,5 @@
 # Rate
-This model defines a destination and it's rating properties. A [pricelist](./prielist.md) groups different rates than can then be associated within an account.
+This model defines a destination and it's rating properties. A [pricelist](./pricelist.md) groups different rates than can then be associated within an account.
 
 ## Get all Rates
 This method returns all the available rates.
