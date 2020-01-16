@@ -27,9 +27,9 @@ git clone git@github.com:canyanio/rating-integration.git
 ```
 
 The [Makefile](https://github.com/canyanio/rating-integration/blob/master/Makefile) provides you two shortcut commands:
-`make run` and `make stop`.
+`make start` and `make stop`.
 
-As you can imagine `make run` will start Canyan Rating Engine in a docker compose environment exposing the needed two ports to interface with the Rating API and Agent.
+As you can imagine `make start` will start Canyan Rating Engine in a docker compose environment exposing the needed two ports to interface with the Rating API and Agent.
 
 
 ## As local services
