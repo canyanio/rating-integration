@@ -1,8 +1,8 @@
 # Pircelist
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This is the model that groups rates. It consists of a unique tag, a descriptive name and a currency used for the rates.
 
 ## Get all Pricelists
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method returns all the pricelists.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -74,6 +74,8 @@ Content-Type: application/json
 
 
 ## Get specific Pricelist details
+In this method we can specify a list of ids or price-list tags to return.
+
 ### Request headers
 ```Content-Type	application/json```
 
@@ -134,7 +136,7 @@ Content-Type: application/json
 
 
 ## Create a new Pricelist
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This is the method used to create a specific pricelist.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -195,7 +197,7 @@ Content-Type: application/json
 
 
 ## Update a Pricelist
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method allows to modify the data of a particular pricelist by it's tag or id.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -252,7 +254,7 @@ Content-Type: application/json
 
 
 ## Delete a Pricelist
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method deletes a price list by it's id or tag.
 
 ### Request headers
 ```Content-Type	application/json```

@@ -1,8 +1,8 @@
 # Carrier
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+A carrier is the exiting destination used for a transaction. It mainly consists of a host defined by hostname or IP address, a port where it is listening for requests and a protocol used to interact with it.
 
 ## Get all Carriers
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method allows you to list all the carriers available.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -82,6 +82,8 @@ Content-Type: application/json
 
 
 ## Get specific Carrier details
+This method allows you to filter the available carriers by specific fields.
+
 ### Request headers
 ```Content-Type	application/json```
 
@@ -153,7 +155,7 @@ Content-Type: application/json
 
 
 ## Create a new Carrier
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method allows you to create a new carrier.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -220,7 +222,7 @@ Content-Type: application/json
 
 
 ## Update a Carrier
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method updates a specific carrier either by id or carrier tag.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -285,7 +287,7 @@ Content-Type: application/json
 
 
 ## Delete a Carrier
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method removes a carrier and returns requested data of the just deleted carrier.
 
 ### Request headers
 ```Content-Type	application/json```

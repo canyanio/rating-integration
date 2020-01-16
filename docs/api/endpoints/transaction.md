@@ -1,8 +1,8 @@
 # Transaction
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This model holds the consolidated transactions performed by an account. All the data in this model is immutable by the rating engine and contains all the data used to calculate the rate at the moment the transaction was performed without relating to external data.
 
 ## Get all the Transactions
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method is used to list all the transactions
 
 ### Request headers
 ```Content-Type	application/json```
@@ -103,6 +103,8 @@ Content-Type: application/json
 
 
 ## Get specific Transaction detail
+This method is used to fetch a specific transaction either by id or a combination of transaction and account tag.
+
 ### Request headers
 ```Content-Type	application/json```
 
@@ -217,7 +219,7 @@ Content-Type: application/json
 
 
 ## Create a Transaction
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method is used to create a transaction record.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -372,7 +374,7 @@ Content-Type: application/json
 
 
 ## Update a Transaction
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method should not be used but it's available if an update to a transaction is needed.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -529,7 +531,7 @@ Content-Type: application/json
 
 
 ## Delete a Transaction
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method can be used to remove a particular transaction either by id or a combination of account and transaction tag.
 
 ### Request headers
 ```Content-Type	application/json```

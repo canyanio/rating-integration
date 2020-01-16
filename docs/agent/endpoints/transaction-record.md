@@ -1,5 +1,5 @@
 # Record Transaction
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+In this method we can begin and end a transaction with one call.
 
 ## Request headers
 ```Content-Type	application/json```

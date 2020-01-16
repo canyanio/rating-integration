@@ -1,5 +1,5 @@
 # Rollback Transaction
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method allows you to remove a transaction.
 
 ## Request headers
 ```Content-Type	application/json```

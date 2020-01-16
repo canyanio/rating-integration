@@ -1,5 +1,5 @@
 # Begin Transaction
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method starts a transaction which is then listed in the `running_transactions` of the account performing the transaction.  
 
 ## Request headers
 ```Content-Type	application/json```

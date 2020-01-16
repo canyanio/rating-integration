@@ -1,5 +1,5 @@
 # End Transaction
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method ends a transaction listed in the `running_transactions` of the account that performed the transaction.  
 
 ## Request headers
 ```Content-Type	application/json```

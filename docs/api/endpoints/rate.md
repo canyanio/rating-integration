@@ -1,8 +1,8 @@
 # Rate
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This model defines a destination and it's rating properties. A [pricelist](./prielist.md) groups different rates than can then be associated within an account.
 
 ## Get all Rates
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method returns all the available rates.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -89,6 +89,8 @@ Content-Type: application/json
 
 
 ## Get specific Pricelist Rate details
+This method can be used to filter specific rates by the parameters defined below.
+
 ### Request headers
 ```Content-Type	application/json```
 
@@ -172,7 +174,7 @@ Content-Type: application/json
 
 
 ## Create a new Pricelist Rate
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method is used to create a pricelist rate.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -267,7 +269,7 @@ Content-Type: application/json
 
 
 ## Update a Pricelist Rate
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method allows to update a rate by it's id or pricelist tag, carrier tag and prefix combined.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -361,7 +363,7 @@ Content-Type: application/json
 
 
 ## Delete a Pricelist Rate
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method deletes a rate by id or a combination of pricelist tag, carrier tag and prefix.
 
 ### Request headers
 ```Content-Type	application/json```

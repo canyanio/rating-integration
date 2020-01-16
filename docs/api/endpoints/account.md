@@ -1,8 +1,9 @@
 # Account
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+Accounts are subjects performing a transaction. They contain different preferences like preferred and forced carriers, max concurrent transactions allowed for the account, associated price-lists etc.
 
 ## Get all Accounts
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method is used to get all the accounts available.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -121,7 +122,10 @@ Content-Type: application/json
 ```
 
 
-## Get specific Account
+## Get specific Accounts
+
+This method is used to get specific accounts. The filter field can be used with different parameters to have an advanced filtering capability.
+
 ### Request headers
 ```Content-Type	application/json```
 
@@ -214,7 +218,7 @@ Content-Type: application/json
 
 
 ## Create a new Account
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method allows you to create a new account.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -329,9 +333,8 @@ Content-Type: application/json
 }
 ```
 
-
 ## Update an Account
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This method updates the account by account tag or id.
 
 ### Request headers
 ```Content-Type	application/json```
@@ -439,7 +442,7 @@ Content-Type: application/json
 
 
 ## Delete an Account
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This is the method called when deleting an account. You can return all or specific filed of the deleted account.
 
 ### Request headers
 ```Content-Type	application/json```
