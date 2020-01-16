@@ -1,5 +1,4 @@
 # Account
-
 Accounts are subjects performing a transaction. They contain different preferences like preferred and forced carriers, max concurrent transactions allowed for the account, associated price-lists etc.
 
 ## Get all Accounts
@@ -123,7 +122,6 @@ Content-Type: application/json
 
 
 ## Get specific Accounts
-
 This method is used to get specific accounts. The filter field can be used with different parameters to have an advanced filtering capability.
 
 ### Request headers
@@ -332,6 +330,7 @@ Content-Type: application/json
   }
 }
 ```
+
 
 ## Update an Account
 This method updates the account by account tag or id.
