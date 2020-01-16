@@ -1,5 +1,5 @@
 # Authorization
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+This endpoint performs pre-transaction authorization checks.
 
 ## Request headers
 ```Content-Type	application/json```
