@@ -1,6 +1,17 @@
 # Authorizations
 
 The scope of this tutorial is to make your first authorizations with Canyan Rating and how to use this functionality with your own system.
+This method is used to get a response from the Rating Engine if the account has the ability to perform the desired transaction before even starting the transaction. A list of unauthorized reasons could be:
+
+* not found
+* not active
+* unreachable destination
+* too many running transactions
+* insufficient balance
+
+Also if the destination account is handled by the Rating Engine there could be an unauthorized transaction regarding the limitations of the destination account.
+
+There is an immediate response regarding the max available units the account can perform toward that destination and a prioritized list of carriers returned according to the account preferences, LCR etc.
 
 
 ## Prerequisites

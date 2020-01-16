@@ -4,6 +4,16 @@ The scope of this tutorial is to make your first transactions and have an overvi
 of the capabilities of Canyan Rating and how to use its functionalities with 
 your system.
 
+After performing an authorization and gathering the prioritized list of carriers to use a transaction is run.
+There are two different modalities that can be used to record a transaction:
+
+* begin/end transaction methods
+* record transaction
+
+The usage should be based on the preferences and requirements of the system the Rating Engine is integrated with.
+Normally the begin/end transaction is used when a push notification to end an ongoing transaction is required. Having a list of ongoing transaction in the Rating Engine is useful for fraud protection and limiting usage of the services like concurrent transactions.
+
+The record transaction method instead could be used to record a transaction that does not lasts over a time period or to perform a rating calculation from a list of transactions not covered in real time by the Rating Engine. For example a list of CDRs that needs to be rated and produced by a system that does not integrate the Rating Engine.
 
 ## Prerequisites
 
