@@ -69,7 +69,7 @@ extra:
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/canyan/'
     - type: 'slack'
-      link: 'https://join.slack.com/t/canyanio/shared_invite/enQtODIyODY5MDIyMTMxLTExYjkwZmFkMjBiZWI3ZDEyZjYzYjE2N2M2NWRkZGUwYjdhZmE0YjRkNTQ1MGFmMGJmZjczYzkzYzk0ZWZiMzY'
+      link: 'http://slack.canyan.io'
 
 # Google Analytics
 google_analytics:
