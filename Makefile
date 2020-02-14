@@ -25,6 +25,11 @@ start:
 test:
 	docker exec rating-integration_tester_1 pytest /tests/
 
+.PHONY: logs
+logs:
+	docker-compose $(docker_compose_files) ps -a
+	docker-compose $(docker_compose_files) logs
+
 .PHONY: stop
 stop:
 	docker-compose $(docker_compose_files) down
