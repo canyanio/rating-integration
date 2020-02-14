@@ -2,10 +2,10 @@ version: '2'
 services:
 
   #
-  # tester container, using wazo-tester
+  # tester container, using canyan-tester
   #
   tester:
-    image: 'wazopbx/wazo-tester:latest'
+    image: 'canyan/canyan-tester:master'
     environment:
       API_ENDPOINT: http://rating-api:8000
       TARGET: kamailio:5060
