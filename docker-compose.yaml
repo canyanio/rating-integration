@@ -8,8 +8,6 @@ services:
     image: 'bitnami/mongodb:4.0'
     ports:
       - "27017:27017"
-    volumes:
-      - ./data/mongodb:/opt/mongodb
 
   #
   # rabbitmq
@@ -21,8 +19,6 @@ services:
       - "15672:15672"
     environment:
       - RABBITMQ_PASSWORD=password
-    volumes:
-      - ./data/rabbitmq:/bitnami/rabbitmq
 
   #
   # rating-api
