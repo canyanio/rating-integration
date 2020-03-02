@@ -1,4 +1,9 @@
-version: '2'
+version: '2.1'
+
+volumes:
+    mongodb_data: {}
+    rabbitmq_data: {}
+
 services:
 
   #
@@ -8,7 +13,8 @@ services:
     image: 'bitnami/mongodb:4.0'
     ports:
       - "27017:27017"
-
+    volumes:
+      - mongodb_data:/opt/mongodb
   #
   # rabbitmq
   #
@@ -19,6 +25,8 @@ services:
       - "15672:15672"
     environment:
       - RABBITMQ_PASSWORD=password
+    volumes:
+      - rabbitmq_data:/bitnami/rabbitmq
 
   #
   # rating-api
