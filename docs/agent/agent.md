@@ -4,7 +4,7 @@
 
 The Agent repository is available [here](https://github.com/canyanio/rating-agent).
 
-In the `Enpoints` section of this documentation, you will find the description of the api endpoints:
+In the `Enpoints` section of this documentation, you will find the description of the Canyan Agent API endpoints:
 
 * [Authorization](./endpoints/authorization.md)
 * [Begin Transaction](./endpoints/transaction-begin.md)

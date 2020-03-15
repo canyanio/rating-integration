@@ -95,4 +95,4 @@ It sends SIP error replies and logs with alert log level the issue.
 ## Testing
 
 The integration repository contains also [tests](https://github.com/canyanio/rating-integration/tree/master/tests) that can be run with a simple `make test` after the `make start` command. Plese refer to those tests to see how this implementation inside kamailio is tested with Canyan Rating Engine.
-The tests are run with the open source tool [canyan-tester](https://github.com/wazo-platform/canyan-tester) so refer to the documentation of that tool for better understanding of the test process.
+The tests are run with the open source tool [canyan-tester](https://github.com/canyanio/canyan-tester) so refer to the documentation of that tool for better understanding of the test process.

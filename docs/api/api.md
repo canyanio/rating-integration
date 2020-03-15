@@ -4,7 +4,7 @@
 
 The API repository is available [here](https://github.com/canyanio/rating-api).
 
-In the `Enpoints` section of this documentation, you will find the description of the api endpoints available with examples on how to send requests:
+In the `Enpoints` section of this documentation, you will find the description of the Canyan API endpoints available with examples on how to send requests:
 
 * [Account](./endpoints/account.md)
 * [Carrier](./endpoints/carrier.md)

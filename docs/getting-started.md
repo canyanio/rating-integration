@@ -3,7 +3,7 @@
 ## Overview
 
 Canyan Rating Engine is though from day one as a highly scalable, cloud-native, 
-real-time rating service. To be highly scalable, Canyan is composed as 
+real-time rating service. To be scalable, Canyan is composed as 
 microservice architecture with three loosely coupled main services created for
 lightweight container deployment:
 
@@ -11,12 +11,12 @@ lightweight container deployment:
 * API
 * Engine
 
-The following schema describes the interaction between these components, 
+The following schema describes the interaction between these components,
 the message bus and the database.
 
 <div class="mermaid">
 graph LR
-    C(Client) -->|Internet| AGT(Agent REST API)
+    C(Client) -->|HTTP| AGT(Agent REST API)
     RMQ[RabbitMQ] --> AGT
     API(API) --> RMQ
     API --> MDB[MongoDB]
@@ -24,11 +24,11 @@ graph LR
     RMQ --> W
     W --> RMQ
     AGT --> RMQ
-    AGT -->|Internet| C
+    AGT -->|HTTP| C
     RMQ --> API
 </div>
 
-Now, let's go in deep with each component...
+Now, let's describe each component in more detail.
 
 
 ## Agent
@@ -42,19 +42,20 @@ balance.
 
 ## API
 
-The API component is the interface between the components and the database. 
-It is used by every component and it is interfaced with the message bus also.
+The API component is the interface between the other components and the database. 
+It is used by every component and it is also interfaced with the message bus.
 Obviously, it is also used for CRUD operations on the models being called 
 from the client's IS or UI.
 
 <div class="mermaid">
 graph LR
-    C(Client) -->|Internet| API
-    UI(UI) -->|Internet| API
+    C(Client) -->|HTTP| API
+    UI(UI) -->|HTTP| API
     API --> MDB[MongoDB]
 </div>
 
 ## Engine
 
-The Engine gets the tasks via message bus and uses the API to gather further
-information needed for the calculations. 
+The Engine fetches it's computational tasks via message bus and uses the API to gather further
+information needed for the calculations. Once the calculation is done the Engine responds via bus
+to the component that requested the task.
