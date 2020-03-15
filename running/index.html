@@ -448,7 +448,9 @@
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <h1 id="running-canyan-rating">Running Canyan Rating</h1>
-<p>In the <a href="../getting-started/">Getting Started</a> section we introduced the different components of Canyan Rating. The ecosystem can be run locally, on virtual machines or in the cloud. We will present you here the two most common ways to do it.</p>
+<p>In the <a href="../getting-started/">Getting Started</a> section we introduced the different components of Canyan Rating. The ecosystem can be run locally, on virtual machines or in the cloud. We will present you here the two most common ways to do it:
+* with Docker Compose
+* as local services</p>
 <h2 id="with-docker-compose">With Docker Compose</h2>
 <p>The easiest way of running Canyan Rating is with <a href="https://docs.docker.com/compose/">Docker Compose</a>. </p>
 <h3 id="prerequisites">Prerequisites</h3>
@@ -457,7 +459,7 @@
 <li><a href="https://docs.docker.com/install/">Docker Engine</a></li>
 <li><a href="https://docs.docker.com/compose/">Docker Compose</a></li>
 </ul>
-<p>If you already don't have a machine running Docker and Docker Compose don't worry; it's a very easy and common software to install. Just follow the guides on the official <a href="https://www.docker.com">Docker website</a>. Docker can be easily run on your laptop regardless of the operating system you're using.</p>
+<p>If you don't have a machine running Docker and Docker Compose don't worry; it's a very easy software to install. Just follow the guides on the official <a href="https://www.docker.com">Docker website</a>. Docker can be easily run on your laptop regardless of the operating system you're using.</p>
 <h3 id="run">Run</h3>
 <p>The <a href="https://github.com/canyanio/rating-integration">integration repository</a> provides you the <a href="https://github.com/canyanio/rating-integration/blob/master/docker-compose.yaml">docker-compose.yaml</a> needed run Canyan Rating in docker compose.</p>
 <p>Start with cloning the repository locally:</p>
@@ -465,15 +467,17 @@
 </pre></div>
 <p>The <a href="https://github.com/canyanio/rating-integration/blob/master/Makefile">Makefile</a> provides you two shortcut commands:
 <code>make start</code> and <code>make stop</code>.</p>
-<p>As you can imagine <code>make start</code> will start Canyan Rating Engine in a docker compose environment exposing the needed two ports to interface with the Rating API and Agent.</p>
+<p>As you can imagine <code>make start</code> will start Canyan Rating Engine in a docker compose environment exposing the needed two ports to interface with the Rating API and Agent (8000 and 8080 respectively).</p>
 <h2 id="as-local-services">As local services</h2>
-<p>This is the "manual" way of installing the different components of Canyan Rating and running them on your machine.</p>
+<p>This is the another way of installing the different components of Canyan Rating using the Python Package Index and running them on your machine.</p>
 <h3 id="prerequisites_1">Prerequisites</h3>
+<p>The following components are needed:</p>
 <ul>
 <li><a href="https://www.mongodb.com/">MongoDB</a></li>
 <li><a href="https://www.rabbitmq.com/">RabbitMQ</a></li>
 <li><a href="https://www.python.org/">Python</a></li>
 </ul>
+<p>MongoDB and RabbitMQ will be used by the components specifying the URIs and credentials with flags upon running them. We will cover that later.</p>
 <h3 id="install-canyan-rating">Install Canyan Rating</h3>
 <p>It's recommended to use a <a href="https://docs.python.org/3/library/venv.html">Python virtual environment</a> to isolate the installed packages from system site directories:</p>
 <div class="codehilite"><pre><span></span><span class="err">virtualenv -p python3 venv --no-site-packages</span>
@@ -560,7 +564,7 @@
 <a class="md-footer-social__link fa fa-github" href="https://github.com/canyanio"></a>
 <a class="md-footer-social__link fa fa-twitter" href="https://twitter.com/canyan_io"></a>
 <a class="md-footer-social__link fa fa-linkedin" href="https://www.linkedin.com/company/canyan/"></a>
-<a class="md-footer-social__link fa fa-slack" href="https://join.slack.com/t/canyanio/shared_invite/enQtODIyODY5MDIyMTMxLTExYjkwZmFkMjBiZWI3ZDEyZjYzYjE2N2M2NWRkZGUwYjdhZmE0YjRkNTQ1MGFmMGJmZjczYzkzYzk0ZWZiMzY"></a>
+<a class="md-footer-social__link fa fa-slack" href="http://slack.canyan.io"></a>
 </div>
 </div>
 </div>

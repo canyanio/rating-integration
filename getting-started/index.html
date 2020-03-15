@@ -366,7 +366,7 @@
 <h1 id="getting-started">Getting Started</h1>
 <h2 id="overview">Overview</h2>
 <p>Canyan Rating Engine is though from day one as a highly scalable, cloud-native, 
-real-time rating service. To be highly scalable, Canyan is composed as 
+real-time rating service. To be scalable, Canyan is composed as 
 microservice architecture with three loosely coupled main services created for
 lightweight container deployment:</p>
 <ul>
@@ -374,11 +374,11 @@ lightweight container deployment:</p>
 <li>API</li>
 <li>Engine</li>
 </ul>
-<p>The following schema describes the interaction between these components, 
+<p>The following schema describes the interaction between these components,
 the message bus and the database.</p>
 <div class="mermaid">
 graph LR
-    C(Client) --&gt;|Internet| AGT(Agent REST API)
+    C(Client) --&gt;|HTTP| AGT(Agent REST API)
     RMQ[RabbitMQ] --&gt; AGT
     API(API) --&gt; RMQ
     API --&gt; MDB[MongoDB]
@@ -386,10 +386,10 @@ graph LR
     RMQ --&gt; W
     W --&gt; RMQ
     AGT --&gt; RMQ
-    AGT --&gt;|Internet| C
+    AGT --&gt;|HTTP| C
     RMQ --&gt; API
 </div>
-<p>Now, let's go in deep with each component...</p>
+<p>Now, let's describe each component in more detail.</p>
 <h2 id="agent">Agent</h2>
 <p>The Agent is the Interpreter between the user communication/IoT service and 
 Canyan Rating Engine. It is a REST API service with simple endpoints to handle
@@ -397,19 +397,20 @@ authorization requests and transaction recordings. It also supports callbacks
 for example for ending transactions in case an account has exhausted it's 
 balance.</p>
 <h2 id="api">API</h2>
-<p>The API component is the interface between the components and the database. 
-It is used by every component and it is interfaced with the message bus also.
+<p>The API component is the interface between the other components and the database. 
+It is used by every component and it is also interfaced with the message bus.
 Obviously, it is also used for CRUD operations on the models being called 
 from the client's IS or UI.</p>
 <div class="mermaid">
 graph LR
-    C(Client) --&gt;|Internet| API
-    UI(UI) --&gt;|Internet| API
+    C(Client) --&gt;|HTTP| API
+    UI(UI) --&gt;|HTTP| API
     API --&gt; MDB[MongoDB]
 </div>
 <h2 id="engine">Engine</h2>
-<p>The Engine gets the tasks via message bus and uses the API to gather further
-information needed for the calculations. </p>
+<p>The Engine fetches it's computational tasks via message bus and uses the API to gather further
+information needed for the calculations. Once the calculation is done the Engine responds via bus
+to the component that requested the task.</p>
 </article>
 </div>
 </div>
@@ -463,7 +464,7 @@ information needed for the calculations. </p>
 <a class="md-footer-social__link fa fa-github" href="https://github.com/canyanio"></a>
 <a class="md-footer-social__link fa fa-twitter" href="https://twitter.com/canyan_io"></a>
 <a class="md-footer-social__link fa fa-linkedin" href="https://www.linkedin.com/company/canyan/"></a>
-<a class="md-footer-social__link fa fa-slack" href="https://join.slack.com/t/canyanio/shared_invite/enQtODIyODY5MDIyMTMxLTExYjkwZmFkMjBiZWI3ZDEyZjYzYjE2N2M2NWRkZGUwYjdhZmE0YjRkNTQ1MGFmMGJmZjczYzkzYzk0ZWZiMzY"></a>
+<a class="md-footer-social__link fa fa-slack" href="http://slack.canyan.io"></a>
 </div>
 </div>
 </div>

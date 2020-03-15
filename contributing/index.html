@@ -298,9 +298,23 @@
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pull-request-process">
-    Pull Request Process
+<a class="md-nav__link" href="#pull-request">
+    Pull Request
   </a>
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#process">
+    Process
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sign-your-work">
+    Sign your work
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#reporting-security-issues">
@@ -327,9 +341,23 @@
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pull-request-process">
-    Pull Request Process
+<a class="md-nav__link" href="#pull-request">
+    Pull Request
   </a>
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#process">
+    Process
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sign-your-work">
+    Sign your work
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#reporting-security-issues">
@@ -344,12 +372,12 @@
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <h1 id="contributing-to-canyan-rating">Contributing to Canyan Rating</h1>
+<p>Thank you for showing interest in contributing to the Canyan Rating project.</p>
 <blockquote>
 <p><strong>Note:</strong> We take Canyan's security and our users trust very seriously.
 If you believe you have found a security issue in Canyan, please responsibly
 disclose by contacting us at <a href="mailto:security@canyan.io">security@canyan.io</a>.</p>
 </blockquote>
-<p>Thank you for showing interest in contributing to the Canyan Rating project.</p>
 <p>When contributing to this repository, please first discuss the change you wish 
 to make via issue, slack, email, or any other method with the owners of this 
 repository before making a change. </p>
@@ -358,25 +386,88 @@ issue or pull request anyways. You won't be yelled at for giving your best
 effort. The worst that can happen is that you'll be politely asked to change
 something. We appreciate any sort of contributions, and don't want a wall of
 rules to get in the way of that.</p>
-<p>Please note we have a <a href="../code-of-conduct/">Code of Conduct</a> that applies to all contributors and participants to the Canyan project, please follow it in all your interactions 
-with the project.</p>
-<h2 id="pull-request-process">Pull Request Process</h2>
+<p>Please note we have a <a href="../code-of-conduct/">Code of Conduct</a> that applies to 
+all contributors and participants to the Canyan project, please follow it in 
+all your interactions with the project.</p>
+<h2 id="pull-request">Pull Request</h2>
+<p>Pull requests are very welcome, and the maintainers of Canyan will work hard
+to review and hopefully merge your work.</p>
+<p>It can make sense to discuss your work beforehand if it is significant for
+the project. You can start a discussion on <a href="http://slack.canyan.io">Slack</a>.</p>
+<p>Using commit signoffs and changelog tags is mandatory for all commits!</p>
+<h3 id="process">Process</h3>
 <ol>
-<li>Ensure any install or build dependencies and files are removed before your push. Please 
-refer to the .gitignore and update the file if necessary to not push irrelevant files.</li>
+<li>Ensure any install or build dependencies and files are removed before your 
+push. Please refer to the <code>.gitignore</code> and update the file if necessary to not 
+push irrelevant files.</li>
 <li>Update the README.md and CHANGELOG.md with details of changes and needed 
 documentation for added features.</li>
-<li>Increase the version numbers in any examples files and the CHANGELOG.md to the 
-new version that this Pull Request would represent.</li>
+<li>Increase the version numbers in any examples files and the CHANGELOG.md 
+to the new version that this Pull Request would represent.</li>
 <li>You may merge the Pull Request in once you have the sign-off of two other 
-developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.</li>
+developers, or if you do not have permission to do that, you may request the 
+second reviewer to merge it for you.</li>
 </ol>
+<h3 id="sign-your-work">Sign your work</h3>
+<p>Canyan is licensed under the GNU General Public License version 3. To ensure 
+open source license compatibility, we need to keep track of the origin of 
+all commits and make sure they comply with the license. To do this we ask every 
+commit to be signed off.</p>
+<p>The sign-off is a simple line at the end of the explanation for the patch, which
+certifies that you wrote it or otherwise have the right to pass it on as an
+open-source commit.  The rules are pretty simple: if you can certify the below
+(from <a href="http://developercertificate.org/">developercertificate.org</a>):</p>
+<div class="codehilite"><pre><span></span><span class="n">Developer</span> <span class="n">Certificate</span> <span class="k">of</span> <span class="n">Origin</span>
+<span class="k">Version</span> <span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
+
+<span class="n">Copyright</span> <span class="p">(</span><span class="k">C</span><span class="p">)</span> <span class="mi">2004</span><span class="p">,</span> <span class="mi">2006</span> <span class="n">The</span> <span class="n">Linux</span> <span class="n">Foundation</span> <span class="k">and</span> <span class="n">its</span> <span class="n">contributors</span><span class="p">.</span>
+<span class="mi">1</span> <span class="n">Letterman</span> <span class="n">Drive</span>
+<span class="n">Suite</span> <span class="n">D4700</span>
+<span class="n">San</span> <span class="n">Francisco</span><span class="p">,</span> <span class="n">CA</span><span class="p">,</span> <span class="mi">94129</span>
+
+<span class="n">Everyone</span> <span class="k">is</span> <span class="n">permitted</span> <span class="k">to</span> <span class="k">copy</span> <span class="k">and</span> <span class="n">distribute</span> <span class="n">verbatim</span> <span class="n">copies</span> <span class="k">of</span> <span class="n">this</span>
+<span class="n">license</span> <span class="n">document</span><span class="p">,</span> <span class="n">but</span> <span class="n">changing</span> <span class="n">it</span> <span class="k">is</span> <span class="k">not</span> <span class="n">allowed</span><span class="p">.</span>
+
+
+<span class="n">Developer</span><span class="err">'</span><span class="n">s</span> <span class="n">Certificate</span> <span class="k">of</span> <span class="n">Origin</span> <span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
+
+<span class="k">By</span> <span class="n">making</span> <span class="n">a</span> <span class="n">contribution</span> <span class="k">to</span> <span class="n">this</span> <span class="n">project</span><span class="p">,</span> <span class="n">I</span> <span class="n">certify</span> <span class="n">that</span><span class="p">:</span>
+
+<span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">The</span> <span class="n">contribution</span> <span class="n">was</span> <span class="n">created</span> <span class="k">in</span> <span class="n">whole</span> <span class="k">or</span> <span class="k">in</span> <span class="n">part</span> <span class="k">by</span> <span class="n">me</span> <span class="k">and</span> <span class="n">I</span>
+    <span class="n">have</span> <span class="n">the</span> <span class="k">right</span> <span class="k">to</span> <span class="n">submit</span> <span class="n">it</span> <span class="k">under</span> <span class="n">the</span> <span class="k">open</span> <span class="k">source</span> <span class="n">license</span>
+    <span class="n">indicated</span> <span class="k">in</span> <span class="n">the</span> <span class="n">file</span><span class="p">;</span> <span class="k">or</span>
+
+<span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="n">The</span> <span class="n">contribution</span> <span class="k">is</span> <span class="n">based</span> <span class="n">upon</span> <span class="n">previous</span> <span class="k">work</span> <span class="n">that</span><span class="p">,</span> <span class="k">to</span> <span class="n">the</span> <span class="n">best</span>
+    <span class="k">of</span> <span class="n">my</span> <span class="n">knowledge</span><span class="p">,</span> <span class="k">is</span> <span class="n">covered</span> <span class="k">under</span> <span class="n">an</span> <span class="n">appropriate</span> <span class="k">open</span> <span class="k">source</span>
+    <span class="n">license</span> <span class="k">and</span> <span class="n">I</span> <span class="n">have</span> <span class="n">the</span> <span class="k">right</span> <span class="k">under</span> <span class="n">that</span> <span class="n">license</span> <span class="k">to</span> <span class="n">submit</span> <span class="n">that</span>
+    <span class="k">work</span> <span class="k">with</span> <span class="n">modifications</span><span class="p">,</span> <span class="n">whether</span> <span class="n">created</span> <span class="k">in</span> <span class="n">whole</span> <span class="k">or</span> <span class="k">in</span> <span class="n">part</span>
+    <span class="k">by</span> <span class="n">me</span><span class="p">,</span> <span class="k">under</span> <span class="n">the</span> <span class="n">same</span> <span class="k">open</span> <span class="k">source</span> <span class="n">license</span> <span class="p">(</span><span class="n">unless</span> <span class="n">I</span> <span class="n">am</span>
+    <span class="n">permitted</span> <span class="k">to</span> <span class="n">submit</span> <span class="k">under</span> <span class="n">a</span> <span class="n">different</span> <span class="n">license</span><span class="p">),</span> <span class="k">as</span> <span class="n">indicated</span>
+    <span class="k">in</span> <span class="n">the</span> <span class="n">file</span><span class="p">;</span> <span class="k">or</span>
+
+<span class="p">(</span><span class="k">c</span><span class="p">)</span> <span class="n">The</span> <span class="n">contribution</span> <span class="n">was</span> <span class="n">provided</span> <span class="n">directly</span> <span class="k">to</span> <span class="n">me</span> <span class="k">by</span> <span class="k">some</span> <span class="n">other</span>
+    <span class="n">person</span> <span class="n">who</span> <span class="n">certified</span> <span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">or</span> <span class="p">(</span><span class="k">c</span><span class="p">)</span> <span class="k">and</span> <span class="n">I</span> <span class="n">have</span> <span class="k">not</span> <span class="n">modified</span>
+    <span class="n">it</span><span class="p">.</span>
+
+<span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="n">I</span> <span class="n">understand</span> <span class="k">and</span> <span class="n">agree</span> <span class="n">that</span> <span class="n">this</span> <span class="n">project</span> <span class="k">and</span> <span class="n">the</span> <span class="n">contribution</span>
+    <span class="k">are</span> <span class="k">public</span> <span class="k">and</span> <span class="n">that</span> <span class="n">a</span> <span class="n">record</span> <span class="k">of</span> <span class="n">the</span> <span class="n">contribution</span> <span class="p">(</span><span class="k">including</span> <span class="k">all</span>
+    <span class="n">personal</span> <span class="n">information</span> <span class="n">I</span> <span class="n">submit</span> <span class="k">with</span> <span class="n">it</span><span class="p">,</span> <span class="k">including</span> <span class="n">my</span> <span class="n">sign</span><span class="o">-</span><span class="k">off</span><span class="p">)</span> <span class="k">is</span>
+    <span class="n">maintained</span> <span class="n">indefinitely</span> <span class="k">and</span> <span class="n">may</span> <span class="n">be</span> <span class="n">redistributed</span> <span class="n">consistent</span> <span class="k">with</span>
+    <span class="n">this</span> <span class="n">project</span> <span class="k">or</span> <span class="n">the</span> <span class="k">open</span> <span class="k">source</span> <span class="n">license</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">involved</span><span class="p">.</span>
+</pre></div>
+<p>Then you just add a line to every git commit message:</p>
+<div class="codehilite"><pre><span></span><span class="c">Signed-off-by: Random J Developer &lt;random@developer.example.org&gt;</span>
+</pre></div>
+<p>Use your real name (sorry, no pseudonyms or anonymous contributions).</p>
+<p>If you set your <code>user.name</code> and <code>user.email</code> git configs, you can sign your
+commit automatically with <code>git commit -s</code>.</p>
 <h2 id="reporting-security-issues">Reporting security issues</h2>
 <p>If you come across any security issue, please bring it to our team's
 attention as quickly as possible by sending an email to
 <a href="mailto:security@canyan.io">security@canyan.io</a>.</p>
-<p>Please do not disclose anything in public. Once an issue has been addressed we
-will publish the fix and acknowledge your finding on our site if you so wish.</p>
+<p>Please do not disclose anything in public. Once an issue has been addressed 
+we will publish the fix and acknowledge your finding on our site if you 
+so wish.</p>
 </article>
 </div>
 </div>
@@ -430,7 +521,7 @@ will publish the fix and acknowledge your finding on our site if you so wish.</p
 <a class="md-footer-social__link fa fa-github" href="https://github.com/canyanio"></a>
 <a class="md-footer-social__link fa fa-twitter" href="https://twitter.com/canyan_io"></a>
 <a class="md-footer-social__link fa fa-linkedin" href="https://www.linkedin.com/company/canyan/"></a>
-<a class="md-footer-social__link fa fa-slack" href="https://join.slack.com/t/canyanio/shared_invite/enQtODIyODY5MDIyMTMxLTExYjkwZmFkMjBiZWI3ZDEyZjYzYjE2N2M2NWRkZGUwYjdhZmE0YjRkNTQ1MGFmMGJmZjczYzkzYzk0ZWZiMzY"></a>
+<a class="md-footer-social__link fa fa-slack" href="http://slack.canyan.io"></a>
 </div>
 </div>
 </div>
