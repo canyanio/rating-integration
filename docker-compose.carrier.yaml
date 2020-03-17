@@ -5,5 +5,5 @@ services:
   # fake sipp carrier
   #
   carrier:
-    image: 'wazopbx/wazo-c4-carrier:latest'
+    image: 'canyan/carrier:master'
     entrypoint: 'sipp -sf /scenarios/uas.xml'
