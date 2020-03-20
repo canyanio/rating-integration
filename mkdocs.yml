@@ -22,6 +22,7 @@ nav:
             - End Transaction: agent/endpoints/transaction-end.md
             - Record Transaction: agent/endpoints/transaction-record.md
             - Rollback Transaction: agent/endpoints/transaction-rollback.md
+    - HEP Agent: hep-agent.md
     - API:
         - Introduction: api/api.md
         - Endpoints:
