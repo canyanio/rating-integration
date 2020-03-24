@@ -413,7 +413,7 @@
 You should have a basic set of data populated in your Canyan Rating instance as described in the <a href="/tutorials/inserting-data/">Inserting Data Tutorial</a>.
 The following commands and requests relay on the same data inserted in the above tutorial. If you populated different data you should change the commands in this tutorial accordingly.</p>
 <p>After cloning the <a href="https://github.com/canyanio/rating-integration">integration repository</a> the <a href="https://github.com/canyanio/rating-integration/blob/master/Makefile">Makefile</a> provides us with two shortcut commands:
-<code>make start</code> and <code>make stop</code>.</p>
+<code>make docker-start</code> and <code>make docker-stop</code>.</p>
 <h2 id="scope">Scope</h2>
 <p>Integrating the authorization, begin and start transaction methods of the Rating Engine in a Kamailio instance.
 Kamailio needs to perform an authorization for every outgoing and incoming call, getting all the information needed to perform or not the calls. Also the begin and end of a call needs to be signalized to the Rating Engine.</p>
@@ -471,7 +471,7 @@ Let's break it down and see what it does.</p>
 <p>As for the Begin Transaction there is a simple <code>RATING_END_TRANSACTION_RESPONSE</code> route that handles the response and checks the correct http response and the value of the <code>ok</code> boolean variable inside the response body.
 It sends SIP error replies and logs with alert log level the issue.</p>
 <h2 id="testing">Testing</h2>
-<p>The integration repository contains also <a href="https://github.com/canyanio/rating-integration/tree/master/tests">tests</a> that can be run with a simple <code>make test</code> after the <code>make start</code> command. Plese refer to those tests to see how this implementation inside kamailio is tested with Canyan Rating Engine.
+<p>The integration repository contains also <a href="https://github.com/canyanio/rating-integration/tree/master/tests">tests</a> that can be run with a simple <code>make docker-test</code> after the <code>make docker-start</code> command. Plese refer to those tests to see how this implementation inside kamailio is tested with Canyan Rating Engine.
 The tests are run with the open source tool <a href="https://github.com/canyanio/canyan-tester">canyan-tester</a> so refer to the documentation of that tool for better understanding of the test process.</p>
 </article>
 </div>
