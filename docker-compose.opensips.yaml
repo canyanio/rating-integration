@@ -1,0 +1,11 @@
+version: '2.1'
+services:
+
+  #
+  # opensips
+  #
+  opensips:
+    image: 'canyan/opensips:3.0.2'
+    volumes:
+      - ./conf/opensips/docker-entrypoint.sh:/docker-entrypoint.sh
+      - ./conf/opensips:/etc/opensips

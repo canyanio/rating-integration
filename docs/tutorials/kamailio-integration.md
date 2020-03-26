@@ -10,7 +10,7 @@ You should have a basic set of data populated in your Canyan Rating instance as 
 The following commands and requests relay on the same data inserted in the above tutorial. If you populated different data you should change the commands in this tutorial accordingly.
 
 After cloning the [integration repository](https://github.com/canyanio/rating-integration) the [Makefile](https://github.com/canyanio/rating-integration/blob/master/Makefile) provides us with two shortcut commands:
-`make start` and `make stop`.
+`make docker-start` and `make docker-stop`.
 
 ## Scope
 
@@ -94,5 +94,5 @@ It sends SIP error replies and logs with alert log level the issue.
 
 ## Testing
 
-The integration repository contains also [tests](https://github.com/canyanio/rating-integration/tree/master/tests) that can be run with a simple `make test` after the `make start` command. Plese refer to those tests to see how this implementation inside kamailio is tested with Canyan Rating Engine.
+The integration repository contains also [tests](https://github.com/canyanio/rating-integration/tree/master/tests) that can be run with a simple `make docker-test` after the `make docker-start` command. Plese refer to those tests to see how this implementation inside kamailio is tested with Canyan Rating Engine.
 The tests are run with the open source tool [canyan-tester](https://github.com/canyanio/canyan-tester) so refer to the documentation of that tool for better understanding of the test process.
