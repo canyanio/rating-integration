@@ -7,3 +7,10 @@ services:
   carrier:
     image: 'canyan/carrier:master'
     entrypoint: 'sipp -sf /scenarios/uas.xml'
+
+  #
+  # dead carrier
+  #
+  dead-carrier:
+    image: 'busybox:latest'
+    command: sh -c "while true; do sleep 60; done"
