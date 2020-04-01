@@ -48,3 +48,10 @@ def test_kamailio_unauthorized_unreachable():
     scenario_file = os.path.join(base_dir, 'scenarios', 'test_kamailio_unauthorized_unreachable.yaml')
     result = CliRunner().invoke(canyantester, ['-a', API_URL, '-t', TARGET, scenario_file])
     assert result.exit_code == 0
+
+
+def test_kamailio_carrier_failover():
+    base_dir = os.path.dirname(__file__)
+    scenario_file = os.path.join(base_dir, 'scenarios', 'test_kamailio_carrier_failover.yaml')
+    result = CliRunner().invoke(canyantester, ['-a', API_URL, '-t', TARGET, scenario_file])
+    assert result.exit_code == 0
