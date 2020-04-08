@@ -1,0 +1,87 @@
+setup:
+  - type: api
+    uri: /graphql
+    method: POST
+    payload:
+      query: |
+        mutation {
+          upsertAccount(
+            name: "Alex",
+            account_tag: "2000",
+            type: PREPAID,
+            balance: 0,
+            active: true,
+            max_concurrent_transactions: 100
+          ) {
+            id
+          }
+          upsertCarrier(
+            carrier_tag: "carrier",
+            active: true,
+            protocol: UDP,
+            host: "carrier",
+            port: 5060
+          ) {
+            id
+          }
+          upsertPricelist(
+            pricelist_tag: "pricelist",
+            currency:EUR
+          ) {
+            id
+          }
+          upsertPricelistRate(
+            carrier_tag: "carrier",
+            pricelist_tag: "pricelist",
+            prefix: "sip:49",
+            active: true,
+            description: "pricelist rate",
+            rate: 1,
+            rate_increment: 1,
+            connect_fee: 0,
+            interval_start: 0
+          ) {
+            id
+          }
+        }
+
+workers:
+  - type: sipp
+    scenario: "test_kamailio_unauthorized_check_transaction.xml"
+    extra_args: ["-cid_str", "test_kamailio_unauthorized_check_transaction"]
+    timeout: 600
+    call_rate: 1
+    call_rate_period: 1000
+    call_limit: 1
+    call_number: 1
+    values:
+      call_duration: 1000
+      to_user: "49040112233"
+      to_domain: "testdomain.com"
+      to_port: "5060"
+
+check:
+  - type: api
+    uri: /graphql
+    method: POST
+    payload:
+      query: |
+          {
+            Transaction(transaction_tag: "test_kamailio_unauthorized_check_transaction", account_tag:"2000") {
+              transaction_tag
+              account_tag
+              primary
+              destination
+            }
+          }
+    expected_response: |
+      {
+        "data": {
+          "Transaction": {
+            "transaction_tag": "test_kamailio_unauthorized_check_transaction",
+            "account_tag": "2000",
+            "primary": true,
+            "destination": "sip:49040112233@testdomain.com:5060"
+          }
+        }
+      }
