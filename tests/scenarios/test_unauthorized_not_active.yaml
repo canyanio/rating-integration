@@ -10,16 +10,16 @@ setup:
             account_tag: "1000",
             type: PREPAID,
             balance: 1000000,
-            active: true,
+            active: false,
             max_concurrent_transactions: 100
           ) {
             id
           }
           upsertCarrier(
-            carrier_tag: "carrier2",
+            carrier_tag: "carrier",
             active: true,
             protocol: UDP,
-            host: "carrier2",
+            host: "carrier",
             port: 5060
           ) {
             id
@@ -27,35 +27,6 @@ setup:
           upsertPricelist(
             pricelist_tag: "pricelist",
             currency:EUR
-          ) {
-            id
-          }
-          upsertPricelistRate(
-            carrier_tag: "carrier2",
-            pricelist_tag: "pricelist",
-            prefix: "sip:39",
-            active: true,
-            description: "pricelist rate",
-            rate: 5,
-            rate_increment: 1,
-            connect_fee: 0,
-            interval_start: 0
-          ) {
-            id
-          }
-        }
-  - type: api
-    uri: /graphql
-    method: POST
-    payload:
-      query: |
-        mutation {
-          upsertCarrier(
-            carrier_tag: "carrier",
-            active: true,
-            protocol: UDP,
-            host: "carrier",
-            port: 5060
           ) {
             id
           }
@@ -73,9 +44,9 @@ setup:
             id
           }
         }
-
+        
 workers:
-  - scenario: "test_kamailio_multiple_carriers.xml"
+  - scenario: "test_unauthorized_not_active.xml"
     number: 1
     repeat: 2
     timeout: 600

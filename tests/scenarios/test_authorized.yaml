@@ -16,42 +16,6 @@ setup:
             id
           }
           upsertCarrier(
-            carrier_tag: "dead-carrier",
-            active: true,
-            protocol: UDP,
-            host: "dead-carrier",
-            port: 5061
-          ) {
-            id
-          }
-          upsertPricelist(
-            pricelist_tag: "pricelist",
-            currency:EUR
-          ) {
-            id
-          }
-          upsertPricelistRate(
-            carrier_tag: "dead-carrier",
-            pricelist_tag: "pricelist",
-            prefix: "sip:39",
-            active: true,
-            description: "pricelist rate",
-            rate: 10,
-            rate_increment: 1,
-            connect_fee: 0,
-            interval_start: 0
-          ) {
-            id
-          }
-        }
-
-  - type: api
-    uri: /graphql
-    method: POST
-    payload:
-      query: |
-        mutation {
-          upsertCarrier(
             carrier_tag: "carrier",
             active: true,
             protocol: UDP,
@@ -72,7 +36,7 @@ setup:
             prefix: "sip:39",
             active: true,
             description: "pricelist rate",
-            rate: 20,
+            rate: 1,
             rate_increment: 1,
             connect_fee: 0,
             interval_start: 0
@@ -80,9 +44,9 @@ setup:
             id
           }
         }
-        
+
 workers:
-  - scenario: "test_kamailio_authorized.xml"
+  - scenario: "test_authorized.xml"
     number: 1
     repeat: 2
     timeout: 600

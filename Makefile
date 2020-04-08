@@ -29,12 +29,12 @@ docker-test:
 	docker exec rating-integration_tester_1 pytest /tests/
 
 .PHONY: test-kamailio
-test-opensips:
-	docker exec rating-integration_tester_1 pytest /tests/test_kamailio.py
+test-kamailio:
+	docker exec rating-integration_tester_1 pytest -k kamailio /tests/
 
 .PHONY: test-opensips
 test-opensips:
-	docker exec rating-integration_tester_1 pytest /tests/test_opensips.py
+	docker exec rating-integration_tester_1 pytest -k opensips /tests/
 
 .PHONY: docker-logs
 docker-logs:

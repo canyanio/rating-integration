@@ -11,7 +11,7 @@ setup:
             type: PREPAID,
             balance: 1000000,
             active: true,
-            max_concurrent_transactions: 100
+            max_concurrent_transactions: 0
           ) {
             id
           }
@@ -46,7 +46,7 @@ setup:
         }
         
 workers:
-  - scenario: "test_kamailio_unauthorized_unreachable.xml"
+  - scenario: "test_unauthorized_too_many_transactions.xml"
     number: 1
     repeat: 2
     timeout: 600
@@ -56,6 +56,6 @@ workers:
     call_number: 1
     values:
       call_duration: 1000
-      to_user: "36040123456"
+      to_user: "39040123456"
       to_domain: "anotherdomain.com"
       to_port: "5060"
