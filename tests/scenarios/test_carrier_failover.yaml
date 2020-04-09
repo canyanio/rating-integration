@@ -9,12 +9,48 @@ setup:
             name: "Fabio",
             account_tag: "1000",
             type: PREPAID,
-            balance: 0,
+            balance: 1000000,
             active: true,
             max_concurrent_transactions: 100
           ) {
             id
           }
+          upsertCarrier(
+            carrier_tag: "dead-carrier",
+            active: true,
+            protocol: UDP,
+            host: "dead-carrier",
+            port: 5061
+          ) {
+            id
+          }
+          upsertPricelist(
+            pricelist_tag: "pricelist",
+            currency:EUR
+          ) {
+            id
+          }
+          upsertPricelistRate(
+            carrier_tag: "dead-carrier",
+            pricelist_tag: "pricelist",
+            prefix: "sip:39",
+            active: true,
+            description: "pricelist rate",
+            rate: 10,
+            rate_increment: 1,
+            connect_fee: 0,
+            interval_start: 0
+          ) {
+            id
+          }
+        }
+
+  - type: api
+    uri: /graphql
+    method: POST
+    payload:
+      query: |
+        mutation {
           upsertCarrier(
             carrier_tag: "carrier",
             active: true,
@@ -36,7 +72,7 @@ setup:
             prefix: "sip:39",
             active: true,
             description: "pricelist rate",
-            rate: 1,
+            rate: 20,
             rate_increment: 1,
             connect_fee: 0,
             interval_start: 0
@@ -46,7 +82,7 @@ setup:
         }
         
 workers:
-  - scenario: "test_kamailio_unauthorized_balance_insufficient.xml"
+  - scenario: "test_authorized.xml"
     number: 1
     repeat: 2
     timeout: 600

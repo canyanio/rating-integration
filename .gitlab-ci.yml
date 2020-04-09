@@ -16,11 +16,31 @@ test:kamailio:
     - for i in `seq 1 60`; do docker-compose -f docker-compose.yaml exec -T rabbitmq rabbitmqctl await_online_nodes 1 && break || true; sleep 5; done
     - sleep 30
     # rabbitmq is ready, start all the other services
-    - make start
+    - make docker-start
     - echo "Waiting for all the services to fully start up..."
     - sleep 30
   script:
-    - make test
+    - make test-kamailio
   after_script:
-    - make logs
-    - make stop
+    - make docker-logs
+    - make docker-stop
+
+test:opensips:
+    image: tiangolo/docker-with-compose
+    services:
+        - docker:dind
+    stage: test
+    before_script:
+        # start rabbitmq, which takes time to initialize
+        - docker-compose -f docker-compose.yaml up -d rabbitmq
+        - for i in `seq 1 60`; do docker-compose -f docker-compose.yaml exec -T rabbitmq rabbitmqctl await_online_nodes 1 && break || true; sleep 5; done
+        - sleep 30
+        # rabbitmq is ready, start all the other services
+        - make docker-start
+        - echo "Waiting for all the services to fully start up..."
+        - sleep 30
+    script:
+        - make test-opensips
+    after_script:
+        - make docker-logs
+        - make docker-stop

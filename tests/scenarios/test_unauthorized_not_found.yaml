@@ -1,5 +1,5 @@
 workers:
-  - scenario: "test_kamailio_unauthorized_not_found.xml"
+  - scenario: "test_unauthorized_not_found.xml"
     number: 1
     repeat: 2
     timeout: 600

@@ -6,8 +6,8 @@ setup:
       query: |
         mutation {
           upsertAccount(
-            name: "Alex",
-            account_tag: "2000",
+            name: "Fabio",
+            account_tag: "1000",
             type: PREPAID,
             balance: 0,
             active: true,
@@ -33,7 +33,7 @@ setup:
           upsertPricelistRate(
             carrier_tag: "carrier",
             pricelist_tag: "pricelist",
-            prefix: "sip:49",
+            prefix: "sip:39",
             active: true,
             description: "pricelist rate",
             rate: 1,
@@ -44,11 +44,11 @@ setup:
             id
           }
         }
-
+        
 workers:
-  - type: sipp
-    scenario: "test_kamailio_unauthorized_check_transaction.xml"
-    extra_args: ["-cid_str", "test_kamailio_unauthorized_check_transaction"]
+  - scenario: "test_unauthorized_balance_insufficient.xml"
+    number: 1
+    repeat: 2
     timeout: 600
     call_rate: 1
     call_rate_period: 1000
@@ -56,32 +56,6 @@ workers:
     call_number: 1
     values:
       call_duration: 1000
-      to_user: "49040112233"
-      to_domain: "testdomain.com"
+      to_user: "39040123456"
+      to_domain: "anotherdomain.com"
       to_port: "5060"
-
-check:
-  - type: api
-    uri: /graphql
-    method: POST
-    payload:
-      query: |
-          {
-            Transaction(transaction_tag: "test_kamailio_unauthorized_check_transaction", account_tag:"2000") {
-              transaction_tag
-              account_tag
-              primary
-              destination
-            }
-          }
-    expected_response: |
-      {
-        "data": {
-          "Transaction": {
-            "transaction_tag": "test_kamailio_unauthorized_check_transaction",
-            "account_tag": "2000",
-            "primary": true,
-            "destination": "sip:49040112233@testdomain.com:5060"
-          }
-        }
-      }
