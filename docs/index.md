@@ -42,6 +42,7 @@ It is written in [Python](https://www.python.org/) programming language, fully a
 The heavy lifting and real time calculation is done by the Rating Engine component which is stateless and highly scalable.
 It is written in [Python](https://www.python.org/) programming language, documented and covered with tests (see badges above).
 
+
 ## Contributing
 
 We welcome and ask for your contribution. If you would like to contribute to Canyan Rating, please read our guide on how to best get started [contributing code or documentation](contributing).
@@ -58,6 +59,7 @@ Canyan is licensed under the GNU General Public License version 3. See
 We take Canyan's security and our users trust very seriously.
 If you believe you have found a security issue in Canyan, please responsibly
 disclose by contacting us at [security@canyan.io](mailto:security@canyan.io).
+
 
 ## Connect with us
 
