@@ -24,8 +24,7 @@ This endpoint performs pre-transaction authorization checks.
 |`authorization.authorized` | *bool* | Is the transaction authorized to be performed |
 |`authorization.authorized_destination` | *bool*	| Is the destination authorized to receive the call |
 |`authorization.unauthorized_account_tag` | *string*	| Account tag |
-|`authorization.unauthorized_account_reason` | *string*	| If unauthorized account specify reason |
-|`authorization.unauthorized_destination_reason` | *string*	| If unauthorized destination - specify reason |
+|`authorization.unauthorized_reason` | *string*	| If unauthorized account specify reason |
 |`authorization.max_available_units` | *int*	| Max available units of the account|
 |`authorization.balance` | *int*	| Balance of the account|
 |`authorization.carriers` | *string*	| Prioritized list of carriers to use |

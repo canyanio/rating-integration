@@ -12,11 +12,11 @@ In this method we can begin and end a transaction with one call.
 |`recordTransaction.destination_account_tag`	| *str*	| destination account tag (if exists) |
 |`recordTransaction.source`	| *str*	| source |
 |`recordTransaction.destination`	| *str*	| destination |
+|`recordTransaction.authorized` | *bool* | Has the transaction been authorized? |
+|`recordTransaction.unauthorized_reason`	| *str*	| If the transaction has not been authorized, what is the reason? (optional) |
 |`authorization.timestamp_auth`	| *datetime*	| timestamp of the authorization request |
 |`recordTransaction.timestamp_begin`	| *datetime*	| timestamp of the begin of the transaction |
 |`recordTransaction.timestamp_end`	| *datetime*	| timestamp of the end of the transaction |
-|`recordTransaction.failed` | *bool* | Has the transaction failed? |
-|`recordTransaction.failed_reason`	| *str*	| If the transaction failed what is the reason? (optional) |
 
 ## Response
 | Field | type | description |
