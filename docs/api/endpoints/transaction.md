@@ -28,13 +28,12 @@ This method is used to list all the transactions
 |`allTransactions.carrier_ip` | *string* | The IP address of the carrier used |
 |`allTransactions.tags` | *array* | Tags associated with this transaction |
 |`allTransactions.authorized` | *boolean* | Was this transaction authorized |
+|`allTransactions.unauthorized_reason` | *string* | If unauthorized, what was the reason? |
 |`allTransactions.destination_rate` | *PricelistRate* | The object [Rate](./rate.md) |
 |`allTransactions.timestamp_auth` | *datetime* | When was the authorization performed for this transaction |
 |`allTransactions.timestamp_begin` | *datetime* | When the transaction started |
 |`allTransactions.timestamp_end` | *datetime* | When the transaction ended |
 |`allTransactions.inbound` | *boolean* | Is this an inbound transaction? |
-|`allTransactions.failed` | *boolean* | Did this transaction failed? |
-|`allTransactions.failed_reason` | *string* | If was failed what was the reason? |
 |`allTransactions.duration` | *int* | The duration of the transaction |
 |`allTransactions.fee` | *int* | The calculated fee of the transaction |
 |`allTransactions.meta.count` | *int*	| Results count |
@@ -79,7 +78,6 @@ Content-Type: application/json
         "account_tag": "1000",
         "authorized": true,
         "inbound": false,
-        "failed": false,
         "duration": 10,
         "fee": 20,
       },
@@ -89,7 +87,6 @@ Content-Type: application/json
         "account_tag": "1000",
         "authorized": true,
         "inbound": true,
-        "failed": true,
         "duration": 0,
         "fee": 0,
       }
@@ -129,13 +126,12 @@ This method is used to fetch a specific transaction either by id or a combinatio
 |`Transaction.carrier_ip` | *string* | The IP address of the carrier used |
 |`Transaction.tags` | *array* | Tags associated with this transaction |
 |`Transaction.authorized` | *boolean* | Was this transaction authorized |
+|`Transaction.unauthorized_reason` | *string* | If unauthorized, what was the reason? |
 |`Transaction.destination_rate` | *PricelistRate* | The object [Rate](./rate.md) |
 |`Transaction.timestamp_auth` | *datetime* | When was the authorization performed for this transaction |
 |`Transaction.timestamp_begin` | *datetime* | When the transaction started |
 |`Transaction.timestamp_end` | *datetime* | When the transaction ended |
 |`Transaction.inbound` | *boolean* | Is this an inbound transaction? |
-|`Transaction.failed` | *boolean* | Did this transaction failed? |
-|`Transaction.failed_reason` | *string* | If was failed what was the reason? |
 |`Transaction.duration` | *int* | The duration of the transaction |
 |`Transaction.fee` | *int* | The calculated fee of the transaction |
 
@@ -167,11 +163,11 @@ curl "https://api.canyan.io/graphql" \
     }
     carrier_ip
     authorized
+    unauthorized_reason
     timestamp_auth
     timestamp_begin
     timestamp_end
     inbound
-    failed
     duration
     fee
   }"
@@ -208,7 +204,6 @@ Content-Type: application/json
         "timestamp_begin": "2019-08-15T21:26:20Z",
         "timestamp_end": "2019-08-15T21:26:50Z",
         "inbound": false,
-        "failed": false,
         "duration": 30,
         "fee": 20,
       }
@@ -237,13 +232,12 @@ This method is used to create a transaction record.
 |`createTransaction.carrier_ip` | *string* | The IP address of the carrier used |
 |`createTransaction.tags` | *array* | Tags associated with this transaction |
 |`createTransaction.authorized` | *boolean* | Was this transaction authorized |
+|`createTransaction.unauthorized_reason` | *string* | If unauthorized, what was the reason? |
 |`createTransaction.destination_rate` | *InputAccountPricelistRate* | The object [Rate](./rate.md) |
 |`createTransaction.timestamp_auth` | *datetime* | When was the authorization performed for this transaction |
 |`createTransaction.timestamp_begin` | *datetime* | When the transaction started |
 |`createTransaction.timestamp_end` | *datetime* | When the transaction ended |
 |`createTransaction.inbound` | *boolean* | Is this an inbound transaction? |
-|`createTransaction.failed` | *boolean* | Did this transaction failed? |
-|`createTransaction.failed_reason` | *string* | If was failed what was the reason? |
 |`createTransaction.duration` | *int* | The duration of the transaction |
 |`createTransaction.fee` | *int* | The calculated fee of the transaction |
 
@@ -261,13 +255,12 @@ This method is used to create a transaction record.
 |`createTransaction.carrier_ip` | *string* | The IP address of the carrier used |
 |`createTransaction.tags` | *array* | Tags associated with this transaction |
 |`createTransaction.authorized` | *boolean* | Was this transaction authorized |
+|`createTransaction.unauthorized_reason` | *string* | If unauthorized, what was the reason? |
 |`createTransaction.destination_rate` | *PricelistRate* | The object [Rate](./rate.md) |
 |`createTransaction.timestamp_auth` | *datetime* | When was the authorization performed for this transaction |
 |`createTransaction.timestamp_begin` | *datetime* | When the transaction started |
 |`createTransaction.timestamp_end` | *datetime* | When the transaction ended |
 |`createTransaction.inbound` | *boolean* | Is this an inbound transaction? |
-|`createTransaction.failed` | *boolean* | Did this transaction failed? |
-|`createTransaction.failed_reason` | *string* | If was failed what was the reason? |
 |`createTransaction.duration` | *int* | The duration of the transaction |
 |`createTransaction.fee` | *int* | The calculated fee of the transaction |
 
@@ -296,7 +289,6 @@ curl "http://localhost:8000/graphql" \
     }
     fee: 20,
     authorized: true,
-    failed: false,
     inbound: false,
     source: \"39040123123\",
     source_ip: \"10.0.0.2\",
@@ -326,7 +318,6 @@ curl "http://localhost:8000/graphql" \
     timestamp_begin
     timestamp_end
     inbound
-    failed
     duration
     fee
   }
@@ -363,7 +354,6 @@ Content-Type: application/json
       "timestamp_begin": "2019-08-15T21:20:17",
       "timestamp_end": "2019-08-15T22:00:17",
       "inbound": false,
-      "failed": false,
       "duration": 40,
       "fee": 20
     }
@@ -392,13 +382,12 @@ This method should not be used but it's available if an update to a transaction 
 |`updateTransaction.carrier_ip` | *string* | The IP address of the carrier used |
 |`updateTransaction.tags` | *array* | Tags associated with this transaction |
 |`updateTransaction.authorized` | *boolean* | Was this transaction authorized |
+|`updateTransaction.unauthorized_reason` | *string* | If unauthorized, what was the reason? |
 |`updateTransaction.destination_rate` | *InputAccountPricelistRate* | The object [Rate](./rate.md) |
 |`updateTransaction.timestamp_auth` | *datetime* | When was the authorization performed for this transaction |
 |`updateTransaction.timestamp_begin` | *datetime* | When the transaction started |
 |`updateTransaction.timestamp_end` | *datetime* | When the transaction ended |
 |`updateTransaction.inbound` | *boolean* | Is this an inbound transaction? |
-|`updateTransaction.failed` | *boolean* | Did this transaction failed? |
-|`updateTransaction.failed_reason` | *string* | If was failed what was the reason? |
 |`updateTransaction.duration` | *int* | The duration of the transaction |
 |`updateTransaction.fee` | *int* | The calculated fee of the transaction |
 
@@ -416,13 +405,12 @@ This method should not be used but it's available if an update to a transaction 
 |`updateTransaction.carrier_ip` | *string* | The IP address of the carrier used |
 |`updateTransaction.tags` | *array* | Tags associated with this transaction |
 |`updateTransaction.authorized` | *boolean* | Was this transaction authorized |
+|`updateTransaction.unauthorized_reason` | *string* | If unauthorized, what was the reason? |
 |`updateTransaction.destination_rate` | *PricelistRate* | The object [Rate](./rate.md) |
 |`updateTransaction.timestamp_auth` | *datetime* | When was the authorization performed for this transaction |
 |`updateTransaction.timestamp_begin` | *datetime* | When the transaction started |
 |`updateTransaction.timestamp_end` | *datetime* | When the transaction ended |
 |`updateTransaction.inbound` | *boolean* | Is this an inbound transaction? |
-|`updateTransaction.failed` | *boolean* | Did this transaction failed? |
-|`updateTransaction.failed_reason` | *string* | If was failed what was the reason? |
 |`updateTransaction.duration` | *int* | The duration of the transaction |
 |`updateTransaction.fee` | *int* | The calculated fee of the transaction |
 
@@ -451,8 +439,7 @@ curl "http://localhost:8000/graphql" \
     }
     fee: 0,
     authorized: true,
-    failed: true,
-    failed_reason: "Unavailable destination"
+    unauthorized_reason: "Unavailable destination"
     inbound: false,
     source: \"39040123123\",
     source_ip: \"10.0.0.2\",
@@ -482,7 +469,6 @@ curl "http://localhost:8000/graphql" \
     timestamp_begin
     timestamp_end
     inbound
-    failed
     duration
     fee
   }
@@ -515,12 +501,11 @@ Content-Type: application/json
       },
       "carrier_ip": "10.0.0.1",
       "authorized": true,
+      "unauthorized_reason": "Unavailable destination",
       "timestamp_auth": "2019-08-15T21:10:17",
       "timestamp_begin": "2019-08-15T21:11:17",
       "timestamp_end": "2019-08-15T22:11:17",
       "inbound": false,
-      "failed": true,
-      "failed_reason": "Unavailable destination",
       "duration": 0,
       "fee": 0
     }
@@ -556,13 +541,12 @@ This method can be used to remove a particular transaction either by id or a com
 |`deleteTransaction.carrier_ip` | *string* | The IP address of the carrier used |
 |`deleteTransaction.tags` | *array* | Tags associated with this transaction |
 |`deleteTransaction.authorized` | *boolean* | Was this transaction authorized |
+|`deleteTransaction.unauthorized_reason` | *string* | If unauthorized, what was the reason? |
 |`deleteTransaction.destination_rate` | *PricelistRate* | The object [Rate](./rate.md) |
 |`deleteTransaction.timestamp_auth` | *datetime* | When was the authorization performed for this transaction |
 |`deleteTransaction.timestamp_begin` | *datetime* | When the transaction started |
 |`deleteTransaction.timestamp_end` | *datetime* | When the transaction ended |
 |`deleteTransaction.inbound` | *boolean* | Is this an inbound transaction? |
-|`deleteTransaction.failed` | *boolean* | Did this transaction failed? |
-|`deleteTransaction.failed_reason` | *string* | If was failed what was the reason? |
 |`deleteTransaction.duration` | *int* | The duration of the transaction |
 |`deleteTransaction.fee` | *int* | The calculated fee of the transaction |
 
@@ -616,12 +600,11 @@ Content-Type: application/json
       },
       "carrier_ip": "10.0.0.1",
       "authorized": true,
+      "unauthorized_reason": "Unavailable destination",
       "timestamp_auth": "2019-08-15T21:10:17",
       "timestamp_begin": "2019-08-15T21:11:17",
       "timestamp_end": "2019-08-15T22:11:17",
       "inbound": false,
-      "failed": true,
-      "failed_reason": "Unavailable destination",
       "duration": 0,
       "fee": 0
     }
