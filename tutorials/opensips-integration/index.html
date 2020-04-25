@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="ie=edge" http-equiv="x-ua-compatible"/>
 <meta content="Data-Driven Intelligence for the communication and IoT industries" name="description"/>
-<link href="https://canyanio.github.io/rating-integration/tutorials/kamailio-integration/" rel="canonical"/>
+<link href="https://canyanio.github.io/rating-integration/tutorials/opensips-integration/" rel="canonical"/>
 <meta content="Canyan.io" name="author"/>
 <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
 <meta content="Copied to clipboard" name="lang:clipboard.copied"/>
@@ -20,7 +20,7 @@
 <meta content="[\s\-]+" name="lang:search.tokenizer"/>
 <link href="../../favicon.ico" rel="shortcut icon"/>
 <meta content="mkdocs-1.0.4, mkdocs-material-4.6.0" name="generator"/>
-<title>Kamailio Integration - Canyan Rating</title>
+<title>Opensips Integration - Canyan Rating</title>
 <link href="../../assets/stylesheets/application.1b62728e.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/application-palette.a8b3c06d.css" rel="stylesheet"/>
 <meta content="#7e57c2" name="theme-color"/>
@@ -61,7 +61,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-<a class="md-skip" href="#integration-with-kamailio" tabindex="1">
+<a class="md-skip" href="#integration-with-opensips" tabindex="1">
         Skip to content
       </a>
 <header class="md-header" data-md-component="header">
@@ -82,7 +82,7 @@
             </span>
 <span class="md-header-nav__topic">
               
-                Kamailio Integration
+                Opensips Integration
               
             </span>
 </div>
@@ -273,13 +273,18 @@
       Transactions
     </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../kamailio-integration/" title="Kamailio Integration">
+      Kamailio Integration
+    </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-        Kamailio Integration
+        Opensips Integration
       </label>
-<a class="md-nav__link md-nav__link--active" href="./" title="Kamailio Integration">
-      Kamailio Integration
+<a class="md-nav__link md-nav__link--active" href="./" title="Opensips Integration">
+      Opensips Integration
     </a>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
@@ -295,8 +300,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#kamailio-configuration">
-    Kamailio configuration
+<a class="md-nav__link" href="#opensips-configuration">
+    OpenSIPS configuration
   </a>
 <nav class="md-nav">
 <ul class="md-nav__list">
@@ -325,11 +330,6 @@
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../opensips-integration/" title="Opensips Integration">
-      Opensips Integration
-    </a>
 </li>
 </ul>
 </nav>
@@ -376,8 +376,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#kamailio-configuration">
-    Kamailio configuration
+<a class="md-nav__link" href="#opensips-configuration">
+    OpenSIPS configuration
   </a>
 <nav class="md-nav">
 <ul class="md-nav__list">
@@ -411,71 +411,75 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<h1 id="integration-with-kamailio">Integration with Kamailio</h1>
-<p><a href="https://www.kamailio.org/">Kamailio</a> is an Open Source SIP Server released under GPL, able to handle thousands of call setups per second. Kamailio can be used to build large platforms for VoIP and realtime communications – presence, WebRTC, Instant messaging and other applications.  Moreover, it can be easily used for scaling up SIP-to-PSTN gateways, PBX systems or media servers like Asterisk™, FreeSWITCH™ or SEMS.</p>
+<h1 id="integration-with-opensips">Integration with OpenSIPS</h1>
+<p><a href="https://www.opensips.org/">OpenSIPS</a> is an Open Source <a href="https://www.ietf.org/rfc/rfc3261.txt">SIP</a> proxy/server for voice, video, IM, presence and any other SIP extensions.</p>
+<p>OpenSIPS is a multi-functional, multi-purpose signaling SIP server used by carriers, telecoms or ITSPs for solutions like Class4/5 Residential Platforms, Trunking / Wholesale, Enterprise / Virtual PBX Solutions, Session Border Controllers, Application Servers, Front-End Load Balancers, IMS Platforms, Call Centers, and many others - see the full Set of Features.</p>
+<p>OpenSIPS is recommended for any kind of SIP scenario / service by:
+* the <strong>high throughput</strong> - tens of thousands of CPS, millions of ‏simultaneous calls (see official tests)
+* the <strong>flexibility of routing and integration</strong> - routing script for implementing custom routing logics, several interfacing APIs (see the Manual)
+* the <strong>effective application building</strong> - more than 120 modules to provide features, for SIP handling, for backend operations, for integration, for routing logics (see List of Modules)</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>The <a href="https://github.com/canyanio/rating-integration">integration repository</a> contains everything we need for understanding the usage of Canyan Rating Engine with Kamailio.
+<p>The <a href="https://github.com/canyanio/rating-integration">integration repository</a> contains everything we need for understanding the usage of Canyan Rating Engine with OpenSIPS.
 The <a href="https://github.com/canyanio/rating-integration/blob/master/Makefile">Makefile</a> provides us with two shortcut commands:
 <code>make docker-start</code> and <code>make docker-stop</code>.</p>
-<p>Also there is a <code>make test-kamailio</code> command that we will look at in a while to understand what is happening behind the scenes.</p>
+<p>Also there is a <code>make test-opensips</code> command that we will look at in a while to understand what is happening behind the scenes.</p>
 <h2 id="scope">Scope</h2>
-<p>Integrating the authorization, begin and start transaction methods of the Rating Engine in a Kamailio instance.
-Kamailio needs to perform an authorization for every outgoing and incoming call, getting all the information needed to perform or not the calls. Also the begin and end of a call needs to be signalized to the Rating Engine.</p>
-<p>The Rating Agent is listening for http requests with REST and GraphQL APIs. In Kamailio we will use the <a href="https://www.kamailio.org/docs/modules/stable/modules/http_async_client.html">HTTP_ASYNC_CLIENT Module</a> to avoid binding Kamailio workers with synchronous http calls.</p>
-<h2 id="kamailio-configuration">Kamailio configuration</h2>
-<p>The integration repository contains an <a href="https://github.com/canyanio/rating-integration/blob/master/conf/kamailio/rating.cfg">example configuration file</a> for the integration with Canyan's Rating Engine.</p>
+<p>Integrating the authorization, begin and start transaction methods of the Rating Engine in an OpenSIPS instance.
+OpenSIPS needs to perform an authorization for every outgoing and incoming call, getting all the information needed to perform or not the calls. Also the begin and end of a call needs to be signalized to the Rating Engine.</p>
+<p>The Rating Agent is listening for http requests with REST and GraphQL APIs. In OpenSIPS we will use the <a href="https://opensips.org/docs/modules/3.0.x/rest_client.html">REST Module</a> in combination with <a href="https://www.opensips.org/Documentation/Script-Async-3-0">Asynchronous Statements</a> to avoid binding OpenSIPS workers with synchronous http calls.</p>
+<h2 id="opensips-configuration">OpenSIPS configuration</h2>
+<p>The integration repository contains an <a href="https://github.com/canyanio/rating-integration/blob/master/conf/opensips/rating.cfg">example configuration file</a> for the integration with Canyan's Rating Engine.</p>
 <blockquote>
-<p><strong>Note:</strong> The Kamailio configuration file is simple and basic for the purpose 
+<p><strong>Note:</strong> The OpenSIPS configuration file is simple and basic for the purpose 
 of this tutorial and should not be used in production.</p>
 </blockquote>
 <h3 id="authorization">Authorization</h3>
 <p>Let's start with the authorization method of the Rating Engine.
-In the <a href="https://github.com/canyanio/rating-integration/blob/master/conf/kamailio/kamailio.cfg">kamailio.cfg</a> we can notice this piece of code:</p>
-<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">is_method</span><span class="p">(</span><span class="ss">"INVITE"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">has_totag</span><span class="p">())</span> <span class="err">{</span>
-  <span class="err">$</span><span class="n">dlg_var</span><span class="p">(</span><span class="n">account_tag</span><span class="p">)</span> <span class="o">=</span> <span class="err">$</span><span class="n">fU</span><span class="p">;</span>
-
-  <span class="n">route</span><span class="p">(</span><span class="n">RATING_AUTHORIZATION</span><span class="p">);</span>
+In the <a href="https://github.com/canyanio/rating-integration/blob/master/conf/opensips/opensips.cfg">opensips.cfg</a> we can notice this piece of code:</p>
+<div class="codehilite"><pre><span></span><span class="err">if (is_method("INVITE") &amp;&amp; !has_totag()) {</span>
+<span class="err">  route(rating_authorization);</span>
 <span class="err">}</span>
 </pre></div>
-<p>The route <code>RATING_AUTHORIZATION</code> is run for every new <code>INVITE</code> method that does not have a <code>to</code> tag.</p>
-<p><code>RATING_AUTHORIZATION</code> prepares the json to be sent to the Rating Agent populating the following variables:</p>
+<p>The route <code>rating_authorization</code> is run for every new <code>INVITE</code> method that does not have a <code>to</code> tag.</p>
+<p><code>rating_authorization</code> prepares the json to be sent to the Rating Agent populating the following variables:</p>
 <ul>
 <li>transaction_tag (<code>$ci</code>)</li>
-<li>account_tag (<code>$dlg_var(account_tag)</code>)</li>
+<li>account_tag (<code>$fU</code>)</li>
 <li>source (<code>$fu</code>)</li>
 <li>destination (<code>$tu</code>)</li>
 </ul>
-<p>The route <code>RATING_AUTHORIZATION_RESPONSE</code> is the most complex of the Canyan Rating Engine Kamailio integration routes.
+<p>The route <code>rating_authorization_response</code> is the most complex of the Canyan Rating Engine OpenSIPS integration routes.
 It handles the response from the Agent to the <code>authorization</code> endpoint request.
 Let's break it down and see what it does.</p>
 <p>The first check is performed on the response from the Agent module. It checks if the http response is 200 then it checks if the response contains the expected fields.</p>
-<p>Then the max available units are set to a variable that will be used if the call is authorized to set the dialog timeout with <code>dlg_set_timeout</code>.</p>
+<p>Then the max available units are set to a variable that will be used if the call is authorized to set the dialog timeout with <code>DLG_timeout</code>.</p>
 <p>The check of the unauthorized reasons is then performed to send the correct reply to the SIP client.</p>
-<p>It there are no errors the prioritized carriers list is gathered from the authorization response and the list is parsed with the route <code>RATING_AUTHORIZATION_PARSE_CARRIERS</code>.</p>
-<p>At the end of the route the <code>SIPOUT</code> route is called.</p>
+<p>It there are no errors the prioritized carriers list is gathered from the authorization response and the top priority carrier is used in the <code>$du</code> variable.</p>
+<p>At the end of the route the <code>relay</code> route is called.</p>
 <h3 id="begin-transaction">Begin Transaction</h3>
-<p>The route <code>RATING_BEGIN_TRANSACTION</code> is called with the event route <a href="https://kamailio.org/docs/modules/stable/modules/dialog.html#idm1446">dialog:start</a>.</p>
+<p>The route <code>rating_begin_transaction</code> is called within the <code>if</code> statement of the <a href="https://opensips.org/html/docs/modules/3.0.x/event_route.html">event route</a> for the <a href="https://opensips.org/docs/modules/3.0.x/dialog.html#event_E_DLG_STATE_CHANGED">E_DLG_STATE_CHANGED</a> event. The same event route is used for the end transaction. If the <code>$param(new_state)</code> is set to <code>4</code> it means that the dialog has started and that's where we trigger the route <code>rating_begin_transaction</code>.</p>
 <p>The route prepares the following variables for the Rating Agent http async call:</p>
 <ul>
-<li>transaction_tag (<code>$ci</code>)</li>
-<li>account_tag (<code>$dlg_var(account_tag)</code>)</li>
-<li>source (<code>$fu</code>)</li>
-<li>destination (<code>$tu</code>)</li>
+<li>transaction_tag (<code>$avp(ci)</code>)</li>
+<li>timestamp (<code>$Ts</code>)</li>
 </ul>
-<p>Then the route <code>RATING_BEGIN_TRANSACTION_RESPONSE</code> that handles the response from the Agent is doing some simple checks like <code>http_ok</code> and if the http response code is 200. After that the check of the content of the response is performed and it consists in checking if the variable <code>ok</code> is true.</p>
-<p>If some of the checks are not good the route sends a 500 reply to che client with a message that the Rating is not available. The route also prints an xlog with alert log level and the http error.</p>
+<p>Please note that the <code>$avp(ci)</code> is populated in the event route with the <code>$param(callid)</code> from the event.</p>
+<p>There is no need for other fields because the Rating Engine uses the <code>transaction_tag</code> to lookup for the data sent by the <code>rating_authorization</code> route.</p>
+<p>Then the route <code>rating_begin_transaction_response</code> that handles the response from the Agent is doing some simple checks with <code>rcode</code>. The code then does the check of the content of the response which consists in checking if the variable <code>ok</code> is <code>true</code>.</p>
+<p>If some of the checks are not good the route sends a <code>500 reply</code> to che client with a message that the Rating is not available. The route also prints an <code>xlog</code> with alert log level and the http error.</p>
 <h3 id="end-transaction">End Transaction</h3>
-<p>The route <code>RATING_END_TRANSACTION</code> sets the following variables to be sent to the Agent via http async call:</p>
+<p>As for the <code>begin transaction</code>, the <code>end transaction</code> route is called with the <code>event route</code> on the dialog state change. In this case the new state is <code>5</code>.</p>
+<p>The route <code>rating_end_transaction</code> sets the following variables to be sent to the Agent via http async call:</p>
 <ul>
-<li>transaction_tag (<code>$ci</code>)</li>
-<li>account_tag (<code>$dlg_var(account_tag)</code>)</li>
-<li>source (<code>$var(query)</code>)</li>
-<li>destination (<code>$var(query)</code>)</li>
+<li>transaction_tag (<code>$avp(ci)</code>)</li>
+<li>timestamp (<code>$Ts</code>)</li>
 </ul>
-<p>As for the Begin Transaction there is a simple <code>RATING_END_TRANSACTION_RESPONSE</code> route that handles the response and checks the correct http response and the value of the <code>ok</code> boolean variable inside the response body.
-It sends SIP error replies and logs with alert log level the issue.</p>
+<p>Please note that the <code>$avp(ci)</code> is populated in the event route with the <code>$param(callid)</code> from the event.
+Unfortunately we now loose the dialog variables because there is no more dialog but all we need is the <code>transaction_tag</code> because the Rating Engine is capable of restoring the needed information gathered from previous requests.</p>
+<p>As for the Begin Transaction there is a simple <code>rating_end_transaction_response</code> route that handles the response from the Agent and checks the correct http response code and the value of the <code>ok</code> boolean variable inside the response body.
+It sends SIP error replies and logs with alert log level if there is any issue.</p>
 <h2 id="testing">Testing</h2>
-<p>The integration repository contains also <a href="https://github.com/canyanio/rating-integration/tree/master/tests">tests</a> that can be run with a simple <code>make test-kamailio</code> after the <code>make docker-start</code> command. Plese refer to those tests to see how this implementation inside Kamailio is tested with Canyan Rating Engine.</p>
+<p>The integration repository contains also a <a href="https://github.com/canyanio/rating-integration/tree/master/tests">tests</a> directory that can be run with a simple <code>make test-opensips</code> after the <code>make docker-start</code> command. Please refer to those tests to see how the implementation inside OpenSIPS is tested with Canyan Rating Engine.</p>
 <p>The tests are run with the open source tool <a href="https://github.com/canyanio/canyan-tester">canyan-tester</a> so refer to the documentation of that tool for better understanding the test process.</p>
 </article>
 </div>
@@ -484,7 +488,7 @@ It sends SIP error replies and logs with alert log level the issue.</p>
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../transactions/" rel="prev" title="Transactions">
+<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../kamailio-integration/" rel="prev" title="Kamailio Integration">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -493,17 +497,17 @@ It sends SIP error replies and logs with alert log level the issue.</p>
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Transactions
+                Kamailio Integration
               </span>
 </div>
 </a>
-<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../opensips-integration/" rel="next" title="Opensips Integration">
+<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../../faq/" rel="next" title="FAQ">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Opensips Integration
+                FAQ
               </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

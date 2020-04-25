@@ -502,6 +502,11 @@
       Kamailio Integration
     </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorials/opensips-integration/" title="Opensips Integration">
+      Opensips Integration
+    </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -857,6 +862,11 @@
 <td>Was this transaction authorized</td>
 </tr>
 <tr>
+<td><code>allTransactions.unauthorized_reason</code></td>
+<td><em>string</em></td>
+<td>If unauthorized, what was the reason?</td>
+</tr>
+<tr>
 <td><code>allTransactions.destination_rate</code></td>
 <td><em>PricelistRate</em></td>
 <td>The object <a href="../rate/">Rate</a></td>
@@ -880,16 +890,6 @@
 <td><code>allTransactions.inbound</code></td>
 <td><em>boolean</em></td>
 <td>Is this an inbound transaction?</td>
-</tr>
-<tr>
-<td><code>allTransactions.failed</code></td>
-<td><em>boolean</em></td>
-<td>Did this transaction failed?</td>
-</tr>
-<tr>
-<td><code>allTransactions.failed_reason</code></td>
-<td><em>string</em></td>
-<td>If was failed what was the reason?</td>
 </tr>
 <tr>
 <td><code>allTransactions.duration</code></td>
@@ -944,7 +944,6 @@ Content-Type: application/json
         <span class="s2">"account_tag"</span>: <span class="s2">"1000"</span>,
         <span class="s2">"authorized"</span>: true,
         <span class="s2">"inbound"</span>: false,
-        <span class="s2">"failed"</span>: false,
         <span class="s2">"duration"</span>: <span class="m">10</span>,
         <span class="s2">"fee"</span>: <span class="m">20</span>,
       <span class="o">}</span>,
@@ -954,7 +953,6 @@ Content-Type: application/json
         <span class="s2">"account_tag"</span>: <span class="s2">"1000"</span>,
         <span class="s2">"authorized"</span>: true,
         <span class="s2">"inbound"</span>: true,
-        <span class="s2">"failed"</span>: true,
         <span class="s2">"duration"</span>: <span class="m">0</span>,
         <span class="s2">"fee"</span>: <span class="m">0</span>,
       <span class="o">}</span>
@@ -1057,6 +1055,11 @@ Content-Type: application/json
 <td>Was this transaction authorized</td>
 </tr>
 <tr>
+<td><code>Transaction.unauthorized_reason</code></td>
+<td><em>string</em></td>
+<td>If unauthorized, what was the reason?</td>
+</tr>
+<tr>
 <td><code>Transaction.destination_rate</code></td>
 <td><em>PricelistRate</em></td>
 <td>The object <a href="../rate/">Rate</a></td>
@@ -1080,16 +1083,6 @@ Content-Type: application/json
 <td><code>Transaction.inbound</code></td>
 <td><em>boolean</em></td>
 <td>Is this an inbound transaction?</td>
-</tr>
-<tr>
-<td><code>Transaction.failed</code></td>
-<td><em>boolean</em></td>
-<td>Did this transaction failed?</td>
-</tr>
-<tr>
-<td><code>Transaction.failed_reason</code></td>
-<td><em>string</em></td>
-<td>If was failed what was the reason?</td>
 </tr>
 <tr>
 <td><code>Transaction.duration</code></td>
@@ -1130,11 +1123,11 @@ Content-Type: application/json
 <span class="s">    }</span>
 <span class="s">    carrier_ip</span>
 <span class="s">    authorized</span>
+<span class="s">    unauthorized_reason</span>
 <span class="s">    timestamp_auth</span>
 <span class="s">    timestamp_begin</span>
 <span class="s">    timestamp_end</span>
 <span class="s">    inbound</span>
-<span class="s">    failed</span>
 <span class="s">    duration</span>
 <span class="s">    fee</span>
 <span class="s">  }"</span>
@@ -1169,7 +1162,6 @@ Content-Type: application/json
         <span class="s2">"timestamp_begin"</span>: <span class="s2">"2019-08-15T21:26:20Z"</span>,
         <span class="s2">"timestamp_end"</span>: <span class="s2">"2019-08-15T21:26:50Z"</span>,
         <span class="s2">"inbound"</span>: false,
-        <span class="s2">"failed"</span>: false,
         <span class="s2">"duration"</span>: <span class="m">30</span>,
         <span class="s2">"fee"</span>: <span class="m">20</span>,
       <span class="o">}</span>
@@ -1242,6 +1234,11 @@ Content-Type: application/json
 <td>Was this transaction authorized</td>
 </tr>
 <tr>
+<td><code>createTransaction.unauthorized_reason</code></td>
+<td><em>string</em></td>
+<td>If unauthorized, what was the reason?</td>
+</tr>
+<tr>
 <td><code>createTransaction.destination_rate</code></td>
 <td><em>InputAccountPricelistRate</em></td>
 <td>The object <a href="../rate/">Rate</a></td>
@@ -1265,16 +1262,6 @@ Content-Type: application/json
 <td><code>createTransaction.inbound</code></td>
 <td><em>boolean</em></td>
 <td>Is this an inbound transaction?</td>
-</tr>
-<tr>
-<td><code>createTransaction.failed</code></td>
-<td><em>boolean</em></td>
-<td>Did this transaction failed?</td>
-</tr>
-<tr>
-<td><code>createTransaction.failed_reason</code></td>
-<td><em>string</em></td>
-<td>If was failed what was the reason?</td>
 </tr>
 <tr>
 <td><code>createTransaction.duration</code></td>
@@ -1349,6 +1336,11 @@ Content-Type: application/json
 <td>Was this transaction authorized</td>
 </tr>
 <tr>
+<td><code>createTransaction.unauthorized_reason</code></td>
+<td><em>string</em></td>
+<td>If unauthorized, what was the reason?</td>
+</tr>
+<tr>
 <td><code>createTransaction.destination_rate</code></td>
 <td><em>PricelistRate</em></td>
 <td>The object <a href="../rate/">Rate</a></td>
@@ -1372,16 +1364,6 @@ Content-Type: application/json
 <td><code>createTransaction.inbound</code></td>
 <td><em>boolean</em></td>
 <td>Is this an inbound transaction?</td>
-</tr>
-<tr>
-<td><code>createTransaction.failed</code></td>
-<td><em>boolean</em></td>
-<td>Did this transaction failed?</td>
-</tr>
-<tr>
-<td><code>createTransaction.failed_reason</code></td>
-<td><em>string</em></td>
-<td>If was failed what was the reason?</td>
 </tr>
 <tr>
 <td><code>createTransaction.duration</code></td>
@@ -1419,7 +1401,6 @@ Content-Type: application/json
 <span class="s">    }</span>
 <span class="s">    fee: 20,</span>
 <span class="s">    authorized: true,</span>
-<span class="s">    failed: false,</span>
 <span class="s">    inbound: false,</span>
 <span class="s">    source: \"39040123123\",</span>
 <span class="s">    source_ip: \"10.0.0.2\",</span>
@@ -1449,7 +1430,6 @@ Content-Type: application/json
 <span class="s">    timestamp_begin</span>
 <span class="s">    timestamp_end</span>
 <span class="s">    inbound</span>
-<span class="s">    failed</span>
 <span class="s">    duration</span>
 <span class="s">    fee</span>
 <span class="s">  }</span>
@@ -1484,7 +1464,6 @@ Content-Type: application/json
       <span class="s2">"timestamp_begin"</span>: <span class="s2">"2019-08-15T21:20:17"</span>,
       <span class="s2">"timestamp_end"</span>: <span class="s2">"2019-08-15T22:00:17"</span>,
       <span class="s2">"inbound"</span>: false,
-      <span class="s2">"failed"</span>: false,
       <span class="s2">"duration"</span>: <span class="m">40</span>,
       <span class="s2">"fee"</span>: <span class="m">20</span>
     <span class="o">}</span>
@@ -1557,6 +1536,11 @@ Content-Type: application/json
 <td>Was this transaction authorized</td>
 </tr>
 <tr>
+<td><code>updateTransaction.unauthorized_reason</code></td>
+<td><em>string</em></td>
+<td>If unauthorized, what was the reason?</td>
+</tr>
+<tr>
 <td><code>updateTransaction.destination_rate</code></td>
 <td><em>InputAccountPricelistRate</em></td>
 <td>The object <a href="../rate/">Rate</a></td>
@@ -1580,16 +1564,6 @@ Content-Type: application/json
 <td><code>updateTransaction.inbound</code></td>
 <td><em>boolean</em></td>
 <td>Is this an inbound transaction?</td>
-</tr>
-<tr>
-<td><code>updateTransaction.failed</code></td>
-<td><em>boolean</em></td>
-<td>Did this transaction failed?</td>
-</tr>
-<tr>
-<td><code>updateTransaction.failed_reason</code></td>
-<td><em>string</em></td>
-<td>If was failed what was the reason?</td>
 </tr>
 <tr>
 <td><code>updateTransaction.duration</code></td>
@@ -1664,6 +1638,11 @@ Content-Type: application/json
 <td>Was this transaction authorized</td>
 </tr>
 <tr>
+<td><code>updateTransaction.unauthorized_reason</code></td>
+<td><em>string</em></td>
+<td>If unauthorized, what was the reason?</td>
+</tr>
+<tr>
 <td><code>updateTransaction.destination_rate</code></td>
 <td><em>PricelistRate</em></td>
 <td>The object <a href="../rate/">Rate</a></td>
@@ -1687,16 +1666,6 @@ Content-Type: application/json
 <td><code>updateTransaction.inbound</code></td>
 <td><em>boolean</em></td>
 <td>Is this an inbound transaction?</td>
-</tr>
-<tr>
-<td><code>updateTransaction.failed</code></td>
-<td><em>boolean</em></td>
-<td>Did this transaction failed?</td>
-</tr>
-<tr>
-<td><code>updateTransaction.failed_reason</code></td>
-<td><em>string</em></td>
-<td>If was failed what was the reason?</td>
 </tr>
 <tr>
 <td><code>updateTransaction.duration</code></td>
@@ -1734,8 +1703,7 @@ Content-Type: application/json
 <span class="s">    }</span>
 <span class="s">    fee: 0,</span>
 <span class="s">    authorized: true,</span>
-<span class="s">    failed: true,</span>
-<span class="s">    failed_reason: "Unavailable destination"</span>
+<span class="s">    unauthorized_reason: "Unavailable destination"</span>
 <span class="s">    inbound: false,</span>
 <span class="s">    source: \"39040123123\",</span>
 <span class="s">    source_ip: \"10.0.0.2\",</span>
@@ -1765,7 +1733,6 @@ Content-Type: application/json
 <span class="s">    timestamp_begin</span>
 <span class="s">    timestamp_end</span>
 <span class="s">    inbound</span>
-<span class="s">    failed</span>
 <span class="s">    duration</span>
 <span class="s">    fee</span>
 <span class="s">  }</span>
@@ -1796,12 +1763,11 @@ Content-Type: application/json
       <span class="o">}</span>,
       <span class="s2">"carrier_ip"</span>: <span class="s2">"10.0.0.1"</span>,
       <span class="s2">"authorized"</span>: true,
+      <span class="s2">"unauthorized_reason"</span>: <span class="s2">"Unavailable destination"</span>,
       <span class="s2">"timestamp_auth"</span>: <span class="s2">"2019-08-15T21:10:17"</span>,
       <span class="s2">"timestamp_begin"</span>: <span class="s2">"2019-08-15T21:11:17"</span>,
       <span class="s2">"timestamp_end"</span>: <span class="s2">"2019-08-15T22:11:17"</span>,
       <span class="s2">"inbound"</span>: false,
-      <span class="s2">"failed"</span>: true,
-      <span class="s2">"failed_reason"</span>: <span class="s2">"Unavailable destination"</span>,
       <span class="s2">"duration"</span>: <span class="m">0</span>,
       <span class="s2">"fee"</span>: <span class="m">0</span>
     <span class="o">}</span>
@@ -1901,6 +1867,11 @@ Content-Type: application/json
 <td>Was this transaction authorized</td>
 </tr>
 <tr>
+<td><code>deleteTransaction.unauthorized_reason</code></td>
+<td><em>string</em></td>
+<td>If unauthorized, what was the reason?</td>
+</tr>
+<tr>
 <td><code>deleteTransaction.destination_rate</code></td>
 <td><em>PricelistRate</em></td>
 <td>The object <a href="../rate/">Rate</a></td>
@@ -1924,16 +1895,6 @@ Content-Type: application/json
 <td><code>deleteTransaction.inbound</code></td>
 <td><em>boolean</em></td>
 <td>Is this an inbound transaction?</td>
-</tr>
-<tr>
-<td><code>deleteTransaction.failed</code></td>
-<td><em>boolean</em></td>
-<td>Did this transaction failed?</td>
-</tr>
-<tr>
-<td><code>deleteTransaction.failed_reason</code></td>
-<td><em>string</em></td>
-<td>If was failed what was the reason?</td>
 </tr>
 <tr>
 <td><code>deleteTransaction.duration</code></td>
@@ -1994,12 +1955,11 @@ Content-Type: application/json
       <span class="o">}</span>,
       <span class="s2">"carrier_ip"</span>: <span class="s2">"10.0.0.1"</span>,
       <span class="s2">"authorized"</span>: true,
+      <span class="s2">"unauthorized_reason"</span>: <span class="s2">"Unavailable destination"</span>,
       <span class="s2">"timestamp_auth"</span>: <span class="s2">"2019-08-15T21:10:17"</span>,
       <span class="s2">"timestamp_begin"</span>: <span class="s2">"2019-08-15T21:11:17"</span>,
       <span class="s2">"timestamp_end"</span>: <span class="s2">"2019-08-15T22:11:17"</span>,
       <span class="s2">"inbound"</span>: false,
-      <span class="s2">"failed"</span>: true,
-      <span class="s2">"failed_reason"</span>: <span class="s2">"Unavailable destination"</span>,
       <span class="s2">"duration"</span>: <span class="m">0</span>,
       <span class="s2">"fee"</span>: <span class="m">0</span>
     <span class="o">}</span>

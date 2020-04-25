@@ -321,6 +321,11 @@
       Kamailio Integration
     </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorials/opensips-integration/" title="Opensips Integration">
+      Opensips Integration
+    </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -436,6 +441,16 @@
 <td>destination</td>
 </tr>
 <tr>
+<td><code>recordTransaction.authorized</code></td>
+<td><em>bool</em></td>
+<td>Has the transaction been authorized?</td>
+</tr>
+<tr>
+<td><code>recordTransaction.unauthorized_reason</code></td>
+<td><em>str</em></td>
+<td>If the transaction has not been authorized, what is the reason? (optional)</td>
+</tr>
+<tr>
 <td><code>authorization.timestamp_auth</code></td>
 <td><em>datetime</em></td>
 <td>timestamp of the authorization request</td>
@@ -449,16 +464,6 @@
 <td><code>recordTransaction.timestamp_end</code></td>
 <td><em>datetime</em></td>
 <td>timestamp of the end of the transaction</td>
-</tr>
-<tr>
-<td><code>recordTransaction.failed</code></td>
-<td><em>bool</em></td>
-<td>Has the transaction failed?</td>
-</tr>
-<tr>
-<td><code>recordTransaction.failed_reason</code></td>
-<td><em>str</em></td>
-<td>If the transaction failed what is the reason? (optional)</td>
 </tr>
 </tbody>
 </table>
