@@ -111,7 +111,17 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://canyanio.github.io/rating-integration/tutorials/kamailio-hep-integration/</loc>
+     <lastmod>2020-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://canyanio.github.io/rating-integration/tutorials/opensips-integration/</loc>
+     <lastmod>2020-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://canyanio.github.io/rating-integration/tutorials/opensips-hep-integration/</loc>
      <lastmod>2020-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>

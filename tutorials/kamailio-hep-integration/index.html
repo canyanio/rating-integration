@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="ie=edge" http-equiv="x-ua-compatible"/>
 <meta content="Data-Driven Intelligence for the communication and IoT industries" name="description"/>
-<link href="https://canyanio.github.io/rating-integration/tutorials/authorizations/" rel="canonical"/>
+<link href="https://canyanio.github.io/rating-integration/tutorials/kamailio-hep-integration/" rel="canonical"/>
 <meta content="Canyan.io" name="author"/>
 <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
 <meta content="Copied to clipboard" name="lang:clipboard.copied"/>
@@ -20,7 +20,7 @@
 <meta content="[\s\-]+" name="lang:search.tokenizer"/>
 <link href="../../favicon.ico" rel="shortcut icon"/>
 <meta content="mkdocs-1.0.4, mkdocs-material-4.6.0" name="generator"/>
-<title>Authorizations - Canyan Rating</title>
+<title>Kamailio HEP Integration - Canyan Rating</title>
 <link href="../../assets/stylesheets/application.1b62728e.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/application-palette.a8b3c06d.css" rel="stylesheet"/>
 <meta content="#7e57c2" name="theme-color"/>
@@ -61,7 +61,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-<a class="md-skip" href="#authorizations" tabindex="1">
+<a class="md-skip" href="#integration-with-kamailio-via-hep-agent" tabindex="1">
         Skip to content
       </a>
 <header class="md-header" data-md-component="header">
@@ -82,7 +82,7 @@
             </span>
 <span class="md-header-nav__topic">
               
-                Authorizations
+                Kamailio HEP Integration
               
             </span>
 </div>
@@ -263,34 +263,10 @@
       Inserting Data
     </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-        Authorizations
-      </label>
-<a class="md-nav__link md-nav__link--active" href="./" title="Authorizations">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../authorizations/" title="Authorizations">
       Authorizations
     </a>
-<nav class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">Table of contents</label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
-    Prerequisites
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#request">
-    Request
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#response">
-    Response
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../transactions/" title="Transactions">
@@ -302,10 +278,58 @@
       Kamailio Integration
     </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../kamailio-hep-integration/" title="Kamailio HEP Integration">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        Kamailio HEP Integration
+      </label>
+<a class="md-nav__link md-nav__link--active" href="./" title="Kamailio HEP Integration">
       Kamailio HEP Integration
     </a>
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scope">
+    Scope
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kamailio-configuration">
+    Kamailio configuration
+  </a>
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#includes-and-modparams">
+    Includes and modparams
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-sip_trace-function">
+    Using sip_trace function
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing">
+    Testing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../opensips-integration/" title="OpenSIPS Integration">
@@ -357,13 +381,37 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#request">
-    Request
+<a class="md-nav__link" href="#scope">
+    Scope
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#response">
-    Response
+<a class="md-nav__link" href="#kamailio-configuration">
+    Kamailio configuration
+  </a>
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#includes-and-modparams">
+    Includes and modparams
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-sip_trace-function">
+    Using sip_trace function
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing">
+    Testing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
   </a>
 </li>
 </ul>
@@ -373,73 +421,98 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<h1 id="authorizations">Authorizations</h1>
-<p>The scope of this tutorial is to make your first authorizations with Canyan Rating and how to use this functionality with your own system.
-This method is used to get a response from the Rating Engine if the account has the ability to perform the desired transaction before even starting the transaction. A list of unauthorized reasons could be:</p>
-<ul>
-<li>not found</li>
-<li>not active</li>
-<li>unreachable destination</li>
-<li>too many running transactions</li>
-<li>insufficient balance</li>
-</ul>
-<p>Also if the destination account is handled by the Rating Engine there could be an unauthorized transaction regarding the limitations of the destination account.</p>
-<p>There is an immediate response regarding the max available units the account can perform toward that destination and a prioritized list of carriers returned according to the account preferences, LCR etc.</p>
+<h1 id="integration-with-kamailio-via-hep-agent">Integration with Kamailio via HEP Agent</h1>
+<p><a href="https://www.kamailio.org/">Kamailio</a> is an Open Source SIP Server released under GPL, able to handle thousands of call setups per second. Kamailio can be used to build large platforms for VoIP and realtime communications – presence, WebRTC, Instant messaging and other applications.  Moreover, it can be easily used for scaling up SIP-to-PSTN gateways, PBX systems or media servers like Asterisk™, FreeSWITCH™ or SEMS.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>The test environment should be set up and running successfully as described in <a href="/running.md">Running Canyan Rating</a> section.
-You should have a basic set of data populated in your Canyan Rating instance as described in the <a href="/tutorials/inserting-data/">Inserting Data Tutorial</a>.
-The following commands and requests relay on the same data inserted in the above tutorial. If you populated different data you should change the commands in this tutorial accordingly.</p>
-<p>It is assumed that the API is running on <code>localhost:8000</code> and the Agent on <code>localhost:8080</code>.</p>
-<h2 id="request">Request</h2>
-<p>We will now send a request to the Agent component asking for authorization regarding an outbound 
-call performed by our account <code>100</code>.</p>
-<div class="codehilite"><pre><span></span>curl <span class="s2">"http://localhost:8080/graphql"</span> <span class="se">\</span>
-  -X POST <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  --data @- <span class="s">&lt;&lt;EOF</span>
-<span class="s">{"query": "mutation {</span>
-<span class="s">    authorization(</span>
-<span class="s">        transaction_tag: \"transaction1\",</span>
-<span class="s">        account_tag: \"100\",</span>
-<span class="s">        source: \"sip:10.0.0.1:5060\",</span>
-<span class="s">        destination: \"39040123123\"</span>
-<span class="s">    ) {</span>
-<span class="s">        transaction_tag</span>
-<span class="s">        account_tag</span>
-<span class="s">        authorized</span>
-<span class="s">        max_available_units</span>
-<span class="s">        balance</span>
-<span class="s">        carriers</span>
-<span class="s">    }</span>
-<span class="s">  }"</span>
-<span class="s">}</span>
-<span class="s">EOF</span>
+<p>The <a href="https://github.com/canyanio/rating-agent-hep">Rating Agent HEP repository</a> contains everything we need for understanding the usage of Canyan Rating Engine with Kamailio in a more transparent and unobtrusive way.</p>
+<p>The <a href="https://github.com/canyanio/rating-agent-hep/blob/master/Makefile">Makefile</a> provides us with two shortcut commands which are usual for all of our solutions:
+<code>make docker-start</code> and <code>make docker-stop</code>.</p>
+<p>Also there is a <code>docker-start-kamailio</code> which starts the kamailio instance along with the Canyan Rating and a <code>make test-kamailio</code> command that runs the different tests and also checking the correct data storage in Canyan Rating after the test calls.</p>
+<h2 id="scope">Scope</h2>
+<p>In this integration example there is no authorization for the outgoing and incoming calls to the Kamailio box. Kamailio is using the <a href="https://www.kamailio.org/docs/modules/devel/modules/siptrace.html">SipTrace module</a> duplicating the incoming/outgoing SIP messages to the Rating Engine HEP using HEP, the <a href="https://github.com/sipcapture/HEP">Homer encapsulation protocol</a>.</p>
+<p>This example uses the UDP communication protocol. For an example of usage with the TCP protocol take a look at the example <a href="tutorials/opensips-hep-integration.md">integration with OpenSIPS</a>.</p>
+<h2 id="kamailio-configuration">Kamailio configuration</h2>
+<p>The HEP Agent repository contains an <a href="https://github.com/canyanio/rating-agent-hep/blob/master/tests/kamailio/kamailio.cfg">example configuration file</a> for the integration with Canyan's Rating Agent HEP.</p>
+<blockquote>
+<p><strong>Note:</strong> The Kamailio configuration file is simple and basic for the purpose 
+of this tutorial and should not be used in production.</p>
+</blockquote>
+<p>Let's take a look in more detail on the different sections of the <code>kamailio.cfg</code> file provided:</p>
+<h3 id="includes-and-modparams">Includes and modparams</h3>
+<p>First of all the <a href="https://github.com/canyanio/rating-agent-hep/blob/master/tests/kamailio/kamailio-local.cfg">kamailio-local.cfg</a> file defines the following:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="err">#!define HEP_CAPTURE_ID 1</span>
+<span class="err">#!define RATING_AGENT_HEP "sip:rating-agent-hep:9060"</span>
 </pre></div>
-<p>We will use an unique tag for the transaction, will specify the account 
-performing the call and will also specify the source of the call and the 
-destination the account is trying to reach out to.</p>
-<h2 id="response">Response</h2>
-<p>The response should be like this:</p>
-<div class="codehilite"><pre><span></span>HTTP/1.1 <span class="m">200</span> OK
-Content-Type: application/json
-<span class="o">{</span>
-  <span class="s2">"data"</span>: <span class="o">{</span>
-    <span class="s2">"authorization"</span>: <span class="o">{</span> 
-      <span class="s2">"transaction_tag"</span>: <span class="s2">"transaction1"</span>,
-      <span class="s2">"account_tag"</span>: <span class="s2">"100"</span>,
-      <span class="s2">"authorized"</span>: True,
-      <span class="s2">"max_available_units"</span>: <span class="m">300</span>
-      <span class="s2">"balance"</span>: <span class="m">100</span>
-      <span class="s2">"carriers"</span>: <span class="s2">"localhost:5061"</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+</td></tr></table>
+<p><code>rating-agent-hep</code> is the hostname of the container in the <a href="https://github.com/canyanio/rating-agent-hep/blob/master/docker-compose.yaml">docker-compose.yaml</a> file.</p>
+<p>If we now take a look at the <a href="https://github.com/canyanio/rating-agent-hep/blob/master/tests/kamailio/kamailio.cfg">kamailio.cfg</a> file we can easily spot the configuration needed for using the HEP Agent:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="err">loadmodule "siptrace.so"</span>
+<span class="err">#!endif</span>
+<span class="err">...</span>
+<span class="err"># ----- siptrace params -----</span>
+<span class="err">#!ifdef WITH_SIPTRACE</span>
+<span class="err">modparam("siptrace", "trace_on", 1)</span>
+<span class="err">modparam("siptrace", "trace_to_database", 0)</span>
+<span class="err">modparam("siptrace", "hep_mode_on", 1)</span>
+<span class="err">modparam("siptrace", "hep_version", 3)</span>
+<span class="err">modparam("siptrace", "hep_capture_id", HEP_CAPTURE_ID)</span>
+<span class="err">#!endif</span>
+<span class="err">...</span>
 </pre></div>
-<p>The Agent component is responding that for our transaction <code>transaction1</code> 
-the account <code>100</code> calling an Italian prefix is allowed to proceed and that 
-the max available units for that call are <code>300</code> seconds. The actual balance 
-the account has is <code>100</code> and the carrier it is supposed to use is <code>carrier1</code>
-available on <code>localhost:5061</code>.</p>
+</td></tr></table>
+<h3 id="using-sip_trace-function">Using <code>sip_trace</code> function</h3>
+<p>Now in our main route (<code>request_route</code>) there is a call to a route called <code>SIPTRACE</code> here:</p>
+<div class="codehilite"><pre><span></span><span class="n">request_route</span> <span class="err">{</span>
+
+<span class="o">#!</span><span class="n">ifdef</span> <span class="n">WITH_SIPTRACE</span>
+    <span class="o">#</span> <span class="n">enable</span> <span class="n">siptrace</span>
+    <span class="n">route</span><span class="p">(</span><span class="n">SIPTRACE</span><span class="p">);</span>
+<span class="o">#!</span><span class="n">endif</span>
+    <span class="p">...</span>
+<span class="err">}</span>
+</pre></div>
+<p>And finally we can see the <code>sip_trace</code> function call in this block:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">route</span><span class="o">[</span><span class="n">SIPTRACE</span><span class="o">]</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">sip</span><span class="w"> </span><span class="n">tracing</span><span class="w"></span>
+<span class="w">    </span><span class="n">sip_trace</span><span class="p">(</span><span class="n">RATING_AGENT_HEP</span><span class="p">,</span><span class="w"> </span><span class="ss">"$ci"</span><span class="p">);</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+<span class="err">#!</span><span class="n">endif</span><span class="w"></span>
+</pre></div>
+</td></tr></table>
+<p>As you can see it's quite a simple integration and we could just add this</p>
+<div class="codehilite"><pre><span></span><span class="err">sip_trace("sip:rating-agent-hep:9060", "$ci");</span>
+</pre></div>
+<p>to our <code>request_route</code>. The call ID (<code>$ci</code>) is used as a <code>correlation_id</code>.</p>
+<h2 id="testing">Testing</h2>
+<p>In the <a href="https://github.com/canyanio/rating-agent-hep/blob/master/tests/">tests</a> directory of the Rating Agent HEP we can find our usual scenarios files (as seen in the integration repository) and the tests can be run using <code>make docker-test-kamailio</code> after the <code>make docker-start-kamailio</code> command.</p>
+<p>The tests are run with <a href="https://github.com/canyanio/canyan-tester">canyan-tester</a>, our open source testing tool. For usage information and better understanding of the testing process with canyan-tester please refer to the tester <a href="https://github.com/canyanio/canyan-tester/blob/master/README.md">README</a>.</p>
+<p>Now, let's take a look at the <a href="https://github.com/canyanio/rating-agent-hep/blob/master/tests/scenarios/test_kamailio_call.yaml">test_kamailio_call.yaml</a> file. We can immediately spot the three main sections:
+* setup
+* workers
+* check</p>
+<p>The <code>setup</code> section runs API calls to create the needed accounts, price lists and rates to perform the call</p>
+<p>Then the a <a href="http://sipp.sourceforge.net/">sipp</a> worker in the <code>workers</code> section use the <a href="https://github.com/canyanio/rating-agent-hep/blob/master/tests/scenarios/test_kamailio_call.xml">test_kamailio_call.xml</a> scenario file to make a call towards our just configured kamailio box.</p>
+<p>In the end the <code>check</code> section of our <code>test_kamailio_call.yaml</code> performs an API call and expects the <code>transaction</code> of the <code>sipp</code> call to be registered in the Canyan Rating system.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>As seen it's quite easy to integrate the Canyan Rating Agent HEP with Kamailio in an unobtrusive and transparent way.</p>
+<p>For more details on how to run Canyan Rating you should take a look at the <a href="/running.md">Running Canyan Rating</a> section of this documentation.</p>
+<p>The above tests insert testing data on the fly but you should take a look at the <a href="/tutorials/inserting-data/">Inserting Data Tutorial</a> to be able to insert your own data in Canyan Rating.</p>
 </article>
 </div>
 </div>
@@ -447,7 +520,7 @@ available on <code>localhost:5061</code>.</p>
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../inserting-data/" rel="prev" title="Inserting Data">
+<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../kamailio-integration/" rel="prev" title="Kamailio Integration">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -456,17 +529,17 @@ available on <code>localhost:5061</code>.</p>
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Inserting Data
+                Kamailio Integration
               </span>
 </div>
 </a>
-<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../transactions/" rel="next" title="Transactions">
+<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../opensips-integration/" rel="next" title="OpenSIPS Integration">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Transactions
+                OpenSIPS Integration
               </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
