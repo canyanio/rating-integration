@@ -15,9 +15,9 @@ Also there is a `docker-start-kamailio` which starts the kamailio instance along
 
 ## Scope
 
-In this integration example there is no authorization for the outgoing and incoming calls to the Kamailio box. Kamailio is using the [SipTrace module](https://www.kamailio.org/docs/modules/devel/modules/siptrace.html) duplicating the incoming/outgoing SIP messages to the Rating Engine HEP sing HEP, the [Homer encapsulation protocol](https://github.com/sipcapture/HEP).
+In this integration example there is no authorization for the outgoing and incoming calls to the Kamailio box. Kamailio is using the [SipTrace module](https://www.kamailio.org/docs/modules/devel/modules/siptrace.html) duplicating the incoming/outgoing SIP messages to the Rating Engine HEP using HEP, the [Homer encapsulation protocol](https://github.com/sipcapture/HEP).
 
-This example uses the UDP communication protocol. For an example of usage with the TCP protocol take a look at the example [integration with OpenSIPS](tutorials/opensips-hep-integration.md).
+This example uses the UDP communication protocol. For an example of usage with the TCP protocol take a look at the example [integration with OpenSIPS](opensips-hep-integration.md).
 
 
 ## Kamailio configuration

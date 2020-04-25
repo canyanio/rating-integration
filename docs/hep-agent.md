@@ -5,5 +5,11 @@
 The Agent repository is available [here](https://github.com/canyanio/rating-agent-hep).
 
 This component uses the [HEP/EEP Encapsulation Protocol](https://github.com/sipcapture/hep)
-for packet capture and mirroring of RTC solutions which allows for a transparent and unobtrusive rating solution. 
+for packet capture and mirroring of RTC solutions which allows for a transparent and unobtrusive rating solution. It supports both TCP and UDP communication protocols.
+
 It is written in [Go](https://golang.org/) programming language, documented and highly covered with tests (see badges above).
+
+
+## Usage examples
+
+We cover different integration scenarios in this documentation. Please refer to the [Kamailio Integration tutorial](tutorials/kamailio-hep-integration.md) for an example on how to use Canyan Rating Engine with Kamailio via the HEP Agent, or the [OpenSIPS Integration tutorial](tutorials/opensips-hep-integration.md) for an example on how to use Canyan Rating Engine with OpenSIPS via the HEP Agent.
