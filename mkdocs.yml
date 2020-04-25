@@ -37,6 +37,7 @@ nav:
         - Authorizations: tutorials/authorizations.md
         - Transactions: tutorials/transactions.md
         - Kamailio Integration: tutorials/kamailio-integration.md
+        - Kamailio HEP Integration: tutorials/kamailio-hep-integration.md
         - Opensips Integration: tutorials/opensips-integration.md
     - FAQ: faq.md
     - License: license.md
