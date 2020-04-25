@@ -435,7 +435,7 @@
 <p>Also there is a <code>docker-start-opensips</code> which starts the OpenSIPS instance along with the Canyan Rating and a <code>make test-opensips</code> command that runs the different tests and also checking the correct data storage in Canyan Rating after the test calls.</p>
 <h2 id="scope">Scope</h2>
 <p>In this integration example there is no authorization for the outgoing and incoming calls to the OpenSIPS box. OpenSIPS is using the <a href="https://opensips.org/html/docs/modules/3.0.x/tracer.html">Tracer module</a> duplicating the incoming/outgoing SIP messages to the Rating Engine HEP using HEP, the <a href="https://github.com/sipcapture/HEP">Homer encapsulation protocol</a>.</p>
-<p>This example uses the TCP communication protocol. For an example of usage with the UDP protocol take a look at the example <a href="tutorials/kamailio-hep-integration.md">integration with Kamailio</a>.</p>
+<p>This example uses the TCP communication protocol. For an example of usage with the UDP protocol take a look at the example <a href="../kamailio-hep-integration/">integration with Kamailio</a>.</p>
 <h2 id="opensips-configuration">Opensips configuration</h2>
 <p>The HEP Agent repository contains an <a href="https://github.com/canyanio/rating-agent-hep/blob/master/tests/opensips/opensips.cfg">example configuration file</a> for the integration with Canyan's Rating Agent HEP.</p>
 <blockquote>

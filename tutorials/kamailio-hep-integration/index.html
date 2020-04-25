@@ -430,7 +430,7 @@
 <p>Also there is a <code>docker-start-kamailio</code> which starts the kamailio instance along with the Canyan Rating and a <code>make test-kamailio</code> command that runs the different tests and also checking the correct data storage in Canyan Rating after the test calls.</p>
 <h2 id="scope">Scope</h2>
 <p>In this integration example there is no authorization for the outgoing and incoming calls to the Kamailio box. Kamailio is using the <a href="https://www.kamailio.org/docs/modules/devel/modules/siptrace.html">SipTrace module</a> duplicating the incoming/outgoing SIP messages to the Rating Engine HEP using HEP, the <a href="https://github.com/sipcapture/HEP">Homer encapsulation protocol</a>.</p>
-<p>This example uses the UDP communication protocol. For an example of usage with the TCP protocol take a look at the example <a href="tutorials/opensips-hep-integration.md">integration with OpenSIPS</a>.</p>
+<p>This example uses the UDP communication protocol. For an example of usage with the TCP protocol take a look at the example <a href="../opensips-hep-integration/">integration with OpenSIPS</a>.</p>
 <h2 id="kamailio-configuration">Kamailio configuration</h2>
 <p>The HEP Agent repository contains an <a href="https://github.com/canyanio/rating-agent-hep/blob/master/tests/kamailio/kamailio.cfg">example configuration file</a> for the integration with Canyan's Rating Agent HEP.</p>
 <blockquote>
