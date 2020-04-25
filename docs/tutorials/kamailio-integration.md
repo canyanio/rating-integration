@@ -5,12 +5,11 @@
 
 ## Prerequisites
 
-The test environment should be set up and running successfully as described in [Running Canyan Rating](/running.md) section.
-You should have a basic set of data populated in your Canyan Rating instance as described in the [Inserting Data Tutorial](/tutorials/inserting-data/).
-The following commands and requests relay on the same data inserted in the above tutorial. If you populated different data you should change the commands in this tutorial accordingly.
-
-After cloning the [integration repository](https://github.com/canyanio/rating-integration) the [Makefile](https://github.com/canyanio/rating-integration/blob/master/Makefile) provides us with two shortcut commands:
+The [integration repository](https://github.com/canyanio/rating-integration) contains everything we need for understanding the usage of Canyan Rating Engine with Kamailio.
+The [Makefile](https://github.com/canyanio/rating-integration/blob/master/Makefile) provides us with two shortcut commands:
 `make docker-start` and `make docker-stop`.
+
+Also there is a `make test-kamailio` command that we will look at in a while to understand what is happening behind the scenes.
 
 ## Scope
 
@@ -94,5 +93,6 @@ It sends SIP error replies and logs with alert log level the issue.
 
 ## Testing
 
-The integration repository contains also [tests](https://github.com/canyanio/rating-integration/tree/master/tests) that can be run with a simple `make docker-test` after the `make docker-start` command. Plese refer to those tests to see how this implementation inside kamailio is tested with Canyan Rating Engine.
-The tests are run with the open source tool [canyan-tester](https://github.com/canyanio/canyan-tester) so refer to the documentation of that tool for better understanding of the test process.
+The integration repository contains also [tests](https://github.com/canyanio/rating-integration/tree/master/tests) that can be run with a simple `make test-kamailio` after the `make docker-start` command. Plese refer to those tests to see how this implementation inside Kamailio is tested with Canyan Rating Engine.
+
+The tests are run with the open source tool [canyan-tester](https://github.com/canyanio/canyan-tester) so refer to the documentation of that tool for better understanding the test process.
