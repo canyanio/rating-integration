@@ -33,8 +33,6 @@ Let's start with the authorization method of the Rating Engine.
 In the [kamailio.cfg](https://github.com/canyanio/rating-integration/blob/master/conf/kamailio/kamailio.cfg) we can notice this piece of code:
 ```
 if (is_method("INVITE") && !has_totag()) {
-  $dlg_var(account_tag) = $fU;
-
   route(RATING_AUTHORIZATION);
 }
 ```
@@ -43,7 +41,7 @@ The route `RATING_AUTHORIZATION` is run for every new `INVITE` method that does 
 `RATING_AUTHORIZATION` prepares the json to be sent to the Rating Agent populating the following variables:
 
 * transaction_tag (`$ci`)
-* account_tag (`$dlg_var(account_tag)`)
+* account_tag (`$fU`)
 * source (`$fu`)
 * destination (`$tu`)
 
@@ -69,7 +67,7 @@ The route `RATING_BEGIN_TRANSACTION` is called with the event route [dialog:star
 The route prepares the following variables for the Rating Agent http async call:
 
 * transaction_tag (`$ci`)
-* account_tag (`$dlg_var(account_tag)`)
+* account_tag (`$fU`)
 * source (`$fu`)
 * destination (`$tu`)
 
@@ -83,7 +81,7 @@ If some of the checks are not good the route sends a 500 reply to che client wit
 The route `RATING_END_TRANSACTION` sets the following variables to be sent to the Agent via http async call:
 
 * transaction_tag (`$ci`)
-* account_tag (`$dlg_var(account_tag)`)
+* account_tag (`$fU`)
 * source (`$var(query)`)
 * destination (`$var(query)`)
 
