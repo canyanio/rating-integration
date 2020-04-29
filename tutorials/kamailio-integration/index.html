@@ -441,17 +441,15 @@ of this tutorial and should not be used in production.</p>
 <h3 id="authorization">Authorization</h3>
 <p>Let's start with the authorization method of the Rating Engine.
 In the <a href="https://github.com/canyanio/rating-integration/blob/master/conf/kamailio/kamailio.cfg">kamailio.cfg</a> we can notice this piece of code:</p>
-<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">is_method</span><span class="p">(</span><span class="ss">"INVITE"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">has_totag</span><span class="p">())</span> <span class="err">{</span>
-  <span class="err">$</span><span class="n">dlg_var</span><span class="p">(</span><span class="n">account_tag</span><span class="p">)</span> <span class="o">=</span> <span class="err">$</span><span class="n">fU</span><span class="p">;</span>
-
-  <span class="n">route</span><span class="p">(</span><span class="n">RATING_AUTHORIZATION</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="err">if (is_method("INVITE") &amp;&amp; !has_totag()) {</span>
+<span class="err">  route(RATING_AUTHORIZATION);</span>
 <span class="err">}</span>
 </pre></div>
 <p>The route <code>RATING_AUTHORIZATION</code> is run for every new <code>INVITE</code> method that does not have a <code>to</code> tag.</p>
 <p><code>RATING_AUTHORIZATION</code> prepares the json to be sent to the Rating Agent populating the following variables:</p>
 <ul>
 <li>transaction_tag (<code>$ci</code>)</li>
-<li>account_tag (<code>$dlg_var(account_tag)</code>)</li>
+<li>account_tag (<code>$fU</code>)</li>
 <li>source (<code>$fu</code>)</li>
 <li>destination (<code>$tu</code>)</li>
 </ul>
@@ -468,7 +466,7 @@ Let's break it down and see what it does.</p>
 <p>The route prepares the following variables for the Rating Agent http async call:</p>
 <ul>
 <li>transaction_tag (<code>$ci</code>)</li>
-<li>account_tag (<code>$dlg_var(account_tag)</code>)</li>
+<li>account_tag (<code>$fU</code>)</li>
 <li>source (<code>$fu</code>)</li>
 <li>destination (<code>$tu</code>)</li>
 </ul>
@@ -478,7 +476,7 @@ Let's break it down and see what it does.</p>
 <p>The route <code>RATING_END_TRANSACTION</code> sets the following variables to be sent to the Agent via http async call:</p>
 <ul>
 <li>transaction_tag (<code>$ci</code>)</li>
-<li>account_tag (<code>$dlg_var(account_tag)</code>)</li>
+<li>account_tag (<code>$fU</code>)</li>
 <li>source (<code>$var(query)</code>)</li>
 <li>destination (<code>$var(query)</code>)</li>
 </ul>
