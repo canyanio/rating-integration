@@ -5,6 +5,7 @@
 OpenSIPS is a multi-functional, multi-purpose signaling SIP server used by carriers, telecoms or ITSPs for solutions like Class4/5 Residential Platforms, Trunking / Wholesale, Enterprise / Virtual PBX Solutions, Session Border Controllers, Application Servers, Front-End Load Balancers, IMS Platforms, Call Centers, and many others - see the full Set of Features.
 
 OpenSIPS is recommended for any kind of SIP scenario / service by:
+
 * the **high throughput** - tens of thousands of CPS, millions of ‏simultaneous calls (see official tests)
 * the **flexibility of routing and integration** - routing script for implementing custom routing logics, several interfacing APIs (see the Manual)
 * the **effective application building** - more than 120 modules to provide features, for SIP handling, for backend operations, for integration, for routing logics (see List of Modules)

@@ -17,7 +17,7 @@ Canyan Rating is designed as a microservice architecture and comprises [several 
 
 [![Build Status](https://gitlab.com/canyan/rating-agent/badges/master/pipeline.svg)](https://gitlab.com/canyan/rating-agent/pipelines) [![codecov](https://codecov.io/gh/canyanio/rating-agent/branch/master/graph/badge.svg)](https://codecov.io/gh/canyanio/rating-agent) [![Docker pulls](https://img.shields.io/docker/pulls/canyan/rating-agent.svg?maxAge=3600)](https://hub.docker.com/repository/docker/canyan/rating-agent)
 
-The Agent component is a bidirectional component that interfaces with external systems that needs to rate it's traffic and services. 
+The Agent component is a bidirectional component that interfaces with external systems that need to rate its traffic and services.
 It is written in [Python](https://www.python.org/) programming language, documented and highly covered with tests (see badges above).
 
 ### HEP Agent
@@ -26,6 +26,14 @@ It is written in [Python](https://www.python.org/) programming language, documen
 
 This Agent component uses the [HEP/EEP Encapsulation Protocol](https://github.com/sipcapture/hep)
 for packet capture and mirroring of RTC solutions which allows for a transparent and unobtrusive rating solution. 
+It is written in [Go](https://golang.org/) programming language, documented and highly covered with tests (see badges above).
+
+### Janus Agent
+
+[![Build Status](https://gitlab.com/canyan/rating-agent-janus/badges/master/pipeline.svg)](https://gitlab.com/canyan/rating-agent-janus/pipelines) [![codecov](https://codecov.io/gh/canyanio/rating-agent-janus/branch/master/graph/badge.svg)](https://codecov.io/gh/canyanio/rating-agent-janus)
+[![Go Report Card](https://goreportcard.com/badge/github.com/canyanio/rating-agent-janus)](https://goreportcard.com/report/github.com/canyanio/rating-agent-janus) [![Docker pulls](https://img.shields.io/docker/pulls/canyan/rating-agent-janus.svg?maxAge=3600)](https://hub.docker.com/repository/docker/canyan/rating-agent-janus)
+
+The Janus Agent can process events from [Janus](https://janus.conf.meetecho.com/): the famous general purpose WebRTC server enabling the rating of WebRTC sessions.
 It is written in [Go](https://golang.org/) programming language, documented and highly covered with tests (see badges above).
 
 ### API
@@ -39,7 +47,7 @@ It is written in [Python](https://www.python.org/) programming language, fully a
 
 [![Build Status](https://gitlab.com/canyan/rating-engine/badges/master/pipeline.svg)](https://gitlab.com/canyan/rating-engine/pipelines) [![codecov](https://codecov.io/gh/canyanio/rating-engine/branch/master/graph/badge.svg)](https://codecov.io/gh/canyanio/rating-engine) [![Docker pulls](https://img.shields.io/docker/pulls/canyan/rating-engine.svg?maxAge=3600)](https://hub.docker.com/repository/docker/canyan/rating-engine)
 
-The heavy lifting and real time calculation is done by the Rating Engine component which is stateless and highly scalable.
+The heavy lifting and real-time calculations are done by the Rating Engine component which is stateless and highly scalable.
 It is written in [Python](https://www.python.org/) programming language, documented and covered with tests (see badges above).
 
 
