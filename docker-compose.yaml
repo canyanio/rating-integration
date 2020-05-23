@@ -59,7 +59,7 @@ services:
       - rabbitmq
 
   #
-  # rating-agent
+  # rating-engine
   #
   rating-engine:
     image: 'canyan/rating-engine:master'

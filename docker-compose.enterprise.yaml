@@ -1,0 +1,26 @@
+version: '2.1'
+
+services:
+
+  #
+  # rating-api
+  #
+  rating-api:
+    image: 'canyan/rating-api-enterprise:master'
+
+  #
+  # rating-agent
+  #
+  rating-agent:
+    image: 'canyan/rating-agent-enterprise:master'
+
+  #
+  # rating-engine
+  #
+  rating-engine:
+    image: 'canyan/rating-engine-enterprise:master'
+    command: [ "--debug", "server" ]
+    environment:
+      - RATING_ENGINE_MONGODB_URI=mongodb://mongodb:27017
+      - RATING_ENGINE_MONGODB_DBNAME=rating_api
+      - RATING_ENGINE_MESSAGEBUS_URI=amqp://user:password@rabbitmq:5672//
