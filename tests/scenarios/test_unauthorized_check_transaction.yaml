@@ -67,7 +67,8 @@ check:
     payload:
       query: |
           {
-            Transaction(transaction_tag: "unauthorized_check_transaction", account_tag:"2000") {
+            Transaction(tenant: "default", transaction_tag: "unauthorized_check_transaction", account_tag:"2000") {
+              tenant
               transaction_tag
               account_tag
               primary
@@ -78,6 +79,7 @@ check:
       {
         "data": {
           "Transaction": {
+            "tenant": "default",
             "transaction_tag": "unauthorized_check_transaction",
             "account_tag": "2000",
             "primary": true,
