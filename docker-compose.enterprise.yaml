@@ -13,6 +13,9 @@ services:
   #
   rating-agent:
     image: 'canyan/rating-agent-enterprise:master'
+    command: [ "--debug", "agent" ]
+    environment:
+      - RATING_AGENT_MESSAGEBUS_URI=amqp://user:password@rabbitmq:5672//
 
   #
   # rating-engine
