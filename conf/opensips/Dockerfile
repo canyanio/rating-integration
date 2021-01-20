@@ -9,7 +9,7 @@ ARG BUILD=releases
 RUN apt-get update -qq && apt-get install -y gnupg2
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 049AD65B
-RUN echo "deb http://apt.opensips.org buster $VERSION-$BUILD" >
+RUN echo "deb http://apt.opensips.org buster $VERSION-$BUILD" >> /etc/apt/sources.list
 
 RUN apt-get update -qq && apt-get install -y opensips \
 opensips-json-module opensips-restclient-module opensips-http-modules
