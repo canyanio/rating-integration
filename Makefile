@@ -1,5 +1,4 @@
 docker_compose_files = -f docker-compose.yaml -f docker-compose.carrier.yaml -f docker-compose.kamailio.yaml -f docker-compose.opensips.yaml -f docker-compose.tester.yaml
-docker_compose_enterprise_files = -f docker-compose.enterprise.yaml
 
 .PHONY: docs-venv
 docs-venv:
@@ -21,17 +20,9 @@ docs-deploy:
 docker-start:
 	docker-compose $(docker_compose_files) up -d
 
-.PHONY: docker-start-enterprise
-docker-start-enterprise:
-	docker-compose $(docker_compose_files) $(docker_compose_enterprise_files) up -d
-
 .PHONY: docker-pull
 docker-pull:
 	docker-compose $(docker_compose_files) pull
-
-.PHONY: docker-pull-enterprise
-docker-pull-enterprise:
-	docker-compose $(docker_compose_files) $(docker_compose_enterprise_files) pull
 
 .PHONY: docker-test
 docker-test:
@@ -53,10 +44,6 @@ docker-logs:
 .PHONY: docker-stop
 docker-stop:
 	docker-compose $(docker_compose_files) down
-
-.PHONY: docker-stop-enterprise
-docker-stop-enterprise:
-	docker-compose $(docker_compose_files) $(docker_compose_enterprise_files) down
 
 .PHONY: opensips-dockerfile
 opensips-dockerfile:
