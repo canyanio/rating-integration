@@ -14,7 +14,7 @@ mkdocs-mermaid-plugin==0.1.1
 mkdocs-minify-plugin==0.2.1
 nltk==3.4.5
 pep562==1.0
-Pygments==2.5.2
+Pygments==2.7.4
 pymdown-extensions==6.2.1
 PyYAML==5.3
 six==1.14.0
